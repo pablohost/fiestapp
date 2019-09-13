@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/f7"
+    tools:context=".Index">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="160dp"
+        android:layout_height="137dp"
+        android:layout_centerInParent="true"
+        android:background="#85FFFFFF"
+        android:fontFamily="@font/exo_2_extrabold"
+        android:shadowColor="#FFFFFF"
+        android:text="@string/btnPrincipal_Index"
+        android:textColor="#0C0808"
+        android:textColorHint="#090707"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/exo_2_extrabold"
+        android:shadowColor="#050404"
+        android:text="@string/btnReg_Index"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/exo_2_extrabold"
+        android:text="@string/btnLogin_Index"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logo2" />
+</RelativeLayout>

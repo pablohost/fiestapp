@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">FiestApp</string>
+    <string name="btnPrincipal_Index">ENCONTRAR</string>
+    <string name="btnLogin_Index">INICIAR SESIÓN</string>
+    <string name="btnReg_Index">REGISTRARSE</string>
 </resources>
