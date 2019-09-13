@@ -40,6 +40,7 @@
         android:layout_alignParentBottom="true"
         android:background="#00FFFFFF"
         android:fontFamily="@font/exo_2_extrabold"
+        android:onClick="login"
         android:text="@string/btnLogin_Index"
         android:textColor="#FFFFFF" />
 

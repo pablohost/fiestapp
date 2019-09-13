@@ -3,4 +3,11 @@
     <string name="btnPrincipal_Index">ENCONTRAR</string>
     <string name="btnLogin_Index">INICIAR SESIÓN</string>
     <string name="btnReg_Index">REGISTRARSE</string>
+
+    <string name="txtUsu_Login">Correo electrónico</string>
+    <string name="txtPas_Login">Contraseña</string>
+    <string name="btnLog_Login">Iniciar Sesión</string>
+    <string name="lblRecu_Login">Olvidé mi contraseña</string>
+    <string name="btnRecu_Login">CLICK AQUI</string>
+    <string name="lblReg_Login">¿No tienes una cuenta?</string>
 </resources>
