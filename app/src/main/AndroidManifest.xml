@@ -9,7 +9,11 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".regUsu"></activity>
+        <activity android:name=".regInfo" />
+        <activity android:name=".regNom" />
+        <activity android:name=".regTipo" />
+        <activity android:name=".Login" />
         <activity android:name=".Index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

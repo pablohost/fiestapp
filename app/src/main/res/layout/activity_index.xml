@@ -28,6 +28,7 @@
         android:layout_alignParentBottom="true"
         android:background="#00FFFFFF"
         android:fontFamily="@font/exo_2_extrabold"
+        android:onClick="registro"
         android:shadowColor="#050404"
         android:text="@string/btnReg_Index"
         android:textColor="#FFFFFF" />

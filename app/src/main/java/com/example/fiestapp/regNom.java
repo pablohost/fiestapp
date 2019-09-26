@@ -6,19 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Login extends AppCompatActivity {
+public class regNom extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-    }
-    public void registro(View v){
-        Intent i=new Intent(this, regTipo.class);
-        startActivity(i);
+        setContentView(R.layout.activity_reg_nom);
     }
     public void atras(View v){
-        Intent i=new Intent(this, Index.class);
+        Intent i=new Intent(this, regInfo.class);
+        startActivity(i);
+    }
+    public void registra_4(View v){
+        Intent i=new Intent(this, regUsu.class);
         startActivity(i);
     }
 }

@@ -17,4 +17,8 @@ public class Index extends AppCompatActivity {
         Intent i=new Intent(this, Login.class);
         startActivity(i);
     }
+    public void registro(View v){
+        Intent i=new Intent(this, regTipo.class);
+        startActivity(i);
+    }
 }
