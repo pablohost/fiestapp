@@ -1,2 +1,0 @@
-# fiestapp
-proyecto de titulo
