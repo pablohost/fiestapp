@@ -52,6 +52,7 @@
     font-weight: 700; 
     font-size: 1.7rem; 
     text-align: center; 
+    text-shadow: 2px 2px #000;
 } 
 .nosSub{ 
     color: rgba(255, 255, 255, 0.75);
@@ -146,7 +147,8 @@
     text-shadow: 1px 1px #000; 
 } 
 .fondoBot{ 
-        background-image: url("../img/banner1M.jpg"); 
+        background-image: url("../img/f5.jpg"); 
+        height: 300px;
 } 
 .fondoBot2{ 
         background-image: url("../img/banner2M.png"); 
@@ -297,6 +299,30 @@
 .boxCute{
     border-bottom: 2px solid white;
 }
+/*==============organizadores================*/
+.imgOrga{
+    width: 100%;
+    min-height: 300px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../img/f7.png);
+}
+.orgSub{ 
+    color: rgba(18, 0, 94, 0.75);
+    font-size: 1.6rem; 
+}
+.orgTit{
+    color: rgba(18, 0, 94, 0.75);
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: .5px .5px rgba(100, 100, 100, 0.75);
+}
+.orgCute{
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px #000;
+}
 
 
 
@@ -418,16 +444,16 @@
     .maySub{ 
         font-size: 1rem; 
     } 
-    .fondoBot{ 
-        background-image: url("../img/banner1.jpg"); 
-    } 
     .fondoBot2{ 
         background-image: url("../img/banner2.png"); 
     } 
     .fondoBot2,.fondoBot{ 
         background-attachment: fixed; 
     } 
-    
+    /*==============organizadores================*/
+    .orgTit{
+        font-size: 3rem;
+    }
 } 
 /*============================================*/ 
 /*-------cuando se agranda notebook---------*/ 
@@ -507,7 +533,32 @@
         position: absolute;
         top: 75%;
     }
-     
+    .fondoBot{ 
+    height: 500px;
+    }
+
+
+    
+    .nosSub{ 
+        font-size: 2rem; 
+    } 
+    .nosPar{ 
+        font-size: 1.4rem; 
+    } 
+
+
+
+
+    .orgTit{
+        font-size: 3.5rem;
+    }
+    .orgSub{
+        padding-top: 1.8rem;
+        font-size: 2rem;
+    }
+    .orgCute{
+        font-size: 2rem;
+    }
 } 
  
 @media (min-width: 768px) and (max-width: 991.98px) { 
