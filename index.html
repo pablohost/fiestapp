@@ -1,0 +1,381 @@
+<!DOCTYPE html> 
+<!-- 
+****************** 
+INACAP PUENTE ALTO
+PROYECTO DE TITULO - FIESTAPP
+INGENIERIA EN INFORMATICA
+
+PABLO G. HENRIQUEZ
+DAEG ORELLANA
+YERKO ZABALETA
+****************** 
+--> 
+<html> 
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <!--******************css bootstrap / jquery******************--> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> 
+
+    <!--******************css propio******************--> 
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!--******************css externo****************** 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/fitodac/line-awesome/master/dist/css/line-awesome.min.css" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/17dbefb145.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="stylesheet" href="css/hover-min.css"> 
+    
+    <!--******************extra******************--> 
+    <title>FIESTAPP</title> 
+    <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
+    <link rel="icon" type="image/png" href="img/favicon.ico">
+</head> 
+<body style="font-family: 'Exo 2', sans-serif;"> 
+    <!--******************navegador******************--> 
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, 1);" > 
+        <div class="container-fluid text-white"> 
+            <!-- ******************logo****************** --> 
+            <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
+            <!-- ******************boton responsive****************** --> 
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span> 
+            </button> 
+            <!-- ******************menu****************** --> 
+            <div class="collapse navbar-collapse text-right" id="navbarResponsive"> 
+                <ul class="navbar-nav ml-auto"> 
+ 
+                    <li class="nav-item dropdown navSpace mr-4"> 
+                        <a class="nav-link dropdown-toggle js-scroll-trigger hvr-underline-from-center text-white hvr-box-shadow-outset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            EVENTOS 
+                        </a> 
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria1">FIESTA</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria2">MUSICA EN VIVO</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria3">FESTIVAL</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria4">STAND UP COMEDY</a>
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria5">CONFERENCIAS</a>
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria6">OTROS</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria0">VER TODO</a> 
+                        </div> 
+                    </li> 
+ 
+                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#nosotros" id="cerrarNav"><i class="fas fa-users"></i> RED SOCIAL&nbsp;</a></li> 
+ 
+                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#mayorista" id="cerrarNav"><i class="fas fa-user-tie"></i> ORGANIZADORES&nbsp;</a></li> 
+ 
+                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#tienda" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
+                    
+                    <li class="nav-item navSpace mr-4" style="padding-top: 5px;">
+                        <a href="#" type="button" class="btn btn-sm btn-warning btn-cta" style="font-weight: bold;">
+                            CREA TU EVENTO !
+                        </a>
+                    </li> 
+                    
+ 
+                    <li class="nav-item disabled"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a></li> 
+ 
+                    <li class="nav-item navSpace"> 
+                      <a style="color: rgba(59,89,152,.8);" href="https://www.facebook.com/#/" target="_blank" class="rrss hvr-icon-grow" data-toggle="tooltip" data-placement="bottom" title="Facebook" id="cerrarNav"><i class="fab fa-facebook-square fa-2x posLinks hvr-icon"></i></a>&nbsp;&nbsp; 
+                      <a style="color: rgba(153,65,153,.8);" href="https://www.instagram.com/#/" target="_blank" class="rrss hvr-icon-grow" data-toggle="tooltip" data-placement="bottom" title="Instagram" id="cerrarNav"><i class="fab fa-instagram fa-2x posLinks hvr-icon"></i></a> 
+                    </li> 
+ 
+                </ul> 
+            </div> 
+        </div> 
+    </nav> 
+     
+    <!-- ******************imagen de fondo****************** --> 
+     
+    <header class="container-fluid imgFondo d-flex" style="padding-left: 0px;padding-right: 0px; " id="arriba"> 
+        <video src="vid/video3.mp4" class="video inicio1" poster="" autoplay="" muted="" loop id="videobanner"></video> 
+ 
+        <div class="d-flex owl-carousel d-lg-none carusel1" style="z-index: 0!important; height: 90vh"> 
+          <div class="item"> <img src="img/f3.jpg" alt="fondo" > </div> 
+          <div class="item"> <img src="img/f2.jpg" alt="fondo"> </div> 
+          <div class="item"> <img src="img/fondoCeluM.jpg" alt="fondo"> </div> 
+        </div> 
+            <!-- ******************subtitulo****************** --> 
+        <div class="text-center container-fluid my-auto logo-centrado inicio2"> 
+            <img src="img/logoCHICO.svg" class="logo3"><br><br> 
+            <a href="#productos" class="btn btn-warning js-scroll-trigger" role="button"> 
+                <h1 class="titCabe"><span class="12">CONOCE NUESTROS PRODUCTOS</span> <i class="fas fa-angle-double-down animated infinite slideOutDown"></i></h1> 
+            </a> 
+        </div> 
+    </header> 
+    <hr class="difuminado"> 
+    <!-- ***********************productos*********************** --> 
+    <div class="container text-center" id="productos"> 
+        <section class="row"> 
+            <div class="col-12"> 
+                <div id="exampleSlider">      
+                    <div class="MS-content" id="masVendidos"> 
+                        <div class="item prod"> 
+                            
+                        </div>
+                    </div> 
+                    <div class="MS-controls">
+                        <button class="MS-left hvr-float-shadow"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                        <button class="MS-right hvr-float-shadow"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                    </div>
+                </div> 
+            </div> 
+        </section> 
+    </div>
+    <hr> 
+    <!-- ***********************BUSCADOR*********************** -->
+    <div class="container text-center" id="busqueda">
+        <div class="col-12" style="padding: 0px">
+            <form class="my-2 boxBuscar">
+                <input class="form-control mr-2 13" type="search" placeholder="ENCUENTRA TU PRODUCTO" aria-label="Search" id="txtBuscar">
+                <a href="#producto" class="btn btn-outline-danger js-scroll-trigger" role="button" aria-pressed="true" id="btnBuscar"><i class="fas fa-search fa-1x"></i></a>
+            </form>
+        </div>          
+    </div>
+    <hr>
+    <!-- ***********************categorias*********************** --> 
+    <div class="container-fluid text-center" id="Categoria"> 
+        <span class="headCate 14">Categorias</span> 
+        <div class="row justify-content-center inicioCat1">
+            <div class="col-4 col-lg-2 frameCategoria"> 
+                <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria1"> 
+                    <img src="img/catCBD.jpg" class="imgCate"><span class="titCate 2"> Linea CBD </span> 
+                </a> 
+            </div> 
+            <div class="col-4 col-lg-2 frameCategoria"> 
+                <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria2"> 
+                    <img src="img/catTer.jpg" class="imgCate"><span class="titCate cateX 3"> Linea Terapeutica </span> 
+                </a> 
+            </div> 
+            <div class="col-4 col-lg-2 frameCategoria"> 
+                <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria3"> 
+                    <img src="img/catCos.jpg" class="imgCate"><span class="titCate cateX 4"> Linea Cosmetica </span> 
+                </a> 
+            </div> 
+            <div class="col-4 col-lg-2 frameCategoria"> 
+                <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria4"> 
+                    <img src="img/catCap.jpg" class="imgCate"><span class="titCate 5"> Linea Capilar </span> 
+                </a> 
+            </div> 
+            <div class="col-4 col-lg-2 frameCategoria"> 
+                <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria0"> 
+                    <img src="img/catFarma.jpg" class="imgCate"><span class="titCate 6"> Ver Todo </span> 
+                </a> 
+            </div>
+        </div> 
+    </div> 
+    <hr>
+    <!-- ***********************Lista de Productos*********************** -->
+    <div class="container text-center" style="" id="producto">
+        <span class="headCate 1">Productos</span>
+        <p style="font-size: .7rem;color: rgba(2, 78, 12, 0.60);"><span class="16">Categoria</span>: <span id="helpCate"></span></p>
+        <div class="row" style="margin: 0px" id="listaProductos">
+            <!-- 1 -->
+        </div>
+    </div>
+    <br>
+    <!-- ***********************division*********************** --> 
+    <div class="container-fluid fondoBot3 text-center"> 
+        <div class="row h-100" style="background-color:rgba(255, 255, 255, 0.6); min-height: 240px;box-shadow: 0 0 8px 4px white inset; "> 
+        </div> 
+    </div> 
+    <br>
+    <!-- ***********************primera seccion*********************** --> 
+    <div class="container text-center inicioNos" id="nosotros"> 
+        <section class="row"> 
+            <div class="col-12"> 
+                <h2 class="nosTit"><span><img src="img/hojaRecta.svg" class="hojaXS"></span> Botica Cannabis <span><img src="img/hojaRecta.svg" class="hojaXS"></span></h2> 
+                <section> 
+                    <h5 style="font-style: oblique;" class="nosSub 18"> 
+                        &#34;Nos especializamos en la fabricaci&#243;n y 
+                    comercializaci&#243;n de productos derivados 
+                    de la Cannabis, tanto en base al Aceite de 
+                    Semilla como al CBD.&#34; 
+                    </h5> 
+                    <p class="nosPar 19"> 
+                        Gracias a nuestro enfoque en el desarrollo 
+                    de productos de alta calidad y efectividad, 
+                    nos hemos podido posicionar como referentes 
+                    de nuestro rubro en el mercado chileno, es  
+                    por ello que contamos con clientes 
+                    dentro del rubro farmac&#233;utico y naturista 
+                    de todo Chile. 
+                    </p> 
+                     
+                </section> 
+            </div> 
+        </section> 
+         <hr class="cute">
+         <p class="mayCont">@botica_cannabis</p>
+    </div>
+    <div class="container-fluid" style="padding: 0"> 
+        
+
+        <div class="row" style="margin: 0">
+            <div class="col-12" style="padding-right: 0;padding-left: 0"> 
+                <div id="instagram-feed-demo" class="instagram_feed"></div>
+            </div>
+        </div>
+    </div>
+    <br> 
+     
+    <!-- ***********************primera division*********************** --> 
+    <div class="container-fluid fondoBot text-center"> 
+        <div class="row h-100" style="background-color:rgba(255, 255, 255, 0.6); min-height: 80px;box-shadow: 0 0 8px 2px white inset; "> 
+            <div class="col-lg-4" style="align-self: center;"> 
+                <h3 class="primerDiv 20">Resoluci&#243;n ISP y SEREMI</h3> 
+            </div> 
+            <div class="col-lg-4 text-white my-auto borde" style="background-color:rgba(2, 78, 12, 0.6);"> 
+                <h3 class="primerDivX" >100% Cannabis</h3> 
+ 
+            </div> 
+            <div class="col-lg-4" style="align-self: center;"> 
+                <h3 class="primerDiv 21">Libre THC</h3> 
+            </div> 
+        </div> 
+    </div> 
+ 
+    <!-- ******************seccion mayoristas****************** --> 
+    <section id="mayorista"> 
+      <div class="container"> 
+        <div class="row"> 
+          <div class="col-lg-12 text-center"> 
+            <br> 
+            <h2 class="nosTit"><span><img src="img/hojaRecta.svg" class="hojaXS"></span> <span class="8">Mayoristas</span> <span><img src="img/hojaRecta.svg" class="hojaXS"></span></h2> 
+             
+            <h6 class="text-center w-responsive mx-auto mb-5 subCont 22">Ofrecemos tres opciones de negocio para todo tipo de inversionista</h6> 
+            <a href="#contacto" class="js-scroll-trigger mayCont"> 
+                <span class="23">Cont&#225;ctanos</span> &nbsp;&nbsp;<i class="fas fa-angle-double-down animated infinite slideOutDown"></i> 
+            </a> 
+            <hr class="my-4 cute"> 
+          </div> 
+        </div> 
+      </div> 
+      <div class="container"> 
+        <div class="row"> 
+          <div class="col-md-6 col-lg-3 text-center inicioMay1"> 
+            <div class="service-box mt-2 mx-auto"> 
+              <i class="fas fa-money-bill-alt fa-4x text-primary mb-3 mayResp"></i> 
+              <h3 class="mb-3 mayTit 24">Precios Convenientes</h3> 
+              <p class="text-muted mb-0 maySub 25">Te aseguramos precios competitivos con altas expectativas de ganancias.</p> 
+            </div> 
+          </div> 
+          <div class="col-md-6 col-lg-3 text-center inicioMay2"> 
+            <div class="service-box mt-2 mx-auto"> 
+              <i class="fas fa-truck-moving fa-4x text-primary mb-3 mayResp"></i> 
+              <h3 class="mb-3 mayTit 26">Distribuidor</h3> 
+              <p class="text-muted mb-0 maySub 27">Desarrolla y optimiza tu negocio con nuestros productos a precio mayorista. Compra, vende y GANA!</p> 
+            </div> 
+          </div> 
+          <div class="col-md-6 col-lg-3 text-center inicioMay3"> 
+            <div class="service-box mt-2 mx-auto"> 
+              <i class="fas fa-store fa-4x text-primary mb-3 mayResp"></i> 
+              <h3 class="mb-3 mayTit 28">Franquicia</h3> 
+              <p class="text-muted mb-0 maySub 29">Te facilitamos las herramientas para que tengas tu propia tienda Botica Cannabis, con todo el respaldo, capacitaci&#243;n y marketing necesario para que obtengas ganancias r&#225;pidamente.</p> 
+            </div> 
+          </div> 
+          <div class="col-md-6 col-lg-3 text-center inicioMay4"> 
+            <div class="service-box mt-2 mx-auto"> 
+              <i class="fas fa-hand-holding-usd fa-4x text-primary mb-3 mayResp"></i> 
+              <h3 class="mb-3 mayTit 30">Venta Directa</h3> 
+              <p class="text-muted mb-0 maySub 31">S&#233; un vendedor experto con tu propia cartera de clientes. Tu vendes y nosotros te entregamos todo el apoyo publicitario necesario. Alta rentabilidad garantizada.</p> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    </section> 
+    <br><br> 
+    <!-- ***********************segunda division*********************** --> 
+    <div class="container-fluid fondoBot2 text-center"> 
+        <div class="row h-100" style="background-color:rgba(255, 255, 255, 0.6); min-height: 180px;box-shadow: 0 0 8px 4px white inset; "> 
+        </div> 
+    </div> 
+    <br> 
+    <!-- ******************pie de pagina****************** --> 
+    <footer class="text-white respPie" style="background-color: rgba(136, 14, 79, 1);"> 
+        <div class="container text-center"> 
+            <div class="row"> 
+                <div class="col-md-2 col-lg-4"> 
+                    <img src="img/logo.png" class="logo3">
+                     
+                </div> 
+                <br> 
+                <div class="col-md-4 col-lg-3"> 
+                    <h5 class="titPIE 46"> 
+                        Informaci&#243;n 
+                    </h5> 
+                    <p class="cuePIE"> 
+                        <i class="fas fa-university fa-1x"></i> Inacap Puente Alto 
+                    </p> 
+                    <p class="cuePIE"> 
+                        <i class="fas fa-book-open fa-1x"></i> Ing. Informatica 
+                    </p> 
+                    <p class="cuePIE"> 
+                        <i class="fas fa-male fa-1x"></i> Pablo G. Henriquez 
+                    </p> 
+                    <p class="cuePIE"> 
+                        <i class="fas fa-male fa-1x"></i> Daeg Orellana 
+                    </p>
+                    <p class="cuePIE"> 
+                        <i class="fas fa-male fa-1x"></i> Yerko Zabaleta 
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3"> 
+                    <h5 class="titPIE 47"> 
+                        Navegador 
+                    </h5> 
+                    <p class="cuePIE"> 
+                        <a href="#" class="linkPIE" id=""><i class="fas fa-map-marked-alt fa-1x"></i> Encuentra Eventos !</a>
+                    </p>
+                    <p class="cuePIE"> 
+                        <a href="#" class="linkPIE" id=""><i class="fas fa-bullhorn fa-1x"></i> Crea tu Evento !</a>
+                    </p>
+                    <p class="cuePIE"> 
+                        <a href="#" class="linkPIE" id=""><i class="fas fa-users fa-1x"></i> Unete a la comunidad !</a>
+                    </p>
+                     
+                </div>
+                <div class="col-md-2 col-lg-2"> 
+                    <br> 
+                    <p> 
+                        <a class="js-scroll-trigger hvr-float" href="#arriba" style="color:rgba(18, 0, 94, 1);"><i class="fas fa-chevron-circle-up fa-4x"></i></a> 
+                    </p> 
+                </div> 
+            </div> 
+        </div> 
+    </footer>
+    <footer class="text-white respPie" style="background-color: rgba(86, 0, 39, 1);"> 
+        <div class="container text-center"> 
+            <div class="row"> 
+                <div class="col-md-6">
+                    <p class="cueCredi"> 
+                        <span class="48">Inacap Puente Alto - Ing. Informatica</span>
+                    </p>
+                </div> 
+                <br> 
+                <div class="col-md-6">
+                    <p class="cueCredi">
+                        <a href="#" class="linkPIE" id="">www.fiestapp.cl <i class="far fa-copyright fa-1x"></i></a>
+                    </p>
+                </div>
+            </div> 
+        </div> 
+    </footer>
+    
+    <!--script bootstrap / jquery--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+
+    <!--script propios--> 
+    <script src="script/controlador.js"></script> 
+ 
+    <!--script externos--> 
+
+</body> 
+ 
+</html>

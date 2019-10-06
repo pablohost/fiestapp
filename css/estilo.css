@@ -1,0 +1,536 @@
+/*============================================*/ 
+/*-------nativo de  movil---------*/ 
+/*============================================*/ 
+
+
+.hvr-underline-from-center:before {
+    background: #12005e!important;
+    height: 6px!important;
+}
+
+
+.borde{ 
+    border-radius: 80px 80px 80px 80px; 
+    -moz-border-radius: 80px 80px 80px 80px; 
+    -webkit-border-radius: 80px 80px 80px 80px; 
+    border: 0px solid #000000; 
+} 
+.linkPIE{ 
+    color: rgba(200, 200, 200, 1); 
+} 
+.linkPIE:hover{ 
+    color: rgba(255, 255, 255, 1); 
+} 
+.nav-link{ 
+    font-size: 1rem!important; 
+    font-weight: 600; 
+} 
+.dropdown-menu{ 
+    text-align: right!important; 
+} 
+.contResp{ 
+    padding-top: 15px; 
+}
+.subCont{ 
+    font-size: 15px; 
+    margin-bottom: 20px!important; 
+} 
+.formResp{ 
+    text-align: center; 
+ 
+} 
+.nosTit{ 
+    color: rgba(2, 78, 12, 0.8);
+    font-weight: 700; 
+    font-size: 1.7rem; 
+    padding-top: -55!important; 
+    text-align: center; 
+} 
+.nosSub{ 
+    font-size: 1rem; 
+} 
+.nosPar{ 
+    font-size: 0.75rem; 
+} 
+
+.logo-centrado{ 
+    color:rgba(80, 80, 80, 1); 
+    position: absolute; 
+    top: 25%; 
+    text-align: center; 
+}
+.fotoProdX{
+    height: 220px; 
+}
+.fotoProd{
+    height: 140px;
+}
+.stitProd{ 
+    margin: 0;
+    font-size: 0.75rem; 
+    text-align: center; 
+    position: absolute; 
+    background-color: rgba(2, 78, 12, 0.3); 
+    width: 100%;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+}
+.popCata{
+    background-image: url('../img/catCos.jpg');
+    opacity: 0.9;
+    background-size: cover;
+    background-position: center;
+}
+.precioP{ 
+    font-size: 1.3rem!important;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+    text-shadow: -1px 1px 2px rgba(0,0,0,0.75);
+} 
+.precioS{ 
+    font-size: 1.7rem!important;
+    position: absolute;
+    left: 6%;
+    top: -75%;
+    color: red;
+    font-weight: 700;
+    text-shadow: -1px 1px 2px rgba(0,0,0,0.75);
+} 
+.titProd{
+    z-index: 1;
+    margin: 0; 
+    text-align: center; 
+    letter-spacing: 1px; 
+    color: white; 
+    font-size: 0.9rem; 
+    position: absolute; 
+    background-color: rgba(2, 78, 12,0.75); 
+    width: 100%; 
+    top: 0; 
+    left: 0; 
+    font-weight: 650;
+    height: 50px;
+    font-family: 'Exo 2', sans-serif;
+} 
+.botProd{
+    background-color: rgba(2, 78, 12,0.75);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+}
+.primerDiv,.primerDivX{ 
+    font-weight: 700; 
+    font-size: 1.25rem; 
+ 
+} 
+.primerDiv{ 
+    text-shadow: 1px 1px #fff; 
+} 
+.primerDivX{ 
+    text-shadow: 1px 1px #000; 
+} 
+.fondoBot{ 
+        background-image: url("../img/banner1M.jpg"); 
+} 
+.fondoBot2{ 
+        background-image: url("../img/banner2M.png"); 
+} 
+.fondoBot3{ 
+        background-image: url("../img/banner3M.png"); 
+} 
+.fondoBot2,.fondoBot,.fondoCont,.fondoBot3{ 
+        background-position: center; 
+        background-size: cover; 
+         
+} 
+.mayCont{ 
+    text-decoration: none!important; 
+    font-size: 1.5rem; 
+    color: rgba(2, 78, 12, 0.60)!important; 
+    font-weight: 700; 
+}
+.mayResp{ 
+    padding-top: 15px; 
+    color: rgba(2, 78, 12, 0.60)!important; 
+} 
+.mayTit{ 
+    font-size: 1.25rem; 
+} 
+.maySub{ 
+    font-size: 15px; 
+} 
+.video { 
+    display: none; 
+         
+} 
+ 
+.imgFondo { 
+         
+    background-position: center;  
+    margin: 0; 
+    background-size: cover; 
+    display: inherit; 
+ 
+} 
+.logo1{ 
+    width: 50px;
+    height: 50px;    
+} 
+.logo2{ 
+    width: 80px; 
+    height: 20px;   
+} 
+.logo3{ 
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;   
+} 
+.hojaXS{ 
+    width: 30px; 
+    height: 39px; 
+ 
+} 
+.respPie{ 
+    font-size: 0.75rem; 
+} 
+.titPIE, .cuePIE{ 
+    text-align: center; 
+ 
+} 
+.titPIE{ 
+    padding-top: 15px; 
+}
+.cueCredi{
+    padding-top: 1rem;
+}
+.titCabe{ 
+    font-size: 0.55rem!important; 
+} 
+.cuePIE{ 
+    color: rgba(200, 200, 200, 1); 
+} 
+.posLinks{ 
+    padding-top: 35px; 
+} 
+.navbar-nav .nav-item { 
+    color: #4c4c4c!important; 
+} 
+.navbar-toggler { 
+    padding: 0.15rem 0.25rem!important; 
+    font-size: 0.85rem!important; 
+} 
+.navbar{ 
+    font-size: 0.7rem; 
+} 
+.difuminado{ 
+    position: relative; 
+    border: 0;  
+    height: 0; 
+    -webkit-box-shadow: 0 0 25px 55px white; 
+    -moz-box-shadow: 0 0 25px 55px white; 
+    box-shadow: 0px 0px 25px 55px white; 
+} 
+/*==========categorias=================*/
+.headCate{ 
+    font-size: 1.5rem; 
+    color: rgba(2, 78, 12, 0.60)!important; 
+    font-weight: 700; 
+}
+.titCate {
+    color: rgba(2, 78, 12, 1)!important;
+    text-shadow: 1px 1px #fff;
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    font-size: 0.7rem;
+    width: 80px;
+    font-weight: 600;
+    font-family: 'Exo 2', sans-serif;
+}
+.imgCate{ 
+    width: 85px; 
+    height: 85px; 
+    border-radius: 200px 200px 200px 200px; 
+    opacity: 0.5; 
+    border: 2px solid rgba(2, 78, 12, 1); 
+} 
+.frameCategoria{
+    padding: 5px;
+}
+.enlaceCate:hover{ 
+    text-decoration: none!important; 
+}
+.cateX{
+    top: 30%!important;
+}
+/*============================================*/ 
+/*-------cuando se agranda celu largo---------*/ 
+/*============================================*/ 
+@media (min-width: 576px){
+    .btnVer{
+        font-size: 1rem;
+    }
+    .btnAgre{
+        font-size: 1rem;
+    }
+    .valorProd{
+        font-size: 1.5rem;
+    }
+    .subCont{ 
+        font-size: 1.3rem; 
+    }
+    .respPie{ 
+        font-size: 1rem; 
+    } 
+    .logo1{ 
+        width: 70px;
+        height: 70px;    
+    } 
+    .logo2{ 
+        width: 110px; 
+        height: 28px;   
+    } 
+    .titCabe{ 
+        font-size: 0.8rem!important; 
+    } 
+    .nosTit{ 
+        font-size: 2.8rem; 
+    } 
+    .nosSub{ 
+        font-size: 1.4rem; 
+    } 
+    .nosPar{ 
+        font-size: 0.9rem; 
+    } 
+    .hojaXS{ 
+        width: 40px; 
+        height: 58px;  
+    } 
+    /*==========categorias=================*/
+    .titCate {
+        top: 42%;
+        font-size: 1.2rem;
+        width: 170px;
+        left: 2%;
+    }
+    .imgCate{ 
+        width: 175px; 
+        height: 175px; 
+    }
+    .cateX{
+        top: 42%!important;
+    }
+    /*---------------FARMACIA---------------------*/ 
+    .fotoVolver{ 
+        font-size: 4rem; 
+    }
+    .form-inline .form-control {
+        display: inline-block;
+        width: 70%;
+        vertical-align: middle;
+    }
+} 
+ 
+/*============================================*/ 
+/*-------cuando se agranda a tablet---------*/ 
+/*============================================*/ 
+@media (min-width: 768px) { 
+    .boxProd{
+        height: 350px;
+    }
+    .fotoProd{
+        height: 225px; 
+    }
+    .infoProd{
+        font-size: 1.15rem; 
+    }
+    #exampleSlider .MS-content .item { 
+        width: 50%;              /* required * Determines number of visible slides */
+    } 
+     
+    .navbar{ 
+        font-size: 0.8rem; 
+    } 
+    h5{ 
+        font-size: 1.15rem; 
+    } 
+    .primerDiv,.primerDivX{ 
+        font-size: 1.5rem; 
+ 
+    } 
+    .cuePIE{ 
+        text-align: left; 
+    } 
+    .contResp{ 
+        padding-top: 0px; 
+    } 
+     
+    .nosSub{ 
+        font-size: 1.6rem; 
+    } 
+    .nosPar{ 
+        font-size: 1.15rem; 
+    } 
+    .posLinks{ 
+    padding-top: 10px; 
+    } 
+    .mayTit{ 
+    font-size: 1.5rem; 
+    } 
+    .maySub{ 
+        font-size: 1rem; 
+    } 
+    .fondoBot{ 
+        background-image: url("../img/banner1.jpg"); 
+    } 
+    .fondoBot2{ 
+        background-image: url("../img/banner2.png"); 
+    } 
+    .fondoBot3{ 
+        background-image: url("../img/banner3.png"); 
+    } 
+    .fondoBot2,.fondoBot,.fondoBot3{ 
+        background-attachment: fixed; 
+    } 
+    
+} 
+/*============================================*/ 
+/*-------cuando se agranda notebook---------*/ 
+/*============================================*/ 
+@media (min-width: 992px){  
+    
+    
+    
+    .video { 
+        left: 0; 
+        width: 100%; 
+        position: relative; 
+        display: inline-block; 
+        margin: 0 0 0 0; 
+    } 
+    .imgFondo{ 
+        display: inline-block!important; 
+    } 
+    .logo-centrado { 
+        top: 18%; 
+    } 
+    .logo3{ 
+        width: 200px;
+        height: 200px; 
+    } 
+     
+    .dropdown-menu{ 
+        text-align: left!important; 
+    } 
+    .navSpace{ 
+        padding-right: 0px; 
+    }
+    .navbar-expand-lg .navbar-nav .nav-link {
+        /* padding-right: .5rem; */
+        padding-right: 0rem;
+    }
+    /*==========categorias=================*/
+    .titCate{ 
+        top: 42%; 
+        font-size: 1.1rem; 
+        width: 125px; 
+        font-weight: 600;
+        left: 5%;
+    } 
+    .imgCate{ 
+        width: 140px; 
+        height: 140px; 
+    }
+    .cateX{
+        top: 30%!important;
+    }
+} 
+/*============================================*/ 
+/*-------cuando se agranda a fullhd---------*/ 
+/*============================================*/ 
+@media (min-width:1200px) {
+    #exampleSlider .MS-content .item { 
+        width: 33.3%;              /* required * Determines number of visible slides */
+    } 
+    .navbar-expand-lg .navbar-nav .nav-link {
+        /* padding-right: .5rem; */
+        padding-right: .5rem;
+    }
+    .nav-link{ 
+        font-size: 1.15rem!important; 
+    } 
+    .logo-centrado { 
+        top: 20%; 
+    } 
+    .logo1{ 
+        width: 90px;
+        height: 90px; 
+    } 
+ 
+    .logo2{ 
+        width: 150px; 
+        height: 40px; 
+    } 
+    .titCabe{ 
+        font-size: 2rem!important; 
+    } 
+     
+    .secTien{ 
+        height: 450px!important; 
+    }
+    .nosTit{ 
+        font-size: 3.5rem; 
+    }
+    /*==========categorias=================*/
+    .titCate{ 
+        top: 42%; 
+        font-size: 1.5rem; 
+        width: 170px; 
+    } 
+    .imgCate{ 
+        width: 180px; 
+        height: 180px; 
+    }
+    .cateX{
+        top: 30%!important;
+    }
+     
+} 
+/*============================================*/ 
+/*-------solo cuando se achica---------*/ 
+/*============================================*/ 
+@media (max-width: 992px) { 
+ 
+    .imgFondo { 
+        height: 90vh; 
+    } 
+     
+     
+} 
+ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    .fotoNosResp{ 
+        margin-left: 70px; 
+    } 
+} 
+@media (min-width: 768px) and (max-width: 1200px) { 
+    .fotoCate1,.fotoCate2{ 
+        font-size: 2.5rem; 
+    } 
+    /*---------------FARMACIA---------------------*/ 
+    .fotoVolver{ 
+        font-size: 2.5rem; 
+    } 
+} 
+ 
+@media (min-width: 1200px) and (max-width: 1430px) { 
+    
+}
+    
