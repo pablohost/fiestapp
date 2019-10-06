@@ -48,16 +48,17 @@
  
 } 
 .nosTit{ 
-    color: rgba(2, 78, 12, 0.8);
+    color: rgba(255, 255, 255, 0.75);
     font-weight: 700; 
     font-size: 1.7rem; 
-    padding-top: -55!important; 
     text-align: center; 
 } 
 .nosSub{ 
-    font-size: 1rem; 
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.4rem; 
 } 
 .nosPar{ 
+    color: rgba(255, 255, 255, 0.75);
     font-size: 0.75rem; 
 } 
 
@@ -247,33 +248,39 @@
     position: relative; 
     border: 0;  
     height: 0; 
-    -webkit-box-shadow: 0 0 25px 55px white; 
-    -moz-box-shadow: 0 0 25px 55px white; 
-    box-shadow: 0px 0px 25px 55px white; 
+    -webkit-box-shadow: 0 0 10px 25px white; 
+    -moz-box-shadow: 0 0 10px 25px white; 
+    box-shadow: 0px 0px 10px 25px white; 
 } 
 /*==========categorias=================*/
 .headCate{ 
     font-size: 1.5rem; 
-    color: rgba(2, 78, 12, 0.60)!important; 
+    color: rgba(18, 0, 94, 0.60)!important; 
     font-weight: 700; 
+    padding-top: 60px;
+}
+.cateCute{
+    background-position: center;
+    background-size: cover;
+    background-image: url(https://images.pexels.com/photos/301664/pexels-photo-301664.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    opacity: .99;
 }
 .titCate {
-    color: rgba(2, 78, 12, 1)!important;
+    color: rgba(18, 0, 94, 1)!important;
     text-shadow: 1px 1px #fff;
     position: absolute;
-    top: 38%;
-    left: 5%;
-    font-size: 0.7rem;
-    width: 80px;
+    top: 30%;
+    left: 21%;
+    font-size: 1rem;
+    width: 120px;
     font-weight: 600;
-    font-family: 'Exo 2', sans-serif;
 }
 .imgCate{ 
-    width: 85px; 
-    height: 85px; 
-    border-radius: 200px 200px 200px 200px; 
-    opacity: 0.5; 
-    border: 2px solid rgba(2, 78, 12, 1); 
+    width: 200px;
+    height: 100px;
+    border-radius: 200px 200px 200px 200px;
+    opacity: 0.8;
+    border: 2px solid rgba(18, 0, 94, 1); 
 } 
 .frameCategoria{
     padding: 5px;
@@ -281,9 +288,18 @@
 .enlaceCate:hover{ 
     text-decoration: none!important; 
 }
-.cateX{
-    top: 30%!important;
+/*==============red social================*/
+.redCute{
+    background-position: center;
+    background-size: cover;
+    background-image: url(https://images.pexels.com/photos/1210276/pexels-photo-1210276.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
+.boxCute{
+    border-bottom: 2px solid white;
+}
+
+
+
 /*============================================*/ 
 /*-------cuando se agranda celu largo---------*/ 
 /*============================================*/ 
@@ -312,10 +328,7 @@
     } 
     .nosTit{ 
         font-size: 2.8rem; 
-    } 
-    .nosSub{ 
-        font-size: 1.4rem; 
-    } 
+    }  
     .nosPar{ 
         font-size: 0.9rem; 
     } 
@@ -325,17 +338,14 @@
     } 
     /*==========categorias=================*/
     .titCate {
-        top: 42%;
-        font-size: 1.2rem;
-        width: 170px;
-        left: 2%;
+        top: 20%;
+        font-size: 1.8rem;
+        width: 250px;
+        left: 12%;
     }
     .imgCate{ 
-        width: 175px; 
-        height: 175px; 
-    }
-    .cateX{
-        top: 42%!important;
+        width: 320px;
+        height: 160px; 
     }
     /*---------------FARMACIA---------------------*/ 
     .fotoVolver{ 
@@ -352,6 +362,10 @@
 /*-------cuando se agranda a tablet---------*/ 
 /*============================================*/ 
 @media (min-width: 768px) { 
+    .boxCute{
+        border-bottom: unset;
+        border-right: 2px solid white;
+    }
     .logo-centrado{ 
         top: 18%; 
     }
@@ -410,10 +424,7 @@
     .fondoBot2{ 
         background-image: url("../img/banner2.png"); 
     } 
-    .fondoBot3{ 
-        background-image: url("../img/banner3.png"); 
-    } 
-    .fondoBot2,.fondoBot,.fondoBot3{ 
+    .fondoBot2,.fondoBot{ 
         background-attachment: fixed; 
     } 
     
@@ -423,7 +434,17 @@
 /*============================================*/ 
 @media (min-width: 992px){  
     
+    .difuminado{ 
+        -webkit-box-shadow: 0 0 25px 55px white; 
+        -moz-box-shadow: 0 0 25px 55px white; 
+        box-shadow: 0px 0px 25px 55px white; 
+    } 
     
+    .cateCute{
+        position: absolute;
+        top: 55%;
+        background-image: none;
+    }
     
     .imgFondo{ 
         display: inline-block!important; 
@@ -442,21 +463,6 @@
     .navbar-expand-lg .navbar-nav .nav-link {
         /* padding-right: .5rem; */
         padding-right: 0rem;
-    }
-    /*==========categorias=================*/
-    .titCate{ 
-        top: 42%; 
-        font-size: 1.1rem; 
-        width: 125px; 
-        font-weight: 600;
-        left: 5%;
-    } 
-    .imgCate{ 
-        width: 140px; 
-        height: 140px; 
-    }
-    .cateX{
-        top: 30%!important;
     }
 } 
 /*============================================*/ 
@@ -496,17 +502,10 @@
         font-size: 3.5rem; 
     }
     /*==========categorias=================*/
-    .titCate{ 
-        top: 42%; 
-        font-size: 1.5rem; 
-        width: 170px; 
-    } 
-    .imgCate{ 
-        width: 180px; 
-        height: 180px; 
-    }
-    .cateX{
-        top: 30%!important;
+    
+    .cateCute{
+        position: absolute;
+        top: 75%;
     }
      
 } 
