@@ -36,7 +36,7 @@ YERKO ZABALETA
 </head> 
 <body style="font-family: 'Exo 2', sans-serif;"> 
     <!--******************navegador******************--> 
-    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, 1);" > 
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, .85);" > 
         <div class="container-fluid text-white"> 
             <!-- ******************logo****************** --> 
             <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
@@ -91,19 +91,59 @@ YERKO ZABALETA
     <!-- ******************imagen de fondo****************** --> 
      
     <header class="container-fluid imgFondo d-flex" style="padding-left: 0px;padding-right: 0px; " id="arriba"> 
-        <video src="vid/video3.mp4" class="video inicio1" poster="" autoplay="" muted="" loop id="videobanner"></video> 
+        <video src="vid/vid2.mp4" class="video inicio1" poster="" autoplay="" muted="" loop id="videobanner"></video> 
  
-        <div class="d-flex owl-carousel d-lg-none carusel1" style="z-index: 0!important; height: 90vh"> 
-          <div class="item"> <img src="img/f3.jpg" alt="fondo" > </div> 
-          <div class="item"> <img src="img/f2.jpg" alt="fondo"> </div> 
-          <div class="item"> <img src="img/fondoCeluM.jpg" alt="fondo"> </div> 
-        </div> 
+        
             <!-- ******************subtitulo****************** --> 
         <div class="text-center container-fluid my-auto logo-centrado inicio2"> 
-            <img src="img/logoCHICO.svg" class="logo3"><br><br> 
-            <a href="#productos" class="btn btn-warning js-scroll-trigger" role="button"> 
-                <h1 class="titCabe"><span class="12">CONOCE NUESTROS PRODUCTOS</span> <i class="fas fa-angle-double-down animated infinite slideOutDown"></i></h1> 
-            </a> 
+            <div class="row justify-content-center">
+                <div class="d-none d-sm-block col-sm-12">
+                    <p class="titCute">ENCUENTRA <span id="headCute"></span></p>
+                </div>
+                <div class="my-2 col-2 col-sm-2 col-md-1">
+                    <i class="fas fa-glass-cheers fa-2x" style="color: rgba(18, 0, 94, 1);"></i>
+                </div>
+                <div class="my-2 col-10 col-sm-4 col-md-3">
+                    <select class="custom-select selCute">
+                        <option value="0" selected="true">
+                            TODOS
+                        </option>
+                        <option value="1">
+                            FIESTA
+                        </option>
+                        <option value="2">
+                            MUSICA EN VIVO
+                        </option>
+                        <option value="3">
+                            FESTIVAL
+                        </option>
+                        <option value="4">
+                            STAND UP COMEDY
+                        </option>
+                        <option value="5">
+                            CONFERENCIAS
+                        </option>
+                        <option value="6">
+                            OTROS
+                        </option>
+                    </select>
+                </div>
+                <div class="my-2 col-2 col-sm-2 col-md-1">
+                    <i class="fas fa-globe-americas fa-2x" style="color: rgba(18, 0, 94, 1);"></i>
+                </div>
+                <div class="my-2 col-10 col-sm-4 col-md-3">
+                    <select class="custom-select selCute">
+                        <option value="0" selected="true">
+                            SANTIAGO
+                        </option>
+                    </select>
+                </div>
+                <div class="my-2 col-12 col-md-2">
+                    <a href="#" type="button" class="btn btn-sm btn-warning btn-cta" style="font-weight: bold; vertical-align: -webkit-baseline-middle;">
+                        ENCONTRAR
+                    </a>
+                </div>
+            </div>
         </div> 
     </header> 
     <hr class="difuminado"> 
@@ -372,9 +412,10 @@ YERKO ZABALETA
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
 
     <!--script propios--> 
-    <script src="script/controlador.js"></script> 
+    <script src="script/jsIndex.js"></script> 
  
     <!--script externos--> 
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
 </body> 
  
