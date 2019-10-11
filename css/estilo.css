@@ -15,6 +15,10 @@
     font-size: 2rem;
     color: white;
 }
+.iCute{
+    margin-top: 1.5rem!important;
+}
+
 
 
 .borde{ 
@@ -62,12 +66,16 @@
     color: rgba(255, 255, 255, 0.75);
     font-size: 0.75rem; 
 } 
-
+.centro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .logo-centrado{ 
     color:rgba(80, 80, 80, 1); 
     position: absolute; 
-    top: 8%; 
-    text-align: center; 
+    top: 10%; 
+    display: block;
 }
 .fotoProdX{
     height: 220px; 
@@ -151,12 +159,14 @@
         height: 300px;
 } 
 .fondoBot2{ 
-        background-image: url("../img/banner2M.png"); 
-} 
+        background-image: url("../img/f6.jpg"); 
+        height: 300px;
+}
 .fondoBot3{ 
-        background-image: url("../img/banner3M.png"); 
-} 
-.fondoBot2,.fondoBot,.fondoCont,.fondoBot3{ 
+        background-image: url("../img/f1.jpg"); 
+        height: 300px;
+}
+.fondoBot,.fondoBot2,.fondoBot3,.fondoCont{ 
         background-position: center; 
         background-size: cover; 
          
@@ -269,13 +279,13 @@
 }
 .titCate {
     color: rgba(18, 0, 94, 1)!important;
-    text-shadow: 1px 1px #fff;
+    text-shadow: 0.5px 0.5px #fff;
     position: absolute;
     top: 30%;
-    left: 21%;
-    font-size: 1rem;
-    width: 120px;
-    font-weight: 600;
+    left: 16%;
+    font-size: .8rem;
+    width: 140px;
+    font-weight: 800;
 }
 .imgCate{ 
     width: 200px;
@@ -324,12 +334,83 @@
     text-shadow: 1px 1px #000;
 }
 
+/*============= error 404 ==============*/
+.sub404{
+    font-size: 3rem;
+}
+.tit404{
+    font-size: 8rem;
+}
+.link404{
+    font-size: 1.5rem;
+}
+
+.sub404,.tit404,.link404{
+    color: rgba(18, 0, 94, 1);
+}
+
+/*
+ * Inicio Sesion
+ */
+
+.fondoLog{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 100%;
+}
+.titLog{
+  font-size: 2.5rem!important;
+}
+.stitLog{
+  font-size: 1.5rem!important;
+}
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
 
 
 /*============================================*/ 
 /*-------cuando se agranda celu largo---------*/ 
 /*============================================*/ 
 @media (min-width: 576px){
+    .iCute{
+        margin-top: .5rem!important;
+    }
+    .faCute{
+        font-size: 3em!important;
+    }
     .btnVer{
         font-size: 1rem;
     }
@@ -367,13 +448,13 @@
         top: 20%;
         font-size: 1.8rem;
         width: 250px;
-        left: 12%;
+        left: 11%;
     }
     .imgCate{ 
         width: 320px;
         height: 160px; 
     }
-    /*---------------FARMACIA---------------------*/ 
+    /*---------------extra---------------------*/ 
     .fotoVolver{ 
         font-size: 4rem; 
     }
@@ -382,12 +463,16 @@
         width: 70%;
         vertical-align: middle;
     }
+    
 } 
  
 /*============================================*/ 
 /*-------cuando se agranda a tablet---------*/ 
 /*============================================*/ 
 @media (min-width: 768px) { 
+    .faCute{
+        font-size: 4em!important;
+    }
     .boxCute{
         border-bottom: unset;
         border-right: 2px solid white;
@@ -444,16 +529,20 @@
     .maySub{ 
         font-size: 1rem; 
     } 
-    .fondoBot2{ 
-        background-image: url("../img/banner2.png"); 
-    } 
-    .fondoBot2,.fondoBot{ 
+    .fondoBot3,.fondoBot2,.fondoBot{ 
         background-attachment: fixed; 
     } 
     /*==============organizadores================*/
     .orgTit{
         font-size: 3rem;
     }
+
+    /*============= error 404 ==============*/
+
+    .tit404{
+        font-size: 15rem;
+    }
+
 } 
 /*============================================*/ 
 /*-------cuando se agranda notebook---------*/ 
@@ -495,6 +584,9 @@
 /*-------cuando se agranda a fullhd---------*/ 
 /*============================================*/ 
 @media (min-width:1200px) {
+    .faCute{
+        font-size: 5em!important;
+    }
     #exampleSlider .MS-content .item { 
         width: 33.3%;              /* required * Determines number of visible slides */
     } 

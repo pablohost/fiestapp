@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 <!-- 
 ****************** 
@@ -22,11 +23,10 @@ YERKO ZABALETA
     <!--******************css propio******************--> 
     <link rel="stylesheet" href="css/estilo.css">
 
-    <!--******************css externo****************** 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> 
-    <link rel="stylesheet" type="text/css" href="https://rawgit.com/fitodac/line-awesome/master/dist/css/line-awesome.min.css" crossorigin="anonymous"> -->
-    <script src="https://kit.fontawesome.com/17dbefb145.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <!--******************css externo****************** -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/fitodac/line-awesome/master/dist/css/line-awesome.min.css" crossorigin="anonymous"> 
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:400,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/hover-min.css"> 
     
     <!--******************extra******************--> 
@@ -35,60 +35,15 @@ YERKO ZABALETA
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head> 
 <body style="font-family: 'Exo 2', sans-serif;"> 
-    <!--******************navegador******************--> 
-    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, .85);" > 
-        <div class="container-fluid text-white"> 
-            <!-- ******************logo****************** --> 
-            <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
-            <!-- ******************boton responsive****************** --> 
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
-                <span class="navbar-toggler-icon"></span> 
-            </button> 
-            <!-- ******************menu****************** --> 
-            <div class="collapse navbar-collapse text-right" id="navbarResponsive"> 
-                <ul class="navbar-nav ml-auto"> 
- 
-                    <li class="nav-item dropdown navSpace mr-4"> 
-                        <a class="nav-link dropdown-toggle js-scroll-trigger hvr-underline-from-center text-white hvr-box-shadow-outset" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                            EVENTOS 
-                        </a> 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria1">FIESTA</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria2">MUSICA EN VIVO</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria3">FESTIVAL</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria4">STAND UP COMEDY</a>
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria5">CONFERENCIAS</a>
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria6">OTROS</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="#producto" id="slinkCategoria0">VER TODO</a> 
-                        </div> 
-                    </li> 
- 
-                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#red" id="cerrarNav"><i class="fas fa-users"></i> RED SOCIAL&nbsp;</a></li> 
- 
-                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#mayorista" id="cerrarNav"><i class="fas fa-user-tie"></i> ORGANIZADORES&nbsp;</a></li> 
- 
-                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#tienda" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
-                    
-                    <li class="nav-item navSpace mr-4" style="padding-top: 5px;">
-                        <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
-                            CREA TU EVENTO !
-                        </a>
-                    </li> 
-                    
- 
-                    <li class="nav-item disabled"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a></li> 
- 
-                    <li class="nav-item navSpace"> 
-                      <a style="color: rgba(59,89,152,.8);" href="https://www.facebook.com/#/" target="_blank" class="rrss hvr-icon-grow" data-toggle="tooltip" data-placement="bottom" title="Facebook" id="cerrarNav"><i class="fab fa-facebook-square fa-2x posLinks hvr-icon"></i></a>&nbsp;&nbsp; 
-                      <a style="color: rgba(153,65,153,.8);" href="https://www.instagram.com/#/" target="_blank" class="rrss hvr-icon-grow" data-toggle="tooltip" data-placement="bottom" title="Instagram" id="cerrarNav"><i class="fab fa-instagram fa-2x posLinks hvr-icon"></i></a> 
-                    </li> 
- 
-                </ul> 
-            </div> 
-        </div> 
-    </nav> 
+    <!--******************navegador******************-->
+    <?php 
+
+    require 'cabeza.php';
+
+     ?>
+
      
-    <!-- ******************imagen de fondo****************** --> 
+    <!-- ******************video de fondo****************** --> 
      
     <header class="container-fluid imgFondo d-flex" style="padding-left: 0px;padding-right: 0px; " id="arriba"> 
         <video src="vid/vid2.mp4" class="video inicio1" poster="" autoplay="" muted="" loop id="videobanner"></video> 
@@ -100,10 +55,10 @@ YERKO ZABALETA
                 <div class="d-none d-sm-block col-sm-12">
                     <p class="titCute">ENCUENTRA <span id="headCute"></span></p>
                 </div>
-                <div class="my-2 col-2 col-sm-2 col-md-1">
-                    <i class="fas fa-glass-cheers fa-2x" style="color: rgba(18, 0, 94, 1);"></i>
+                <div class="my-2 col-2 col-sm-2 col-md-1 iCute centro">
+                    <i class="fas fa-glass-cheers fa-2x faCute" style="color: rgba(18, 0, 94, 1);"></i>
                 </div>
-                <div class="my-2 col-10 col-sm-4 col-md-3">
+                <div class="my-2 col-10 col-sm-4 col-md-3 iCute centro">
                     <select class="custom-select selCute">
                         <option value="0" selected="true">
                             TODOS
@@ -128,25 +83,24 @@ YERKO ZABALETA
                         </option>
                     </select>
                 </div>
-                <div class="my-2 col-2 col-sm-2 col-md-1">
-                    <i class="fas fa-globe-americas fa-2x" style="color: rgba(18, 0, 94, 1);"></i>
+                <div class="my-2 col-2 col-sm-2 col-md-1 centro">
+                    <i class="fas fa-globe-americas fa-2x faCute" style="color: rgba(18, 0, 94, 1);"></i>
                 </div>
-                <div class="my-2 col-10 col-sm-4 col-md-3">
+                <div class="my-2 col-10 col-sm-4 col-md-3 centro">
                     <select class="custom-select selCute">
                         <option value="0" selected="true">
                             SANTIAGO
                         </option>
                     </select>
                 </div>
-                <div class="my-2 col-12 col-md-2">
-                    <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold; vertical-align: -webkit-baseline-middle;">
-                        ENCONTRAR
+                <div class="my-2 col-12 col-md-2 centro">
+                    <a href="#evento" role="button" class="btn btn-warning btn-cta js-scroll-trigger" style="font-weight: bold; vertical-align: -webkit-baseline-middle;">
+                        <i class="fas fa-search-location"></i> ENCONTRAR
                     </a>
                 </div>
             </div>
         </div> 
     </header> 
-    <hr class="difuminado">
     <!-- ***********************categorias*********************** --> 
     <div class="container-fluid text-center cateCute" id="Categoria">
         <div class="row justify-content-center inicioCat1">
@@ -178,7 +132,7 @@ YERKO ZABALETA
     </div> 
     <br>
     <!-- ***********************Lista de Eventos*********************** -->
-    <div class="container text-center" style="" id="producto">
+    <div class="container text-center" style="" id="evento">
         <span class="headCate">EVENTOS</span>
         <p style="font-size: .7rem;color: rgba(18, 0, 94, 0.60);">Categoria: <span id="helpCate"></span></p>
         <div class="row" style="margin: 0px; min-height: 400px;" id="listaEventos">
@@ -214,7 +168,7 @@ YERKO ZABALETA
                         Califica eventos o locales a los que haz asistido
                     </p>
                     <p class="nosPar text-center"> 
-                        <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/registroC.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-user-plus"></i>
                             UNIRTE
                         </a>
@@ -234,7 +188,7 @@ YERKO ZABALETA
                     </p>
                     <br>
                     <p class="nosPar text-center"> 
-                        <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/loginC.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-sign-in-alt"></i>
                             ACCEDER
                         </a>
@@ -247,8 +201,8 @@ YERKO ZABALETA
         
     </div>
  
-    <!-- ******************seccion mayoristas****************** --> 
-    <section id="mayorista"> 
+    <!-- ******************seccion organizadores****************** --> 
+    <section id="organizadores" style="background-color: rgba(210, 199, 214,1);"> 
       <div class="container-fluid"> 
         <div class="row"> 
             <div class="col-lg-12 text-center"> 
@@ -276,6 +230,7 @@ YERKO ZABALETA
           </div> 
           <div class="col-md-6 text-center inicioMay3 imgOrga"> 
             <br><br>
+
             <p class="orgCute">
                 ¿Aun no tienes una cuenta de organizador?
             </p>
@@ -291,85 +246,22 @@ YERKO ZABALETA
                 Accede a tu cuenta
             </p>
             <p>
-                <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                <a href="http://www.fiestapp.tk/loginO.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                     <i class="fas fa-sign-in-alt"></i>
                     ACCEDER
                 </a>
             </p>
+            
           </div>
         </div> 
       </div> 
     </section> 
     <!-- ******************pie de pagina****************** --> 
-    <footer class="text-white respPie" style="background-color: rgba(136, 14, 79, 1);"> 
-        <div class="container text-center"> 
-            <div class="row"> 
-                <div class="col-md-2 col-lg-4"> 
-                    <img src="img/logo.png" class="logo3">
-                     
-                </div> 
-                <br> 
-                <div class="col-md-4 col-lg-3"> 
-                    <h5 class="titPIE 46"> 
-                        Informaci&#243;n 
-                    </h5> 
-                    <p class="cuePIE"> 
-                        <i class="fas fa-university fa-1x"></i> Inacap Puente Alto 
-                    </p> 
-                    <p class="cuePIE"> 
-                        <i class="fas fa-book-open fa-1x"></i> Ing. Informatica 
-                    </p> 
-                    <p class="cuePIE"> 
-                        <i class="fas fa-male fa-1x"></i> Pablo G. Henriquez 
-                    </p> 
-                    <p class="cuePIE"> 
-                        <i class="fas fa-male fa-1x"></i> Daeg Orellana 
-                    </p>
-                    <p class="cuePIE"> 
-                        <i class="fas fa-male fa-1x"></i> Yerko Zabaleta 
-                    </p>
-                </div>
-                <div class="col-md-4 col-lg-3"> 
-                    <h5 class="titPIE 47"> 
-                        Navegador 
-                    </h5> 
-                    <p class="cuePIE"> 
-                        <a href="#" class="linkPIE" id=""><i class="fas fa-map-marked-alt fa-1x"></i> Encuentra Eventos !</a>
-                    </p>
-                    <p class="cuePIE"> 
-                        <a href="#" class="linkPIE" id=""><i class="fas fa-bullhorn fa-1x"></i> Crea tu Evento !</a>
-                    </p>
-                    <p class="cuePIE"> 
-                        <a href="#" class="linkPIE" id=""><i class="fas fa-users fa-1x"></i> Unete a la comunidad !</a>
-                    </p>
-                     
-                </div>
-                <div class="col-md-2 col-lg-2"> 
-                    <br> 
-                    <p> 
-                        <a class="js-scroll-trigger hvr-float" href="#arriba" style="color:rgba(18, 0, 94, 1);"><i class="fas fa-chevron-circle-up fa-4x"></i></a> 
-                    </p> 
-                </div> 
-            </div> 
-        </div> 
-    </footer>
-    <footer class="text-white respPie" style="background-color: rgba(86, 0, 39, 1);"> 
-        <div class="container text-center"> 
-            <div class="row"> 
-                <div class="col-md-6">
-                    <p class="cueCredi"> 
-                        <span class="48">Inacap Puente Alto - Ing. Informatica</span>
-                    </p>
-                </div> 
-                <br> 
-                <div class="col-md-6">
-                    <p class="cueCredi">
-                        <a href="#" class="linkPIE" id="">www.fiestapp.cl <i class="far fa-copyright fa-1x"></i></a>
-                    </p>
-                </div>
-            </div> 
-        </div> 
-    </footer>
+    <?php 
+
+    require 'pie.php';
+
+     ?>
     
     <!--script bootstrap / jquery--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
