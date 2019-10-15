@@ -1,10 +1,10 @@
 <?php 
 
 echo ' 
-    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, .85);" > 
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, .85); padding:3px 10px;" > 
         <div class="container-fluid text-white"> 
             <!-- ******************logo****************** --> 
-            <a class="navbar-brand js-scroll-trigger" href="http://www.fiestapp.tk/#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
+            <a class="navbar-brand js-scroll-trigger py-0" href="http://www.fiestapp.tk/#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
             <!-- ******************boton responsive****************** --> 
             <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span> 
@@ -32,7 +32,7 @@ echo '
  
                     <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="http://www.fiestapp.tk/#organizadores" id="cerrarNav"><i class="fas fa-user-tie"></i> ORGANIZADORES&nbsp;</a></li> 
  
-                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#tienda" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
+                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#publicidad" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
                     
                     <li class="nav-item navSpace mr-4" style="padding-top: 5px;">
                         <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">

@@ -59,7 +59,9 @@ YERKO ZABALETA
       <label for="inputPassword" class="sr-only">Contraseña</label>
       <input name="passAcceso" type="password" id="inputPassword" class="form-control" placeholder="********" autocomplete="off" required>
       <button class="btn btn-lg btn-outline-success btn-block" type="submit">Confirmar</button>
-      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registroC.php">REGISTRARSE</a></p>
+      <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperarO.php">CLICK AQUI</a></p>
+      <hr>
+      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registroO.php">REGISTRARSE</a></p>
       <hr>
       <p class="mt-3"> No eres un organizador?, <a href="http://www.fiestapp.tk/loginC.php">ACCEDER</a></p>
       <p class="mt-3 text-muted">&copy; www.fiestapp.cl</p>
