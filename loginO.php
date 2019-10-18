@@ -54,11 +54,11 @@ YERKO ZABALETA
       <img class="mb-4 mt-5" src="../img/logo.png" alt="" height="125">
       <h1 class="h3 mb-3 font-weight-normal titLog">INICIAR SESION</h1>
       <h4 class="h3 mb-3 font-weight-normal stitLog">Plataforma de eventos para organizadores</h4>
-      <label for="inputEmail" class="sr-only">Correo Electronico</label>
-      <input name="mailAcceso" type="email" id="inputEmail" class="form-control" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input name="passAcceso" type="password" id="inputPassword" class="form-control" placeholder="********" autocomplete="off" required>
-      <button class="btn btn-lg btn-outline-success btn-block" type="submit">Confirmar</button>
+      <label for="txtCorreo" class="sr-only">Correo Electronico</label>
+      <input name="mailAcceso" type="email" id="txtCorreo" class="form-control" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
+      <label for="txtClave" class="sr-only">Contraseña</label>
+      <input name="passAcceso" type="password" id="txtClave" class="form-control" placeholder="********" autocomplete="off" required>
+      <button class="btn btn-lg btn-dark btn-block" type="submit" id="btnLogin">CONFIRMAR</button>
       <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar.php">CLICK AQUI</a></p>
       <hr>
       <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registro.php">REGISTRARSE</a></p>
@@ -90,11 +90,13 @@ YERKO ZABALETA
 
     <!--script propios--> 
     <script src="script/jsGlobal.js"></script>
- 
+    <script src="script/jsLogin.js"></script>
+
     <!--script externos--> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 </body> 
  
