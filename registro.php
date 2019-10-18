@@ -184,11 +184,13 @@ YERKO ZABALETA
 
     <!--script propios--> 
     <script src="script/jsGlobal.js"></script>
+    <script src="script/jsRegistro.js"></script>
  
     <!--script externos--> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 </body> 
  
