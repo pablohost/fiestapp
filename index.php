@@ -52,7 +52,7 @@ YERKO ZABALETA
             </div>
             <div class="col-12 celuCute">
                 <!-- ******************subtitulo****************** --> 
-                <div class="text-center container-fluid my-auto logo-centrado inicio2"> 
+                <div class="text-center container-fluid my-auto"> 
                     <div class="row justify-content-center">
                         <div class="d-none d-sm-block col-sm-12">
                             <p class="titCute">ENCUENTRA <span id="headCute"></span></p>
@@ -107,17 +107,17 @@ YERKO ZABALETA
             <div class="container-fluid text-center cateCute" id="Categoria">
                 <div class="row justify-content-center inicioCat1">
                     <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria1"> 
+                        <a href="http://www.fiestapp.tk/registro.php" class="hvr-buzz js-scroll-trigger" id="linkCategoria1"> 
                             <img src="img/cat1.jpg" class="imgCate"><span class="titCate"> UNETE A LA COMUNIDAD </span> 
                         </a> 
                     </div> 
                     <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria2"> 
+                        <a href="#evento" class="hvr-buzz js-scroll-trigger" id="linkCategoria2"> 
                             <img src="img/cat2.jpg" class="imgCate"><span class="titCate"> BUSCA EVENTOS EN EL MAPA </span> 
                         </a> 
                     </div> 
                     <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="#producto" class="hvr-pulse js-scroll-trigger" id="linkCategoria3"> 
+                        <a href="#evento" class="hvr-buzz js-scroll-trigger" id="linkCategoria3"> 
                             <img src="img/cat3.jpg" class="imgCate"><span class="titCate"> CREA TU PROPIO EVENTO </span> 
                         </a> 
                     </div>
@@ -158,7 +158,7 @@ YERKO ZABALETA
                         ¿Aun no tienes una cuenta?
                     </h5> 
                     <p class="nosPar text-center"> 
-                        <a href="http://www.fiestapp.tk/registroC.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/registro.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-user-plus"></i>
                             UNIRTE
                         </a>
@@ -238,7 +238,7 @@ YERKO ZABALETA
                     ¿Aun no tienes una cuenta de organizador?
                 </p>
                 <p>
-                    <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                    <a href="http://www.fiestapp.tk/registro.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                         <i class="fas fa-user-plus"></i>
                         UNIRTE
                     </a>

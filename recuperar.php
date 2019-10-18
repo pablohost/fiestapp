@@ -34,11 +34,11 @@ YERKO ZABALETA
     <link rel="stylesheet" href="css/hover-min.css"> 
     
     <!--******************extra******************--> 
-    <title>INICIAR SESION</title> 
+    <title>RECUPERAR CLAVE</title> 
     <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
     <link rel="icon" type="image/png" href="../img/favicon.ico">
 </head> 
-<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(174, 174, 207,1);" class="text-center"> 
+<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(224, 221, 200,1);" class="text-center"> 
     <!--******************navegador******************-->
     <?php 
 
@@ -52,24 +52,19 @@ YERKO ZABALETA
     <br><br>
     <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8">
       <img class="mb-4 mt-5" src="../img/logo.png" alt="" height="125">
-      <h1 class="h3 mb-3 font-weight-normal titLog">INICIAR SESION</h1>
-      <h4 class="h3 mb-3 font-weight-normal stitLog">Plataforma de eventos para organizadores</h4>
+      <h1 class="h3 mb-3 font-weight-normal titLog">OLVIDE MI CLAVE</h1>
+      <p class="mt-3">Ingresa el correo electronico con el que te registraste, te enviaremos un mail con los pasos a seguir</p>
+      <hr>
       <label for="inputEmail" class="sr-only">Correo Electronico</label>
-      <input name="mailAcceso" type="email" id="inputEmail" class="form-control" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input name="passAcceso" type="password" id="inputPassword" class="form-control" placeholder="********" autocomplete="off" required>
+      <input name="mailAcceso" type="email" id="inputEmail" class="form-control mb-2" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
       <button class="btn btn-lg btn-outline-success btn-block" type="submit">Confirmar</button>
-      <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar.php">CLICK AQUI</a></p>
-      <hr>
-      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registro.php">REGISTRARSE</a></p>
-      <hr>
-      <p class="mt-3"> No eres un organizador?, <a href="http://www.fiestapp.tk/loginC.php">ACCEDER</a></p>
+      <p class="mt-3">Recordaste tu clave ? <a href="http://www.fiestapp.tk/loginC.php">INICIA SESION</a></p>
       <p class="mt-3 text-muted">&copy; www.fiestapp.cl</p>
       <p class="mt-3 text-muted">&copy; Inacap Puente Alto</p>
       <p class="mt-3 text-muted">&copy; 2019</p>
     </form>
     <br>
-    <div class="container-fluid fondoBot3" style="padding: 0"> 
+    <div class="container-fluid fondoBot4" style="padding: 0"> 
         
     </div>
 

@@ -14,8 +14,13 @@
     font-weight: 600;
 }
 .titCute{
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
+    text-shadow: 2px 2px #000;
+    height: 140px;
+    text-align: left;
+    padding-top: 2rem;
+    padding-left: 3rem;
 }
 .iCute{
     margin-top: 1.5rem!important;
@@ -74,11 +79,8 @@
     align-items: center;
     justify-content: center;
 }
-.logo-centrado{ 
-    color:rgba(80, 80, 80, 1); 
-}
 .celuCute{
-    padding-top: 3rem!important;
+    padding-top: 4.5rem!important;
     padding-bottom: 3rem!important;
 
 }
@@ -98,12 +100,6 @@
     left: 0;
     height: 100%;
     z-index: 0;
-}
-.popCata{
-    background-image: url('../img/catCos.jpg');
-    opacity: 0.9;
-    background-size: cover;
-    background-position: center;
 }
 .precioP{ 
     font-size: 1.3rem!important;
@@ -171,10 +167,14 @@
         background-image: url("../img/f1.jpg"); 
         height: 300px;
 }
-.fondoBot,.fondoBot2,.fondoBot3,.fondoCont{ 
+.fondoBot4{ 
+        background-image: url("../img/f2.jpg"); 
+        
+}
+.fondoBot,.fondoBot2,.fondoBot3,.fondoBot4{ 
         background-position: center; 
         background-size: cover; 
-         
+        height: 300px;
 } 
 .mayCont{ 
     text-decoration: none!important; 
@@ -203,7 +203,7 @@
     position: relative;
 } 
 .logo1{ 
-    height: 45px;    
+    height: 60px;    
 } 
 .logo2{ 
     width: 80px; 
@@ -244,20 +244,8 @@
 .navbar-nav .nav-item { 
     color: #4c4c4c!important; 
 } 
-.navbar-toggler { 
-    padding: 0.15rem 0.25rem!important; 
-    font-size: 0.85rem!important; 
-} 
 .navbar{ 
     font-size: 0.7rem; 
-} 
-.difuminado{ 
-    position: relative; 
-    border: 0;  
-    height: 0; 
-    -webkit-box-shadow: 0 0 10px 25px white; 
-    -moz-box-shadow: 0 0 10px 25px white; 
-    box-shadow: 0px 0px 10px 25px white; 
 } 
 /*==========categorias=================*/
 .headCate{ 
@@ -401,8 +389,12 @@
         padding-top: 5rem!important;
     }
     .logo1{ 
-        height: 60px;    
+        height: 80px;    
+
     } 
+    .navbar-toggler {
+        font-size: 1.8rem!important;
+    }
     .iCute{
         margin-top: .5rem!important;
     }
@@ -469,15 +461,16 @@
 /*-------cuando se agranda a tablet---------*/ 
 /*============================================*/ 
 @media (min-width: 768px) { 
+    .titCute{
+        font-size: 3.5rem;
+        height: 200px;
+    }
     .faCute{
         font-size: 4em!important;
     }
     .boxCute{
         border-bottom: unset;
         border-right: 2px solid white;
-    }
-    .logo-centrado{ 
-        top: 18%; 
     }
     
     .boxProd{
@@ -538,7 +531,7 @@
         padding-top: 0rem!important;
         padding-bottom: 0rem!important;
         position: absolute;
-        top: 25%;
+        top: 15%;
         display: block;
     }
     .video { 
@@ -557,7 +550,7 @@
     
     .cateCute{
         position: absolute;
-        bottom: 50px;
+        bottom: 10px;
         background-image: none;
         padding-bottom: 0rem!important;
     }
@@ -586,7 +579,11 @@
 /*============================================*/ 
 @media (min-width:1200px) {
     .celuCute{
-        top: 35%;
+        top: 12%;
+    }
+    .titCute{
+        font-size: 4.5rem;
+        height: 240px;
     }
     .faCute{
         font-size: 5em!important;
@@ -623,7 +620,7 @@
     /*==========categorias=================*/
     
     .cateCute{
-        bottom: 100px;
+        bottom: 50px;
     }
     .fondoBot{ 
     height: 500px;
@@ -650,6 +647,21 @@
     }
     .orgCute{
         font-size: 3rem;
+    }
+} 
+
+/*============================================*/ 
+/*-------cuando se agranda a fullhd---------*/ 
+/*============================================*/ 
+@media (min-width:1900px) {
+    .titCute{
+        padding-left: 6rem;
+    }
+    .celuCute{
+        top: 20%;
+    }
+    .cateCute{
+        bottom: 120px;
     }
 } 
  

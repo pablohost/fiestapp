@@ -30,7 +30,7 @@ echo '
  
                     <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="http://www.fiestapp.tk/#red" id="cerrarNav"><i class="fas fa-users"></i> RED SOCIAL&nbsp;</a></li> 
  
-                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="http://www.fiestapp.tk/#organizadores" id="cerrarNav"><i class="fas fa-user-tie"></i> ORGANIZADORES&nbsp;</a></li> 
+                    <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="http://www.fiestapp.tk/#organizadores" id="cerrarNav"><i class="fas fa-people-carry"></i> ORGANIZADORES&nbsp;</a></li> 
  
                     <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#publicidad" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
                     

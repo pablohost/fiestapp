@@ -1,0 +1,89 @@
+/*============================================*/ 
+/*-------nativo de  movil---------*/ 
+/*============================================*/ 
+.hrCute {
+    border-top: 1px solid rgba(237,237,237,1)!important;
+}
+.boxRegistro{
+	
+    padding: 30px 15px;
+}
+.titRegistro{
+    color: rgba(237,237,237,1);
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px #000;
+}
+.titBox{
+	color: rgba(74, 20, 140,.7);
+}
+.titInput{
+	font-weight: 500;
+	text-align: center!important;
+}
+.boxDatos{
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgb(237, 237, 237);
+}
+.boxPedido{
+	background-color: rgba(173,173,173,1);
+	padding: 25px 0px;
+}
+.boxProdPedido{
+	color: white;
+    font-weight: 500;
+}
+.logoDeli{
+	height: 30px;
+}
+.form-check {
+    padding-top: 1rem;
+}
+.form-check-label {
+    padding-left: 20px;
+}
+input[type=checkbox], input[type=radio] {
+    width: 25px;
+    height: 25px;
+}
+.fondoRegistro{ 
+    background-image: url("../img/f3.jpg");
+    background-position: center; 
+    background-size: cover; 
+    height: 300px; 
+        
+}
+/*============================================*/ 
+/*-------cuando se agranda celu largo---------*/ 
+/*============================================*/ 
+@media (min-width: 576px){
+    .helpCute{
+        font-size: 1.2rem;
+    }
+    
+} 
+/*============================================*/ 
+/*-------cuando se agranda a tablet---------*/ 
+/*============================================*/ 
+@media (min-width: 768px) {
+	.titRegistro{
+	    font-size: 4rem;
+	}
+} 
+/*============================================*/ 
+/*-------cuando se agranda notebook---------*/ 
+/*============================================*/ 
+@media (min-width: 992px){  
+    
+}
+
+/*============================================*/ 
+/*-------cuando se agranda a fullhd---------*/ 
+/*============================================*/ 
+@media (min-width:1200px) {
+    .titRegistro{
+	    font-size: 5rem;
+	    padding-top: 3rem;
+	}
+
+}

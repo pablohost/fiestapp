@@ -3,8 +3,8 @@ $(function(){
 	//********animacion del header typed.js*********
 
 	var options = {
-		strings: ['LAS MEJORES FIESTAS', 'EL MEJOR CARRETE', 'SHOWS DE STAND UP COMEDY', 'FESTIVALES DE MUSICA', 'TU MEJOR PANORAMA'],
-		typeSpeed: 100,
+		strings: ['LAS MEJORES FIESTAS', 'EL MEJOR CARRETE', 'SHOWS DE STAND UP COMEDY', 'FESTIVALES DE MUSICA', 'EVENTOS DENTRO DE SANTIAGO'],
+		typeSpeed: 80,
 		loop: true
 	};
 
