@@ -39,7 +39,7 @@ YERKO ZABALETA
     <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
     <link rel="icon" type="image/png" href="../img/favicon.ico">
 </head> 
-<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(74, 20, 140,1);"> 
+<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(74, 20, 140,1);" id="arriba"> 
     <!--******************navegador******************-->
     <?php 
 
@@ -87,10 +87,10 @@ YERKO ZABALETA
                     <p class="text-muted">Este nombre sera mostrado en tu perfil publico</p>
                     <!--Nombre-->
                     <span class="titInput">Nombre</span>
-                    <input type="text" id="txtNombre" class="form-control" placeholder="Ej: Jose (Obligatorio)" name="Correo"><br>
+                    <input type="text" id="txtNombre" class="form-control" placeholder="Ej: Jose (Obligatorio)" name="Nombre"><br>
                     <!--Apellido-->
                     <span class="titInput">Apellido</span>
-                    <input type="text" id="txtApelli" class="form-control" placeholder="Ej: Quezada (Obligatorio)" name="Correo"><br>
+                    <input type="text" id="txtApelli" class="form-control" placeholder="Ej: Quezada (Obligatorio)" name="Apelli"><br>
                     <hr>
                     <p class="text-muted">Con estos datos vas a iniciar sesion</p>
                     <!--Correo Electronico-->
@@ -98,10 +98,10 @@ YERKO ZABALETA
                     <input type="email" id="txtCorreo" class="form-control" placeholder="ejemplo@gmail.com (Obligatorio)" name="Correo"><br>
                     <!--Clave-->
                     <span class="titInput">Clave</span>
-                    <input type="password" id="txtClave" class="form-control" placeholder="************* (Obligatorio)" name="Correo"><br>
+                    <input type="password" id="txtClave" class="form-control" placeholder="************* (Obligatorio)" name="Clave1"><br>
                     <!--Repite Clave-->
                     <span class="titInput">Repetir Clave</span>
-                    <input type="password" id="txtClave2" class="form-control" placeholder="Repetir Clave (Obligatorio)" name="Correo"><br>
+                    <input type="password" id="txtClave2" class="form-control" placeholder="Repetir Clave (Obligatorio)" name="Clave2"><br>
                 </div>
                 <div class="col-md-2">
                   
@@ -114,25 +114,25 @@ YERKO ZABALETA
                     <!--Genero-->
                     <span class="titInput">Genero</span>
                     <div class="form-check text-left" >
-                      <input class="form-check-input" type="radio" name="genero" id="rdbNR" value="0">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbNR" value="0" checked="true">
                       <label class="form-check-label" for="rdbNR">
                         Prefiero no responder
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="genero" id="rdbNB" value="1">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbNB" value="1">
                       <label class="form-check-label" for="rdbNB">
                         No Binario
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="genero" id="rdbFE" value="2">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbFE" value="2">
                       <label class="form-check-label" for="rdbFE">
                         Femenino
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="genero" id="rdbMA" value="3">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbMA" value="3">
                       <label class="form-check-label" for="rdbMA">
                         Masculino
                       </label>
@@ -140,23 +140,26 @@ YERKO ZABALETA
                     <br>
                     <!--Edad-->
                     <span class="titInput">Edad</span>
-                    <input type="number" id="txtEdad" class="form-control" name="edad" min="18" max="100" placeholder="Ej: 18"><br>
+                    <input type="number" id="txtEdad" class="form-control" name="edad" min="18" max="99" placeholder="Ej: 18" name="Edad"><br>
                     <!--Telefono-->
                     <span class="titInput">Telefono</span>
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">+569</span>
                       </div>
-                      <input type="tel" id="txtFono" class="form-control" placeholder="Ej: 4321 1234">
+                      <input type="tel" id="txtFono" class="form-control" placeholder="Ej: 4321 1234" name="Fono">
                     </div>
                     <br>
                 </div>
+                <div class="col-12 text-center" >
+                    <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
+                </div>
                 <div class="col-12 text-center">
-                <hr class="hrCute">
-                <button class="btn btn-warning btn-lg btn-block" id="btnRegistro" type="button" style="font-weight: 700;"> 
-                    CONFIRMAR <i class="fas fa-check"></i>
-                </button> 
-            </div>
+                    <hr class="hrCute">
+                    <button class="btn btn-warning btn-lg btn-block" id="btnRegistro" type="button" style="font-weight: 700;"> 
+                        CONFIRMAR <i class="fas fa-check"></i>
+                    </button> 
+                </div>
             </div>
             
             
@@ -191,6 +194,8 @@ YERKO ZABALETA
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 </body> 
  
