@@ -114,25 +114,25 @@ YERKO ZABALETA
                     <!--Genero-->
                     <span class="titInput">Genero</span>
                     <div class="form-check text-left" >
-                      <input class="form-check-input" type="radio" name="Genero" id="rdbNR" value="0" checked="true">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbNR" value="1" checked="true">
                       <label class="form-check-label" for="rdbNR">
                         Prefiero no responder
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="Genero" id="rdbNB" value="1">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbNB" value="2">
                       <label class="form-check-label" for="rdbNB">
                         No Binario
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="Genero" id="rdbFE" value="2">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbFE" value="3">
                       <label class="form-check-label" for="rdbFE">
                         Femenino
                       </label>
                     </div>
                     <div class="form-check text-left">
-                      <input class="form-check-input" type="radio" name="Genero" id="rdbMA" value="3">
+                      <input class="form-check-input" type="radio" name="Genero" id="rdbMA" value="4">
                       <label class="form-check-label" for="rdbMA">
                         Masculino
                       </label>
@@ -140,7 +140,7 @@ YERKO ZABALETA
                     <br>
                     <!--Edad-->
                     <span class="titInput">Edad</span>
-                    <input type="number" id="txtEdad" class="form-control" name="edad" min="18" max="99" placeholder="Ej: 18" name="Edad"><br>
+                    <input type="number" id="txtEdad" class="form-control" min="18" max="99" placeholder="Ej: 18" name="Edad"><br>
                     <!--Telefono-->
                     <span class="titInput">Telefono</span>
                     <div class="input-group">

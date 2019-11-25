@@ -83,86 +83,106 @@ $(function(){
               if ($("#txtClave").val().length>0&&$("#txtClave").val().length<30) {
                 /* repite clave */
                 if ($("#txtClave2").val().length>0&&$("#txtClave2").val().length<30) {
-                  console.log("campos obligatorios OK");
+                  /* compara las claves*/
+                  if ($("#txtClave").val()===$("#txtClave2").val()) {
+                    console.log("campos obligatorios OK");
 
-                  /* genero */
-                  /*
-                  if ($("#rdbNR").prop("checked")||$("#rdbNB").prop("checked")||$("#rdbFE").prop("checked")||$("#rdbMA").prop("checked")) {
-                    console.log("ingreso genero");
-                  }
-                  */
-                  /* edad */
-                  if ($("#txtEdad").val().length>0) {
-                    if ($("#txtEdad").val()>=18&&$("#txtEdad").val()<=99&&numCheck.test($("#txtEdad").val())) {
-                      console.log("ingreso edad");
-                    }else{
-                      Swal.fire({
-                        title: 'Error en EDAD',
-                        html: '<p>La edad solo puede ser numerica.</p><p style="color:red;">Solo se admiten edades entre 18 y 99 años.</p>',
-                        type: 'error',
-                        confirmButtonText: 'OK'
-                      });
-                      return false;
+                    /* genero */
+                    /*
+                    if ($("#rdbNR").prop("checked")||$("#rdbNB").prop("checked")||$("#rdbFE").prop("checked")||$("#rdbMA").prop("checked")) {
+                      console.log("ingreso genero");
                     }
-                  }
-                  /* numero de telefono */
-                  if ($("#txtFono").val().length>0) {
-                    if ($("#txtFono").val().length==8&&numCheck.test($("#txtFono").val())) {
-                      console.log("ingreso numero de telefono");
-                    }else{
-                      Swal.fire({
-                        title: 'Error en TELEFONO',
-                        html: '<p>El telefono solo deben ser numeros con un minimo de 8 numeros.</p><p style="color:red;">Se debe omitir el codigo de area.</p>',
-                        type: 'error',
-                        confirmButtonText: 'OK'
-                      });
-                      return false;
-                    }
-                  }
-
-                  /* en este punto todos los campos estan OK */
-                  /* Validacion campo recaptcha */
-                  let x=$('[name=formRegistro]').serialize();
-                  $.ajax({
-                    type: "POST",
-                    url: 'script/robot.php',
-                    data: x,
-                    dataType: "json",
-                    success: function (respuesta) {
-                      let z=respuesta;
-                      if (z.cod==0) {
-                        //console.log(z.msg);
-                        //****************************************
-                        //****En este punto todos los inputs fueron ingresados correctamente :) !
-                        //****************************************
-                        //no eres robot
-                        todoOK();
-
-                      } else if(z.cod==1){
-                        //console.log(z.msg);
-                        //si eres robot
-                        Swal.fire({ title: z.msg, text: "No olvide completar el campo ReCaptcha", type: "info", confirmButtonText: "OK" });
+                    */
+                    /* edad */
+                    if ($("#txtEdad").val().length>0) {
+                      if ($("#txtEdad").val()>=18&&$("#txtEdad").val()<=99&&numCheck.test($("#txtEdad").val())) {
+                        console.log("ingreso edad");
+                      }else{
+                        Swal.fire({
+                          title: 'Error en EDAD',
+                          html: '<p>La edad solo puede ser numerica.</p><p style="color:red;">Solo se admiten edades entre 18 y 99 años.</p>',
+                          type: 'error',
+                          confirmButtonText: 'OK',
+                          onAfterClose: () => {
+                            $("#txtEdad").focus();
+                          }
+                        });
                         return false;
-                        
                       }
-                        
-                    },
-                    error: function () {
-                      //console.log('nose q wa xd');
-                      Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
-                      return false;
                     }
-                  });
-                  
+                    /* numero de telefono */
+                    if ($("#txtFono").val().length>0) {
+                      if ($("#txtFono").val().length==8&&numCheck.test($("#txtFono").val())) {
+                        console.log("ingreso numero de telefono");
+                      }else{
+                        Swal.fire({
+                          title: 'Error en TELEFONO',
+                          html: '<p>El telefono solo deben ser numeros con un minimo de 8 numeros.</p><p style="color:red;">Se debe omitir el codigo de area.</p>',
+                          type: 'error',
+                          confirmButtonText: 'OK',
+                          onAfterClose: () => {
+                            $("#txtFono").focus();
+                          }
+                        });
+                        return false;
+                      }
+                    }
 
+                    /* en este punto todos los campos estan OK */
+                    /* Validacion campo recaptcha */
+                    let x=$('[name=formRegistro]').serialize();
+                    $.ajax({
+                      type: "POST",
+                      url: 'script/robot.php',
+                      data: x,
+                      dataType: "json",
+                      success: function (respuesta) {
+                        let z=respuesta;
+                        if (z.cod==0) {
+                          //console.log(z.msg);
+                          //****************************************
+                          //****En este punto todos los inputs fueron ingresados correctamente :) !
+                          //****************************************
+                          //no eres robot
+                          todoOK();
 
+                        } else if(z.cod==1){
+                          //console.log(z.msg);
+                          //si eres robot
+                          Swal.fire({ title: z.msg, text: "No olvide completar el campo ReCaptcha", type: "info", confirmButtonText: "OK" });
+                          return false;
+                          
+                        }
+                          
+                      },
+                      error: function () {
+                        //ha habido un error desconocido
+                        Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+                        return false;
+                      }
+                    });
+                  }else{
+                    /* las claves son distintas */
+                    Swal.fire({
+                      title: 'Error en CLAVE',
+                      html: '<p>Las claves <span style="color:red;">NO</span> coinciden</p>',
+                      type: 'error',
+                      confirmButtonText: 'OK',
+                      onAfterClose: () => {
+                        $("#txtClave").focus();
+                      }
+                    });
+                  }
                 }else{
                   /* error - clave 2 */
                   Swal.fire({
                     title: 'Error en REPETIR CLAVE',
                     html: '<p>La clave tiene un maximo de 30 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                     type: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    onAfterClose: () => {
+                      $("#txtClave2").focus();
+                    }
                   });
                 }
               }else{
@@ -171,7 +191,10 @@ $(function(){
                   title: 'Error en CLAVE',
                   html: '<p>La clave tiene un maximo de 30 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                   type: 'error',
-                  confirmButtonText: 'OK'
+                  confirmButtonText: 'OK',
+                  onAfterClose: () => {
+                    $("#txtClave").focus();
+                  }
                 });
               }
             }else{
@@ -180,7 +203,10 @@ $(function(){
                 title: 'Error en CORREO ELECTRONICO',
                 html: '<p>Ingresa un correo electronico valido.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                 type: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+                  $("#txtCorreo").focus();
+                }
               });
             }
           }else{
@@ -189,7 +215,10 @@ $(function(){
               title: 'Error en APELLIDO',
               html: '<p>Solo debes usar letras y con un maximo de 120 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
               type: 'error',
-              confirmButtonText: 'OK'
+              confirmButtonText: 'OK',
+              onAfterClose: () => {
+                $("#txtApelli").focus();
+              }
             });
           }
         }else{
@@ -198,7 +227,10 @@ $(function(){
             title: 'Error en NOMBRE',
             html: '<p>Solo debes usar letras y con un maximo de 120 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
             type: 'error',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            onAfterClose: () => {
+              $("#txtNombre").focus();
+            }
           });
 
         }
@@ -233,47 +265,53 @@ $(function(){
           $("#txtFono").val('0');
         }
 
-        let x=$('[name=formRegistro]').serialize();
+        let zzz="&TipoU=";
+        if($("#swTipoU").is(":checked")) {
+          zzz+="2";
+        }else{
+          zzz+="1";
+        }
+
+        let x=$('[name=formRegistro]').serialize()+zzz;
         console.log(x);
-        /*
+        
         $.ajax({
           type: "POST",
           url: 'script/regSocial.php',
           data: x,
           success: function (respuesta) {
-            let z=JSON.parse( respuesta );
+            console.log(respuesta);
+            let z=respuesta;
             if (z.cod==0) {
-              Swal.fire({ title: "Listo !", text: z.msg, type: "success", confirmButtonText: "OK" });
-              limpiar();
-            } else if(z.cod==1){
-              Swal.fire({ title: "Error", text: z.msg, type: "error", confirmButtonText: "OK" });
-              
-            } else if(z.cod==2){
-              Swal.fire({ title: z.msg, text: "No olvide completar el campo ReCaptcha", type: "info", confirmButtonText: "OK" });
-              
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Te enviamos un correo de bienvenida, disfruta de FIESTAPP !</p>',
+                type: 'success',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+                  window.location.href="comunidad.php";
+                }
+              });
+            }else if(z.cod==1){
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Intenta Otra Vez !</p>',
+                type: 'info',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
             }
-              
           },
-          error: function () {
-              limpiar();
-              Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+            limpio();
+            Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
           }
         });
-
-        $.post('carroTemp.php',
-          {Rut: _rut,Nombre: _nombre,Correo: _correo,Total: _total,Direccion: _direccion,Despacho: _despacho,Fono: _fono,Nota: _nota,Reg: _reg,Com: _com,Cal: _cal,Num: _num,Dep: _dep,Carro: _carro}, 
-          function(data, textStatus, xhr) {
-          //optional stuff to do after success 
-          window.location.href="create?Rut="+_rut+"&Nombre="+_nombre+"&Correo="+_correo+"&Total="+_total;
-        });
-      
-        Swal.fire({
-          title: ':)',
-          html: '<p>Tu cuenta sera creada con los siguientes datos.</p><p style="color:red;">'+$("#txtNombre").val()+'<br>'+$("#txtApelli").val()+'<br>'+$("#txtCorreo").val()+'<br>'+$("#txtClave").val()+'<br>'+$("#txtClave2").val()+'<br>'+$("#txtEdad").val()+'<br>'+$("#txtFono").val()+'<br>'+$("input[name='genero']:checked").val()+'</p>',
-          type: 'success',
-          confirmButtonText: 'OK'
-        });
-        */
       }
 
 });

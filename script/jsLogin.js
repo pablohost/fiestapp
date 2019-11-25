@@ -22,7 +22,36 @@ $(function(){
 
             /* en este punto se ingresaron los campos correctamente */
 
-            todoOK();
+            /* Validacion campo recaptcha */
+            let x=$('[name=formAcceso]').serialize();
+            $.ajax({
+              type: "POST",
+              url: 'script/robot.php',
+              data: x,
+              dataType: "json",
+              success: function (respuesta) {
+                let z=respuesta;
+                if (z.cod==0) {
+                  //console.log(z.msg);
+                  //****************************************
+                  //****En este punto todos los inputs fueron ingresados correctamente :) !
+                  //****************************************
+                  //no eres robot
+                  todoOK();
+
+                } else if(z.cod==1){
+                  //console.log(z.msg);
+                  //si eres robot
+                  Swal.fire({ title: z.msg, text: "No olvide completar el campo ReCaptcha", type: "info", confirmButtonText: "OK" });
+                  
+                }
+                  
+              },
+              error: function () {
+                //ha habido un error desconocido
+                Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+              }
+            });
             
           }else{
             /* error - clave */
@@ -50,13 +79,51 @@ $(function(){
 
       function todoOK(){
         Swal.fire({
-          title: ':)',
-          html: '<p>Datos ingresados correctamente</p>',
-          type: 'success',
-          confirmButtonText: 'OK'
+          title: '',
+          text: 'Cargando Perfil...',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
         });
 
-        limpio();
+        let x=$('[name=formAcceso]').serialize();
+        console.log(x);
+        
+        $.ajax({
+          type: "POST",
+          url: 'script/acceso.php',
+          data: x,
+          success: function (respuesta) {
+            console.log(respuesta);
+            if (respuesta.cod==0) {
+
+              //console.log(respuesta.msg);
+              window.location.href='../comunidad.php';
+              
+            }else if(respuesta.cod==1){
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Intenta Otra Vez !</p>',
+                type: 'error',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
+            }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+            Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+          }
+        });
 
       }
 

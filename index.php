@@ -187,7 +187,7 @@ YERKO ZABALETA
                         ¿Ya eres parte de la comunidad?
                     </h5> 
                     <p class="nosPar text-center"> 
-                        <a href="http://www.fiestapp.tk/loginC.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/comunidad.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-sign-in-alt"></i>
                             ACCEDER
                         </a>

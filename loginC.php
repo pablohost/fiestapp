@@ -2,6 +2,20 @@
 //Iniciamos la sesión
 session_start();
 
+if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
+  if ($_SESSION['tipo']==1) {
+    # code...
+    header("LOCATION:http://www.fiestapp.tk/comunidad.php");
+  } else if ($_SESSION['tipo']==2){
+    # code...
+    header("LOCATION:http://www.fiestapp.tk/portal.php");
+  } else if ($_SESSION['tipo']==3){
+    # code...
+    header("LOCATION:http://www.fiestapp.tk/panel.php");
+  }
+  
+}
+
 ?>
 <!DOCTYPE html> 
 <!-- 
@@ -38,7 +52,7 @@ YERKO ZABALETA
     <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
     <link rel="icon" type="image/png" href="../img/favicon.ico">
 </head> 
-<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(210, 199, 214,1);" class="text-center"> 
+<body style="font-family: 'Exo 2', sans-serif;background-color: rgba(210, 199, 214,1);" class="text-center" id="arriba"> 
     <!--******************navegador******************-->
     <?php 
 
@@ -50,13 +64,17 @@ YERKO ZABALETA
     <!-- ******************cuerpo****************** -->
 
     <br><br>
-    <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8">
+    <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8" name="formAcceso">
+      <input id="tipoUsu" name="tipoAcceso" type="hidden" value="1">
       <img class="mb-4 mt-5" src="../img/logo.png" alt="" height="125">
       <h1 class="h3 mb-3 font-weight-normal titLog">INICIAR SESION</h1>
       <label for="txtCorreo" class="sr-only">Correo Electronico</label>
       <input name="mailAcceso" type="email" id="txtCorreo" class="form-control" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
       <label for="txtClave" class="sr-only">Contraseña</label>
       <input name="passAcceso" type="password" id="txtClave" class="form-control" placeholder="********" autocomplete="off" required>
+      <p>
+        <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
+      </p>
       <button class="btn btn-lg btn-dark btn-block" type="submit" id="btnLogin">CONFIRMAR</button>
       <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar.php">CLICK AQUI</a></p>
       <hr>
@@ -96,6 +114,7 @@ YERKO ZABALETA
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body> 
  
