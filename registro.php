@@ -128,13 +128,13 @@ YERKO ZABALETA
                     <div class="form-check text-left">
                       <input class="form-check-input" type="radio" name="Genero" id="rdbFE" value="3">
                       <label class="form-check-label" for="rdbFE">
-                        Femenino
+                        Mujer
                       </label>
                     </div>
                     <div class="form-check text-left">
                       <input class="form-check-input" type="radio" name="Genero" id="rdbMA" value="4">
                       <label class="form-check-label" for="rdbMA">
-                        Masculino
+                        Hombre
                       </label>
                     </div>
                     <br>

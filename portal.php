@@ -13,20 +13,20 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
 	
 	if ($_SESSION['tipo']==1) {
 		# code...
-		include('perfil.php');
+		header("Location: comunidad.php");
     	die();
 	} else if ($_SESSION['tipo']==2){
 		# code...
-		header("Location: portal.php");
+		include('organizador.php');
     	die();
 	} else if ($_SESSION['tipo']==3){
 		# code...
-		header("Location: panel.php");
-		die();
+		header("Location: dios.php");
+    	die();
 	}
     
 } else {
-    include('loginC.php');
+    include('loginO.php');
     die();
 };
 

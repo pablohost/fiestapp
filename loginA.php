@@ -65,9 +65,10 @@ YERKO ZABALETA
 
     <br><br>
     <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8" name="formAcceso">
-      <input id="tipoUsu" name="tipoAcceso" type="hidden" value="1">
+      <input id="tipoUsu" name="tipoAcceso" type="hidden" value="3">
       <img class="mb-4 mt-5" src="../img/logo.png" alt="" height="125">
       <h1 class="h3 mb-3 font-weight-normal titLog">INICIAR SESION</h1>
+      <h4 class="h3 mb-3 font-weight-normal stitLog">Panel de administracion</h4>
       <label for="txtCorreo" class="sr-only">Correo Electronico</label>
       <input name="mailAcceso" type="email" id="txtCorreo" class="form-control" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
       <label for="txtClave" class="sr-only">Contraseña</label>
@@ -78,9 +79,6 @@ YERKO ZABALETA
       <button class="btn btn-lg btn-dark btn-block" type="submit" id="btnLogin">CONFIRMAR</button>
       <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar.php">CLICK AQUI</a></p>
       <hr>
-      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registro.php">REGISTRARSE</a></p>
-      <hr>
-      <p class="mt-3"> Eres organizador de eventos?, <a href="http://www.fiestapp.tk/portal.php">ACCEDER</a></p>
       <p class="mt-3 text-muted">&copy; www.fiestapp.cl</p>
       <p class="mt-3 text-muted">&copy; Inacap Puente Alto</p>
       <p class="mt-3 text-muted">&copy; 2019</p>

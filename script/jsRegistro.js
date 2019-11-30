@@ -302,6 +302,16 @@ $(function(){
 
                 }
               });
+            }else if(z.cod==2){
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Este correo electronico ya posee una cuenta activa en nuestra comunidad, prueba con otro!</p>',
+                type: 'error',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
             }
           },
           error: function (xhr, ajaxOptions, thrownError) {

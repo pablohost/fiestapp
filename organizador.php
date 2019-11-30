@@ -9,7 +9,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 //Comprobamos si la sesión está iniciada
 //Si existe una sesión correcta, mostramos la página para los usuarios
 //Sino, mostramos la página de acceso y registro de usuarios
-if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SESSION['tipo'] == 1) {
+if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SESSION['tipo'] == 2) {
     
 	?>
         
@@ -80,19 +80,19 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProm">
                         <i class="fas fa-tags fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">FOTOS</p>
+                        <p class="xlinkPortal">EVENTOS</p>
                     </a>
                 </div>
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkEsta">
                         <i class="fas fa-chart-line fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">AMIGOS</p>
+                        <p class="xlinkPortal">LOCALES</p>
                     </a>
                 </div>
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCuen">
                         <i class="fas fa-user-cog fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">EVENTOS</p>
+                        <p class="xlinkPortal">PROMOCIONES</p>
                     </a>
                 </div>
             </div>
@@ -148,7 +148,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
     <?php 
 
 } else {
-    include('comunidad.php');
+    include('panel.php');
     die();
 };
 

@@ -249,7 +249,7 @@ YERKO ZABALETA
                     Accede a tu cuenta
                 </p>
                 <p>
-                    <a href="http://www.fiestapp.tk/loginO.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                    <a href="http://www.fiestapp.tk/portal.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                         <i class="fas fa-sign-in-alt"></i>
                         ACCEDER
                     </a>
