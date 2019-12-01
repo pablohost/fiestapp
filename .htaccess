@@ -1,0 +1,30 @@
+ErrorDocument 404 http://www.fiestapp.tk/404
+# HTID:11126624: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:11126624:
+
+# Hide files not concerning the user
+RedirectMatch 404 \.(htaccess|htpasswd|ini|log|sh|inc|bak|bkp|sql)$
+
+
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+#RewriteRule ^([a-z]+)/?$ $1.php [NC]
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+#RewriteRule ^([a-z]+)/?$ $1.html [NC]
+
+
+
+</IfModule>

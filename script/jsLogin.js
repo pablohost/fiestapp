@@ -18,7 +18,7 @@ $(function(){
         /* correo electronico */
         if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<120&&emailCheck.test($("#txtCorreo").val())) {
           /* clave */
-          if ($("#txtClave").val().length>0&&$("#txtClave").val().length<30) {
+          if ($("#txtClave").val().length>5&&$("#txtClave").val().length<30) {
 
             /* en este punto se ingresaron los campos correctamente */
 
@@ -57,7 +57,7 @@ $(function(){
             /* error - clave */
             Swal.fire({
               title: 'Error en CLAVE',
-              html: '<p>La clave tiene un maximo de 30 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+              html: '<p>La clave tiene un maximo de 30 caracteres y un minimo de 6.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
               type: 'error',
               confirmButtonText: 'OK'
             });
@@ -103,7 +103,7 @@ $(function(){
             if (respuesta.cod==0) {
 
               //console.log(respuesta.msg);
-              window.location.href='../comunidad.php';
+              window.location.href='../comunidad';
               
             }else if(respuesta.cod==1){
               Swal.fire({

@@ -24,12 +24,12 @@ $passPOST = $_POST["passAcceso"];
 //Definimos la cantidad máxima de caracteres
 //Esta comprobación se tiene en cuenta por si se llegase a modificar el "maxlength" del formulario
 //Los valores deben coincidir con el tamaño máximo de la fila de la base de datos
-$maxCaracteresUsername = "30";
+$maxCaracteresUsername = "120";
 $maxCaracteresPassword = "30";
 
 //Si los input son de mayor tamaño, se "muere" el resto del código y muestra la respuesta correspondiente
 if(strlen($userPOST) > $maxCaracteresUsername) {
-	echo json_encode(arreglo('El correo electronico no puede superar los '.$maxCaracteresUsername.' caracteres',0), JSON_FORCE_OBJECT);
+	echo json_encode(arreglo('El correo electronico no puede superar los '.$maxCaracteresUsername.' caracteres',1), JSON_FORCE_OBJECT);
 	die();
 };
 

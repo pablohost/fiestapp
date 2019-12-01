@@ -13,7 +13,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
 	
 	if ($_SESSION['tipo']==1) {
 		# code...
-		header("Location: comunidad.php");
+		header("Location: comunidad");
     	die();
 	} else if ($_SESSION['tipo']==2){
 		# code...
@@ -21,12 +21,12 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
     	die();
 	} else if ($_SESSION['tipo']==3){
 		# code...
-		header("Location: dios.php");
+		header("Location: dios");
     	die();
 	}
     
 } else {
-    include('loginO.php');
+    include('login.php');
     die();
 };
 

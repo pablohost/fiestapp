@@ -80,9 +80,9 @@ $(function(){
             /* correo electronico */
             if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<120&&emailCheck.test($("#txtCorreo").val())) {
               /* clave */
-              if ($("#txtClave").val().length>0&&$("#txtClave").val().length<30) {
+              if ($("#txtClave").val().length>5&&$("#txtClave").val().length<30) {
                 /* repite clave */
-                if ($("#txtClave2").val().length>0&&$("#txtClave2").val().length<30) {
+                if ($("#txtClave2").val().length>5&&$("#txtClave2").val().length<30) {
                   /* compara las claves*/
                   if ($("#txtClave").val()===$("#txtClave2").val()) {
                     console.log("campos obligatorios OK");
@@ -177,7 +177,7 @@ $(function(){
                   /* error - clave 2 */
                   Swal.fire({
                     title: 'Error en REPETIR CLAVE',
-                    html: '<p>La clave tiene un maximo de 30 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+                    html: '<p>La clave tiene un maximo de 30 caracteres y un minimo de 6.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                     type: 'error',
                     confirmButtonText: 'OK',
                     onAfterClose: () => {
@@ -189,7 +189,7 @@ $(function(){
                 /* error - clave */
                 Swal.fire({
                   title: 'Error en CLAVE',
-                  html: '<p>La clave tiene un maximo de 30 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+                  html: '<p>La clave tiene un maximo de 30 caracteres y un minimo de 6.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                   type: 'error',
                   confirmButtonText: 'OK',
                   onAfterClose: () => {

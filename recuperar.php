@@ -50,15 +50,18 @@ YERKO ZABALETA
     <!-- ******************cuerpo****************** -->
 
     <br><br>
-    <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8">
+    <form class="form-signin mt-5" method="POST" id="acceso" action="" accept-charset="utf-8" name="formRecu">
       <img class="mb-4 mt-5" src="../img/logo.png" alt="" height="125">
       <h1 class="h3 mb-3 font-weight-normal titLog">OLVIDE MI CLAVE</h1>
       <p class="mt-3">Ingresa el correo electronico con el que te registraste, te enviaremos un mail con los pasos a seguir</p>
       <hr>
       <label for="inputEmail" class="sr-only">Correo Electronico</label>
-      <input name="mailAcceso" type="email" id="inputEmail" class="form-control mb-2" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
-      <button class="btn btn-lg btn-outline-success btn-block" type="submit">Confirmar</button>
-      <p class="mt-3">Recordaste tu clave ? <a href="http://www.fiestapp.tk/loginC.php">INICIA SESION</a></p>
+      <input name="mailAcceso" type="email" id="txtCorreo" class="form-control mb-2" placeholder="ejemplo@gmail.com" autocomplete="off" required autofocus>
+      <p>
+        <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
+      </p>
+      <button class="btn btn-lg btn-dark btn-block" type="submit" id="btnRecu">Confirmar</button>
+      <p class="mt-3">Recordaste tu clave ? <a href="http://www.fiestapp.tk/comunidad">INICIA SESION</a></p>
       <p class="mt-3 text-muted">&copy; www.fiestapp.cl</p>
       <p class="mt-3 text-muted">&copy; Inacap Puente Alto</p>
       <p class="mt-3 text-muted">&copy; 2019</p>
@@ -85,11 +88,14 @@ YERKO ZABALETA
 
     <!--script propios--> 
     <script src="script/jsGlobal.js"></script>
+    <script src="script/jsRecuperar.js"></script>
  
     <!--script externos--> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="https://unpkg.com/popper.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </body> 
  

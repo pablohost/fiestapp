@@ -17,16 +17,16 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
     	die();
 	} else if ($_SESSION['tipo']==2){
 		# code...
-		header("Location: portal.php");
+		header("Location: portal");
     	die();
 	} else if ($_SESSION['tipo']==3){
 		# code...
-		header("Location: panel.php");
+		header("Location: panel");
 		die();
 	}
     
 } else {
-    include('loginC.php');
+    include('login.php');
     die();
 };
 

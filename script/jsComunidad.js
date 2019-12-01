@@ -20,7 +20,7 @@ $(function(){
 				    // Read more about handling dismissals
 				    result.dismiss === Swal.DismissReason.timer
 				  ) {
-				    window.location.href='http://www.fiestapp.tk/comunidad.php';
+				    window.location.href='http://www.fiestapp.tk/comunidad';
 				  }
 				});
 		    } else {

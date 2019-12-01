@@ -51,7 +51,7 @@ YERKO ZABALETA
     <!-- ******************cuerpo****************** -->
     <div class="container pt-5 mt-5 text-center">
       <h1 class="titRegistro">REGISTRO DE USUARIOS</h1>
-      <p class="mt-3 mb-0 text-white helpCute"> Ya tienes una cuenta?, <a style="color: #ffc107!important;" href="http://www.fiestapp.tk/loginC.php">CLICK AQUI</a></p>
+      <p class="mt-3 mb-0 text-white helpCute"> Ya tienes una cuenta?, <a style="color: #ffc107!important;" href="http://www.fiestapp.tk/comunidad">CLICK AQUI</a></p>
       <hr class="hrCute">
     </div>
     

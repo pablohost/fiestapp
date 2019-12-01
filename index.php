@@ -158,7 +158,7 @@ YERKO ZABALETA
                         ¿Aun no tienes una cuenta?
                     </h5> 
                     <p class="nosPar text-center"> 
-                        <a href="http://www.fiestapp.tk/registro.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/registro" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-user-plus"></i>
                             UNIRTE
                         </a>
@@ -187,7 +187,7 @@ YERKO ZABALETA
                         ¿Ya eres parte de la comunidad?
                     </h5> 
                     <p class="nosPar text-center"> 
-                        <a href="http://www.fiestapp.tk/comunidad.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/comunidad" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             <i class="fas fa-sign-in-alt"></i>
                             ACCEDER
                         </a>
@@ -238,7 +238,7 @@ YERKO ZABALETA
                     ¿Aun no tienes una cuenta de organizador?
                 </p>
                 <p>
-                    <a href="http://www.fiestapp.tk/registro.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                    <a href="http://www.fiestapp.tk/registro" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                         <i class="fas fa-user-plus"></i>
                         UNIRTE
                     </a>
@@ -249,7 +249,7 @@ YERKO ZABALETA
                     Accede a tu cuenta
                 </p>
                 <p>
-                    <a href="http://www.fiestapp.tk/portal.php" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                    <a href="http://www.fiestapp.tk/portal" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                         <i class="fas fa-sign-in-alt"></i>
                         ACCEDER
                     </a>

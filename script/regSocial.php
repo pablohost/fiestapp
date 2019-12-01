@@ -20,6 +20,8 @@ function arreglo($msg,$cod){
 if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"]) && isset($_POST["Clave1"]) && isset($_POST["Clave2"]) && isset($_POST["Genero"]) && isset($_POST["Edad"]) && isset($_POST["Fono"]) && isset($_POST["TipoU"])) {
 	// se encripta la clave
 	$Clave=password_hash($_POST["Clave1"], PASSWORD_DEFAULT);
+	//se crea codigo de seguridad para recuperar clave
+	$Seg="fiestapp".rand(100000, 999999);
 
 	//**********COMPROBAR QUE DIRECCION DE CORREO ELECTRONICO NO EXISTA EN UNA CUENTA ACTIVA
 	// conectar la base da datos 
@@ -57,7 +59,7 @@ if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"])
 	
 
 	// tabla 1 
-	$sql = 'INSERT INTO Usuarios(indTip,indGen,priv,correo,clave,nombre,apelli,fono,edad,estado) VALUES (:valTipo,:valGen,:valPriv,:valCor,:valCla,:valNom,:valApe,:valFono,:valEdad,:valEst);'; 
+	$sql = 'INSERT INTO Usuarios(indTip,indGen,priv,correo,clave,nombre,apelli,fono,edad,estado,foto,seg) VALUES (:valTipo,:valGen,:valPriv,:valCor,:valCla,:valNom,:valApe,:valFono,:valEdad,:valEst,:valFoto,:valSeg);'; 
 	$result = $conn->prepare($sql); 
 	$result->bindValue(':valTipo', $_POST["TipoU"], PDO::PARAM_INT);
 	$result->bindValue(':valGen', $_POST["Genero"], PDO::PARAM_INT);
@@ -69,6 +71,8 @@ if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"])
 	$result->bindValue(':valFono', $_POST["Fono"], PDO::PARAM_STR);
 	$result->bindValue(':valEdad', $_POST["Edad"], PDO::PARAM_INT);
 	$result->bindValue(':valEst', 0, PDO::PARAM_INT);
+	$result->bindValue(':valFoto', "galeriaComunidad/fiestero.jpg", PDO::PARAM_STR);
+	$result->bindValue(':valSeg', $Seg, PDO::PARAM_STR);
 	$result->execute(); 
 	$conn->commit(); 
 
@@ -136,7 +140,7 @@ if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"])
 
 	    // Content
 	    $mail->isHTML(true);                                  // Set email format to HTML
-	    $mail->Subject = 'Bienvenido '.$_POST["Nombre"];
+	    $mail->Subject = 'Bienvenide '.$_POST["Nombre"];
 	    $mail->Body    = '<html><head></head><body><h1>Bienvenide a FiestApp '.$_POST["Nombre"].' '.$_POST["Apelli"].'</h1><hr>
 	    <h2>Estos son los datos de tu cuenta, disfruta de la comunidad!</h2>
 	    <p><h3>- Nombre -</h3>'. $_POST["Nombre"] .'</p>

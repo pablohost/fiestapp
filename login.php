@@ -76,11 +76,9 @@ YERKO ZABALETA
         <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
       </p>
       <button class="btn btn-lg btn-dark btn-block" type="submit" id="btnLogin">CONFIRMAR</button>
-      <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar.php">CLICK AQUI</a></p>
+      <p class="mt-3"> Olvidaste la contraseña?, <a href="http://www.fiestapp.tk/recuperar">CLICK AQUI</a></p>
       <hr>
-      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registro.php">REGISTRARSE</a></p>
-      <hr>
-      <p class="mt-3"> Eres organizador de eventos?, <a href="http://www.fiestapp.tk/portal.php">ACCEDER</a></p>
+      <p class="mt-3"> Aun no tienes una cuenta?, <a href="http://www.fiestapp.tk/registro">REGISTRARSE</a></p>
       <p class="mt-3 text-muted">&copy; www.fiestapp.cl</p>
       <p class="mt-3 text-muted">&copy; Inacap Puente Alto</p>
       <p class="mt-3 text-muted">&copy; 2019</p>

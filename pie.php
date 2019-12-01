@@ -40,7 +40,7 @@ echo '
                         <a href="#" class="linkPIE" id=""><i class="fas fa-bullhorn fa-1x"></i> Crea tu Evento !</a>
                     </p>
                     <p class="cuePIE"> 
-                        <a href="http://www.fiestapp.tk/registro.php" class="linkPIE" id=""><i class="fas fa-users fa-1x"></i> Unete a la comunidad !</a>
+                        <a href="http://www.fiestapp.tk/registro" class="linkPIE" id=""><i class="fas fa-users fa-1x"></i> Unete a la comunidad !</a>
                     </p>
                      
                 </div>
