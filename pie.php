@@ -37,7 +37,7 @@ echo '
                         <a href="http://www.fiestapp.tk/#evento" class="linkPIE" id=""><i class="fas fa-map-marked-alt fa-1x"></i> Encuentra Eventos !</a>
                     </p>
                     <p class="cuePIE"> 
-                        <a href="#" class="linkPIE" id=""><i class="fas fa-bullhorn fa-1x"></i> Crea tu Evento !</a>
+                        <a href="http://www.fiestapp.tk/crearEventos" class="linkPIE" id=""><i class="fas fa-bullhorn fa-1x"></i> Crea tu Evento !</a>
                     </p>
                     <p class="cuePIE"> 
                         <a href="http://www.fiestapp.tk/registro" class="linkPIE" id=""><i class="fas fa-users fa-1x"></i> Unete a la comunidad !</a>

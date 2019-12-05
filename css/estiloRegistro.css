@@ -9,21 +9,27 @@
     padding: 30px 15px;
 }
 .titRegistro{
-    color: rgba(237,237,237,1);
+    color: rgba(225, 173, 7,1);
     font-size: 3rem;
     font-weight: 700;
-    text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px 10px #000;
 }
 .titBox{
 	color: rgba(74, 20, 140,.7);
+}
+.titBoxEve{
+    color: rgba(225, 173, 7, 1);
 }
 .titInput{
 	font-weight: 500;
 	text-align: center!important;
 }
-.boxDatos{
+.boxDatos, .boxDatosEve{
     border-radius: 20px 20px 20px 20px;
     background-color: rgb(237, 237, 237);
+}
+.boxDatosEve{
+    border: 2px solid rgba(225, 173, 7, 1);
 }
 .boxPedido{
 	background-color: rgba(173,173,173,1);
@@ -85,5 +91,7 @@ input[type=checkbox], input[type=radio] {
 	    font-size: 5rem;
 	    padding-top: 3rem;
 	}
-
+    .titBoxEve, .titBox{
+        font-size: 2rem;
+    }
 }

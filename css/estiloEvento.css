@@ -1,0 +1,43 @@
+/*============================================*/ 
+/*-------nativo de  movil---------*/ 
+/*============================================*/ 
+.fotoEvento {
+    max-height: 500px;
+    max-width: 100%;
+}
+.boxEvento{
+	background-color: white;
+}
+.paleEvento{
+    margin-top: 1rem!important;
+}
+/*============================================*/ 
+/*-------cuando se agranda celu largo---------*/ 
+/*============================================*/ 
+@media (min-width: 576px){
+
+    .paleEvento{
+        margin-top: 2rem!important;
+    }
+} 
+/*============================================*/ 
+/*-------cuando se agranda a tablet---------*/ 
+/*============================================*/ 
+@media (min-width: 768px) {
+	
+} 
+/*============================================*/ 
+/*-------cuando se agranda notebook---------*/ 
+/*============================================*/ 
+@media (min-width: 992px){  
+    
+}
+
+/*============================================*/ 
+/*-------cuando se agranda a fullhd---------*/ 
+/*============================================*/ 
+@media (min-width:1200px) {
+   .paleEvento{
+        margin-top: 3rem!important;
+    }
+}

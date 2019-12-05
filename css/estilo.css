@@ -1,7 +1,21 @@
 /*============================================*/ 
 /*-------nativo de  movil---------*/ 
 /*============================================*/ 
-
+.boxDes{
+    background-color: rgba(255,255,255,.85);
+}
+.hvr-grow {
+    display: block!important;
+}
+.boxEve{
+    padding: 1rem;
+    word-wrap: break-word;
+}
+.formEve{
+    border: 2px solid rgba(86, 0, 39, 1);
+    background-size: cover;
+    background-position: center;
+}
 .cateCute{
     padding-bottom: 3rem!important;
 }
@@ -84,11 +98,8 @@
     padding-bottom: 3rem!important;
 
 }
-.fotoProdX{
-    height: 220px; 
-}
-.fotoProd{
-    height: 140px;
+.boxFoto{
+    height: 160px;
 }
 .stitProd{ 
     margin: 0;
@@ -473,11 +484,8 @@
         border-right: 2px solid white;
     }
     
-    .boxProd{
-        height: 350px;
-    }
-    .fotoProd{
-        height: 225px; 
+    .boxFoto{
+        height: 250px; 
     }
     .infoProd{
         font-size: 1.15rem; 
@@ -572,6 +580,7 @@
     .navbar-expand-lg .navbar-nav .nav-link {
         /* padding-right: .5rem; */
         padding-right: 0rem;
+        padding-left: 0rem;
     }
 } 
 /*============================================*/ 

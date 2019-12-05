@@ -12,6 +12,19 @@ $(function(){
         /* Act on the event */
         event.preventDefault();
 
+        Swal.fire({
+          title: '',
+          text: '',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
+        });
+
         let emailCheck = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
 
         /* correo electronico */
@@ -68,6 +81,19 @@ $(function(){
       $("#btnNeoClave").click(function(event) {
         /* Act on the event */
         event.preventDefault();
+
+        Swal.fire({
+          title: '',
+          text: '',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
+        });
 
         if ($("#txtClave1").val().length>5&&$("#txtClave1").val().length<30&&$("#txtClave2").val().length>5&&$("#txtClave2").val().length<30) {
           if ($("#txtClave1").val()===$("#txtClave2").val()) {

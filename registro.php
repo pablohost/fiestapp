@@ -61,7 +61,7 @@ YERKO ZABALETA
                 <div class="col-12 boxDatos form-group">
                     <!--Filtro de Menores de Edad-->
                     <h4 class="titBox text-center"><i class="fas fa-user-tie"></i> Eres mayor de edad? </h4>
-                    <hr>
+                    <hr style="border: 2px solid rgba(74, 20, 140,.7)">
                     
                     <div class="custom-control custom-switch text-center pb-2" style="padding-left: 0rem!important">
                       <span style="margin-right: 2.4rem;">NO</span>
@@ -72,7 +72,7 @@ YERKO ZABALETA
                 <div class="col-12 boxDatos form-group">
                     <!--Tipo de Usuario-->
                     <h4 class="titBox text-center"><i class="fas fa-people-carry"></i> Eres organizador de eventos? </h4>
-                    <hr>
+                    <hr style="border: 2px solid rgba(74, 20, 140,.7)">
                     <div class="custom-control custom-switch text-center pb-2" style="padding-left: 0rem!important">
                       <span style="margin-right: 2.4rem;">NO</span>
                       <input type="checkbox" class="custom-control-input" id="swTipoU">
@@ -83,7 +83,7 @@ YERKO ZABALETA
                 <!--REQUERIDA-->
                 <div class="col-12 col-md-5 boxDatos form-group">
                     <h4 class="titBox text-center"><i class="fas fa-address-card"></i> Informacion Requerida </h4>
-                    <hr>
+                    <hr style="border: 2px solid rgba(74, 20, 140,.7)">
                     <p class="text-muted">Este nombre sera mostrado en tu perfil publico</p>
                     <!--Nombre-->
                     <span class="titInput">Nombre</span>
@@ -109,7 +109,7 @@ YERKO ZABALETA
                 <!--OPCIONAL-->
                 <div class="col-12 col-md-5 boxDatos form-group">
                     <h4 class="titBox text-center"><i class="fas fa-heart"></i> Informacion Opcional </h4>
-                    <hr>
+                    <hr style="border: 2px solid rgba(74, 20, 140,.7)">
                     <p class="text-muted">Cuentanos un poco mas de ti.</p>
                     <!--Genero-->
                     <span class="titInput">Genero</span>

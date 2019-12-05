@@ -1,4 +1,8 @@
 $(function(){
+
+	listLoading();
+  	sendRequest_Cate(0);
+  	$("#helpCate").html("Todos");
         
 	//********animacion del header typed.js*********
 
@@ -62,3 +66,24 @@ $(function(){
 	});
       
 });
+
+function chekea(){
+  ScrollReveal().sync();
+}
+
+function listLoading() {
+  $("#listaEventos").empty();
+  $("#helpCate").empty();
+  $("#listaEventos").html("<div class='spinner-grow text-warning' style='width: 12rem; height: 10rem;' role='status'><span class='sr-only'>Cargando...</span></div>");
+}
+
+function sendRequest_Cate(cate) {
+  $.post('script/cargaEventos.php',
+    {x: cate},
+    function(data, textStatus, xhr) {
+    /*optional stuff to do after success */
+    $("#listaEventos").empty();
+    $("#listaEventos").html(data);
+    setTimeout("chekea()",2000)
+  });
+}

@@ -117,7 +117,7 @@ YERKO ZABALETA
                         </a> 
                     </div> 
                     <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="#evento" class="hvr-buzz js-scroll-trigger" id="linkCategoria3"> 
+                        <a href="http://www.fiestapp.tk/crearEventos" class="hvr-buzz js-scroll-trigger" id="linkCategoria3"> 
                             <img src="img/cat3.jpg" class="imgCate"><span class="titCate"> CREA TU PROPIO EVENTO </span> 
                         </a> 
                     </div>
@@ -138,7 +138,7 @@ YERKO ZABALETA
     </div> 
     <br>
     <!-- ***********************Lista de Eventos*********************** -->
-    <div class="container text-center" style="" id="evento">
+    <div class="container-fluid text-center" style="" id="evento">
         <span class="headCate">EVENTOS</span>
         <p style="font-size: 1.8rem;color: rgba(18, 0, 94, 0.60);">Categoria: <span id="helpCate"></span></p>
         <div class="row" style="margin: 0px; min-height: 400px;" id="listaEventos">

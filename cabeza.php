@@ -35,7 +35,7 @@ echo '
                     <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#publicidad" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
                     
                     <li class="nav-item navSpace mr-4" style="padding-top: 5px;">
-                        <a href="#" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/crearEventos" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
                             CREA TU EVENTO !
                         </a>
                     </li> 
