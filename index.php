@@ -34,7 +34,7 @@ YERKO ZABALETA
     <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head> 
-<body style="font-family: 'Exo 2', sans-serif;"> 
+<body style="font-family: 'Exo 2', sans-serif;background-color: lightgray;"> 
     <!--******************navegador******************-->
     <?php 
 
@@ -48,7 +48,7 @@ YERKO ZABALETA
     <header class="container-fluid imgFondo d-flex" id="arriba"> 
         <div class="row">
             <div class="col-12 px-0">
-                <video src="vid/vid2.mp4" class="video inicio1 d-none d-lg-block" poster="" autoplay="" muted="" loop id="videobanner"></video>
+                <video src="vid/vid3.mp4" class="video inicio1 d-none d-lg-block" poster="" autoplay="" muted="" loop id="videobanner"></video>
             </div>
             <div class="col-12 celuCute">
                 <!-- ******************subtitulo****************** --> 

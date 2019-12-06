@@ -103,7 +103,13 @@ $(function(){
             if (respuesta.cod==0) {
 
               //console.log(respuesta.msg);
-              window.location.href='../comunidad';
+              if (respuesta.tip==1) {
+                window.location.href='../comunidad?perfil='+respuesta.nom+'&tipo='+respuesta.tip+'&ind='+respuesta.ind;
+              } else if (respuesta.tip==2){
+                window.location.href='../portal?perfil='+respuesta.nom+'&tipo='+respuesta.tip+'&ind='+respuesta.ind;
+              } else if (respuesta.tip==3){
+                window.location.href='../panel?perfil='+respuesta.nom+'&tipo='+respuesta.tip+'&ind='+respuesta.ind;
+              }
               
             }else if(respuesta.cod==1){
               Swal.fire({

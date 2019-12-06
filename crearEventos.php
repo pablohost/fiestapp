@@ -321,9 +321,6 @@ YERKO ZABALETA
         </form>
     </div>
     <br><br>
-<button class="btn btn-warning btn-lg btn-block" id="btnXD" type="button" style="font-weight: 700;"> 
-                        XDXD <i class="fas fa-check"></i>
-                    </button> 
 
     
     <!-- ******************pie de pagina****************** --> 

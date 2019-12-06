@@ -354,7 +354,7 @@ $(function(){
          /* titulo evento */
         if ($("#txtTituloEve").val().length>0&&$("#txtTituloEve").val().length<150) {
            /* descripcion evento */
-          if ($("#txtDescEve").val().length<650) {
+          if ($("#txtDescEve").val().length<1950) {
              /* foto o flyer del evento */
             if ($("#flFotoEve").val()!="") {
               console.log($("#flFotoEve").val());
@@ -635,7 +635,7 @@ $(function(){
             /* error - descripcion evento */
             Swal.fire({
               title: 'Error en DESCRIPCION EVENTO',
-              html: '<p>La descripcion tiene un maximo de 650 caracteres.</p>',
+              html: '<p>La descripcion tiene un maximo de 2000 caracteres.</p>',
               type: 'error',
               confirmButtonText: 'OK',
               onAfterClose: () => {

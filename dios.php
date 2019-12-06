@@ -30,7 +30,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
         <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
         <link rel="stylesheet" href="/css/estilo.css">
-        <link rel="stylesheet" href="/css/estiloPortal.css">
+        <link rel="stylesheet" href="/css/estiloPerfil.css">
         <link rel="icon" type="image/png" href="../img/favicon.ico">
          
         <!--******************extra******************--> 
@@ -73,25 +73,25 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
             <div class="row">
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProd">
-                        <i class="fas fa-boxes fa-3x hvr-icon"></i>
+                        <i class="fas fa-cogs fa-3x hvr-icon"></i>
                         <p class="xlinkPortal">GESTION</p>
                     </a>
                 </div>
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProm">
-                        <i class="fas fa-tags fa-3x hvr-icon"></i>
+                        <i class="fas fa-calendar-alt fa-3x hvr-icon"></i>
                         <p class="xlinkPortal">EVENTOS</p>
                     </a>
                 </div>
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkEsta">
-                        <i class="fas fa-chart-line fa-3x hvr-icon"></i>
+                        <i class="fas fa-users fa-3x hvr-icon"></i>
                         <p class="xlinkPortal">USUARIOS</p>
                     </a>
                 </div>
                 <div class="col-6 col-md-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCuen">
-                        <i class="fas fa-user-cog fa-3x hvr-icon"></i>
+                        <i class="fas fa-users-cog fa-3x hvr-icon"></i>
                         <p class="xlinkPortal">CUENTAS</p>
                     </a>
                 </div>

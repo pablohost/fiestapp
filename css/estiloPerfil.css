@@ -1,0 +1,114 @@
+/*============================================*/ 
+/*-------nativo de  movil---------*/ 
+/*============================================*/ 
+.hvr-icon-fade:active .hvr-icon, .hvr-icon-fade:focus .hvr-icon, .hvr-icon-fade:hover .hvr-icon {
+    color: rgba(86, 0, 39,.7)!important;
+}
+
+.navbar-nav .nav-item {
+    border-left: 2px solid rgba(18, 0, 94,0.5);
+    padding-right: 20px;
+    padding-left: .2rem;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(18, 0, 94, 1)!important;
+}
+
+.navPortal{
+  padding: 25px;
+}
+
+.navPortalX{
+  padding: 5px;
+}
+
+#txtValPro{
+  width: auto;
+  display: inline-block;
+}
+.titPortal{
+  color:rgba(0, 51, 0,0.9);
+  font-size: 4rem;
+}
+.linkPortal{
+  text-decoration: none;
+  color: rgba(0,0,0,0.8);
+}
+.linkPortal:hover{
+  color: inherit!important;
+}
+.xlinkPortal{
+  font-size: 1.2rem;
+  font-family: 'Exo 2', sans-serif;
+}
+.boxNav{
+  border-bottom: 15px solid rgba(18, 0, 94,0.9);
+}
+
+.btnAgregaP{
+  width: 100%;
+}
+
+.btnEditarP{
+  margin-top: 40px;
+}
+.btnBorrarP{
+  margin-top: 40px;
+}
+
+.boxBuscarP .form-control{
+  width:220px;
+  display: inline-block;
+}
+.boxBuscarP .btn{
+  vertical-align: inherit;
+}
+
+#txtBuscarP{
+  width: auto;
+  display: inline-block;
+}
+.boxProd{
+  height: unset!important;
+  margin-top: 15px!important;
+  border-bottom: 2px solid green!important;
+}
+.formCute{
+  margin-bottom: .2rem;
+  text-align: left;
+  font-size: .8rem;
+  font-style: italic;
+}
+.btnEditPro{
+  margin: 5px;
+}
+/*============================================*/ 
+/*-------cuando se agranda celu largo---------*/ 
+/*============================================*/ 
+@media (min-width: 576px){
+
+} 
+/*============================================*/ 
+/*-------cuando se agranda a tablet---------*/ 
+/*============================================*/ 
+@media (min-width: 768px) {
+	.tit404{
+        font-size: 15rem;
+    }
+} 
+/*============================================*/ 
+/*-------cuando se agranda notebook---------*/ 
+/*============================================*/ 
+@media (min-width: 992px){  
+    .xlinkPortal{
+        font-size: 2rem;
+    }
+}
+
+/*============================================*/ 
+/*-------cuando se agranda a fullhd---------*/ 
+/*============================================*/ 
+@media (min-width:1200px) {
+   
+}

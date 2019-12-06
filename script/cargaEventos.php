@@ -61,10 +61,10 @@ function consultaCategoria($x){
 									</a>
 									</div>
 									<div class="col-6">
-										<p class="text-muted mb-1">'.$row['nombre'].'</p>
+										<p class="text-muted mb-1"><i class="fas fa-map-marker-alt"></i> '.$row['nombre'].'</p>
 									</div>
 									<div class="col-6">
-										<p class="text-muted">'.ucfirst(strftime("%a, %d de %B", strtotime($row['fecIni']))).'</p>
+										<p class="text-muted"><i class="fas fa-calendar-day"></i> '.ucfirst(strftime("%a, %d de %B", strtotime($row['fecIni']))).'</p>
 									</div>
 								</div>
 							</div>

@@ -10,21 +10,25 @@ error_reporting(E_ALL ^ E_NOTICE);
 //Si existe una sesión correcta, mostramos la página para los usuarios
 //Sino, mostramos la página de acceso y registro de usuarios
 if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
-	
-	if ($_SESSION['tipo']==1) {
+	if (isset($_GET['perfil'])&&isset($_GET['tipo'])&&isset($_GET['ind'])) {
 		# code...
-		include('perfil.php');
+		if ($_SESSION['tipo']==1) {
+			# code...
+			include('perfil.php');
+    		die();
+		} else if ($_SESSION['tipo']==2){
+			# code...
+			header("Location: portal?perfil=".$_SESSION['nombre']."&tipo=".$_SESSION['tipo']."&ind=".$_SESSION['objetivo']);
+	    	die();
+		} else if ($_SESSION['tipo']==3){
+			# code...
+			header("Location: panel?perfil=".$_SESSION['nombre']."&tipo=".$_SESSION['tipo']."&ind=".$_SESSION['objetivo']);
+	    	die();
+		}
+	}else{
+		header("Location: comunidad?perfil=".$_SESSION['nombre']."&tipo=".$_SESSION['tipo']."&ind=".$_SESSION['objetivo']);
     	die();
-	} else if ($_SESSION['tipo']==2){
-		# code...
-		header("Location: portal");
-    	die();
-	} else if ($_SESSION['tipo']==3){
-		# code...
-		header("Location: panel");
-		die();
 	}
-    
 } else {
     include('login.php');
     die();

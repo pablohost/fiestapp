@@ -53,13 +53,16 @@ YERKO ZABALETA
           try { 
 
             // BUSCAMOS EL CORREO
-            $sql = 'SELECT Eventos.ind,Eventos.fecIni,Eventos.fecFin,Eventos.titulo,Eventos.des,Eventos.fly,Eventos.estado,Eventos.boleto,Locales.lon,Locales.lat,Locales.nombre,Locales.ind,CapPersonas.max,CapPersonas.uso,Estacionamientos.max,Estacionamientos.uso
+            $sql = 'SELECT Eventos.ind,Eventos.fecIni,Eventos.fecFin,Eventos.titulo,Eventos.des,Eventos.fly,Eventos.estado,Eventos.boleto,Locales.lon,Locales.lat,Locales.nombre,Locales.ind,CapPersonas.max,CapPersonas.uso,Estacionamientos.max,Estacionamientos.uso,Usuarios.nombre,Usuarios.apelli,Usuarios.ind
                     FROM Eventos 
                     INNER JOIN Locales ON Eventos.indLoc = Locales.ind
                     INNER JOIN CapPersonas ON Locales.indCap = CapPersonas.ind
                     INNER JOIN Estacionamientos ON Locales.indEst = Estacionamientos.ind
+                    INNER JOIN Sinapsis ON Eventos.ind = Sinapsis.indEve
+                    INNER JOIN Usuarios ON Sinapsis.indUsu = Usuarios.ind
                     WHERE Eventos.ind=:valInd
-                    AND Eventos.estado=0;';
+                    AND Eventos.estado=0
+                    AND Sinapsis.nivel=0;';
 
             $result = $conn->prepare($sql); 
             $result->bindValue(':valInd', $_GET['x'], PDO::PARAM_INT); 
@@ -90,6 +93,8 @@ YERKO ZABALETA
                 $personasUso=$row[13];
                 $estacionamientosMax=$row[14];
                 $estacionamientosUso=$row[15];
+                $nombreOrganizador=$row[16]." ".$row[17];
+                $indiceOrganizador=$row[18];
 
                 //Calculamos y formateamos la fecha del evento - un dia corresponde a 86400
                 setlocale(LC_TIME, 'es_CL.UTF-8');
@@ -99,6 +104,9 @@ YERKO ZABALETA
                 $difInicio = $fechaInicioNum - $fechaNow;
                 $dias = round($difInicio/86400, 0, PHP_ROUND_HALF_DOWN);
                 $fechaInicioCute=ucfirst(strftime("%A, %d de %B del %Y", $fechaInicioNum));
+                //formateamos los horarios del evento
+                $hrInicio=date("H:i",$fechaInicioNum);
+                $hrFin=date("H:i",$fechaFinNum);
 
                 
 
@@ -109,7 +117,7 @@ YERKO ZABALETA
               <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
               <link rel="icon" type="image/png" href="../img/favicon.ico">
           </head> 
-          <body style="font-family: 'Exo 2', sans-serif;background-color: rgba(86, 0, 39, .5);" class="text-center"> 
+          <body style="font-family: 'Exo 2', sans-serif;background-color: rgba(86, 0, 39, .5);word-wrap: break-word;" class="text-center"> 
               <!--******************navegador******************-->
       <?php 
 
@@ -128,9 +136,9 @@ YERKO ZABALETA
                     <div class="container-fluid">
                       <div class="row justify-content-center">
                         <div class="col-12">
-                          <h1 style="word-wrap: break-word;"><?= strtoupper($tituloEvento) ?></h1>
+                          <h1><?= strtoupper($tituloEvento) ?></h1><hr>
                         </div>
-                        <div class="col-6 col-sm-4">
+                        <div class="col-6 col-md-3">
                           <p class="text-muted">
       <?php
           if ($dias>0) {
@@ -161,12 +169,17 @@ YERKO ZABALETA
       ?>
                           </p>
                         </div>
-                        <div class="col-6 col-sm-4">
+                        <div class="col-6 col-md-3">
                           <p class="text-muted">
                             <i class="fas fa-calendar-day"></i> <?= $fechaInicioCute ?>
                           </p>
                         </div>
-                        <div class="col-12 col-sm-4">
+                        <div class="col-6 col-md-3">
+                          <p class="text-muted">
+                            <i class="far fa-clock"></i> <?= $hrInicio ?> a <?= $hrFin ?>
+                          </p>
+                        </div>
+                        <div class="col-6 col-md-3">
                           <p class="text-muted">
                             <i class="fas fa-map-marker-alt"></i> <?= $nombreLocal ?>
                           </p>
@@ -179,9 +192,51 @@ YERKO ZABALETA
                   </div>
                   <div class="col-12 col-lg-3 py-3">
                     <div class="container-fluid">
+                      <hr>
                       <div class="row">
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;">
+                          <h4><i class="fas fa-user-tie"></i> Organizador</h4>
+                          <p>
+                            <a href="portal?perfil=<?= $nombreOrganizador ?>&tipo=2&ind=<?= $indiceOrganizador ?>"><?= $nombreOrganizador ?></a>
+                          </p>
+                          <hr>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 py-2">
+                          <h4><i class="fas fa-users"></i> Capacidad</h4>
+      <?php
+          if ($personasMax==0) {
+            # code...
+      ?>
+                          <p class="text-muted"> No Especifica</p>
+      <?php
+          }else{
+      ?>
+                          <p class="text-muted"> <?= $personasUso ?> / <?= $personasMax ?></p>
+      <?php
+
+          }
+      ?>
+                          <hr>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-12 py-2">
+                          <h4><i class="fas fa-car"></i> Estacionamientos</h4>
+      <?php
+          if ($estacionamientosMax==0) {
+            # code...
+      ?>
+                          <p class="text-muted"> No Especifica</p>
+      <?php
+          }else{
+      ?>
+                          <p class="text-muted"> <?= $estacionamientosUso ?> / <?= $estacionamientosMax ?></p>
+      <?php
+
+          }
+      ?>
+                          <hr>
+                        </div>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" target="_blank">
                               <i class="fas fa-warehouse"></i> VER RECINTO
                           </a>
                         </div>
@@ -190,21 +245,81 @@ YERKO ZABALETA
           if ($boletoEvento=="") {
             # code...
       ?>
-                          <a href="#" role="button" class="btn btn-warning btn-block btn-lg disabled" style="font-weight: bold;">
+                          <a href="#" role="button" class="btn btn-warning btn-block btn-lg disabled" style="font-weight: bold;" target="_blank">
                               <i class="fas fa-ticket-alt"></i> ENTRADAS
                           </a>
       <?php
           }else{
       ?>
-                          <a href="<?= $boletoEvento ?>" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;">
+                          <a href="<?= $boletoEvento ?>" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" target="_blank">
                               <i class="fas fa-ticket-alt"></i> ENTRADAS
                           </a>
       <?php
           }
       ?>
+                          <hr>
+                        </div>
+                        
+      <?php
+          if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
+            
+            if ($_SESSION['tipo']==1) {
+              # code...
+      ?>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                              <i class="fas fa-calendar-check"></i> ASISTIR
+                          </a>
+                        </div>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                          </a>
+                        </div>
+      <?php
+            } else if ($_SESSION['tipo']==2||$_SESSION['tipo']==3){
+              # code...
+      ?>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                              <i class="fas fa-calendar-check"></i> ASISTIR
+                          </a>
+                        </div>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                          </a>
+                        </div>
+      <?php
+            }
+              
+          } else {
+      ?>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                              <i class="fas fa-calendar-check"></i> ASISTIR
+                          </a>
+                        </div>
+                        <div class="col-12 py-2">
+                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                          </a>
+                        </div>
+      <?php
+          };
+      ?>
+                        <div class="col-12 py-2">
+                          <hr>
+                          <p>mapa</p>
+                          <p>mapa</p>
+                          <p>mapa</p>
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="col-12">
+                    <hr>
+                    <h2 class="text-left pl-3"><i class="far fa-star"></i> Reseñas</h2>
                   </div>
                   <br><br>
                 </div>
