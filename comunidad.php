@@ -12,15 +12,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
 	if (isset($_GET['perfil'])&&isset($_GET['tipo'])&&isset($_GET['ind'])) {
 		# code...
-		if ($_SESSION['tipo']==1) {
+		if ($_GET['tipo']==1) {
 			# code...
 			include('perfil.php');
     		die();
-		} else if ($_SESSION['tipo']==2){
+		} else if ($_GET['tipo']==2){
 			# code...
 			header("Location: portal?perfil=".$_SESSION['nombre']."&tipo=".$_SESSION['tipo']."&ind=".$_SESSION['objetivo']);
 	    	die();
-		} else if ($_SESSION['tipo']==3){
+		} else if ($_GET['tipo']==3){
 			# code...
 			header("Location: panel?perfil=".$_SESSION['nombre']."&tipo=".$_SESSION['tipo']."&ind=".$_SESSION['objetivo']);
 	    	die();

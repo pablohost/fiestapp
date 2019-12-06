@@ -1,7 +1,7 @@
 <?php 
 
 echo ' 
-    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="background-color:rgba(86, 0, 39, .85); padding:3px 10px;" > 
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" style="padding:3px 10px;" > 
         <div class="container-fluid text-white"> 
             <!-- ******************logo****************** --> 
             <a class="navbar-brand js-scroll-trigger py-0" href="http://www.fiestapp.tk/#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 

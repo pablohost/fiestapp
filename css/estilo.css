@@ -1,6 +1,9 @@
 /*============================================*/ 
 /*-------nativo de  movil---------*/ 
 /*============================================*/ 
+body{
+    word-break: break-word;
+}
 .boxDes{
     background-color: rgba(255,255,255,.9);
 }
@@ -9,7 +12,6 @@
 }
 .boxEve{
     padding: 1rem;
-    word-wrap: break-word;
 }
 .formEve{
     border: 2px solid rgba(86, 0, 39, 1);
@@ -256,7 +258,8 @@
     color: #4c4c4c!important; 
 } 
 .navbar{ 
-    font-size: 0.7rem; 
+    font-size: 0.7rem;
+    background-color: rgba(86, 0, 39, .85); 
 } 
 /*==========categorias=================*/
 .headCate{ 

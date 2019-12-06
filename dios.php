@@ -10,7 +10,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 //Si existe una sesión correcta, mostramos la página para los usuarios
 //Sino, mostramos la página de acceso y registro de usuarios
 if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SESSION['tipo'] == 3) {
-    
+
 	?>
         
     <!DOCTYPE html>  
@@ -39,7 +39,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
     <body id="arriba"> 
 
         <!--******************navegador******************--> 
-        <nav class="navbar navbar-light fixed-top navbar-expand-lg" style="background-color:rgba(255, 255, 255, 0.8);" > 
+        <nav class="navbar navbar-dark fixed-top navbar-expand-lg"> 
             <div class="container-fluid text-white"> 
                 <!-- ******************logo****************** --> 
                 <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
@@ -67,6 +67,9 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
                 </div> 
             </div> 
         </nav> 
+        <input id="idObjetivo" type="hidden" value="<?= $_GET['ind'] ?>">
+        <input id="noObjetivo" type="hidden" value="<?= $_GET['perfil'] ?>">
+        <input id="tiObjetivo" type="hidden" value="<?= $_GET['tipo'] ?>">
         <br><br><br>
         <!-- ***********************Navegador segundario*********************** -->
         <div class="container-fluid text-center boxNav pt-5">
@@ -99,12 +102,9 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
         </div>
         
         <!-- ***********************/Zona de despliege del > Navegador segundario/*********************** -->
-        <div class="container text-center boxNav2" id="medio">
+        <div class="container-fluid text-center boxNav2 pb-5" id="medio">
             
         </div>
-
-        <br> 
-        <br>
         <!-- ******************pie de pagina****************** -->
         <footer class="text-white respPie" style="background-color: rgba(0, 0, 0, 0.8);"> 
             <div class="container text-center"> 
@@ -117,7 +117,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
 	                <br> 
 	                <div class="col-md-6">
 	                    <p class="cueCredi">
-	                        <a href="#" class="linkPIE" id="">www.fiestapp.cl <i class="far fa-copyright fa-1x"></i></a>
+	                        <a href="../" class="linkPIE" id="">www.fiestapp.cl <i class="far fa-copyright fa-1x"></i></a>
 	                    </p>
 	                </div>
                 </div> 
@@ -142,13 +142,11 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
     </body> 
      
     </html>
-
-
-
+    
     <?php 
-
+    
 } else {
-    include('panel.php');
+    header("Location: panel");
     die();
 };
 
