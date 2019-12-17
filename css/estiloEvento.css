@@ -11,6 +11,12 @@
 .paleEvento{
     margin-top: 1rem!important;
 }
+.cuerpoEvento{
+    font-family: 'Exo 2', sans-serif;
+    background-color: rgba(86, 0, 39, .5);
+    word-wrap: break-word;
+    padding: 0!important
+}
 /*============================================*/ 
 /*-------cuando se agranda celu largo---------*/ 
 /*============================================*/ 

@@ -18,13 +18,13 @@ echo '
                             EVENTOS 
                         </a> 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria1">FIESTA</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria2">MUSICA EN VIVO</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria3">FESTIVAL</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria4">STAND UP COMEDY</a>
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria5">CONFERENCIAS</a>
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria6">OTROS</a> 
-                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/#evento" id="slinkCategoria0">VER TODO</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=1#evento" id="slinkCategoria1">FIESTA</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=2#evento" id="slinkCategoria2">MUSICA EN VIVO</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=3#evento" id="slinkCategoria3">FESTIVAL</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=4#evento" id="slinkCategoria4">STAND UP COMEDY</a>
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=5#evento" id="slinkCategoria5">CONFERENCIAS</a>
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=6#evento" id="slinkCategoria6">OTROS</a> 
+                            <a class="dropdown-item js-scroll-trigger" style="color: rgba(86, 0, 39, 0.70); font-weight: 400;" href="http://www.fiestapp.tk/?categoria=0#evento" id="slinkCategoria0">VER TODO</a> 
                         </div> 
                     </li> 
  
@@ -35,7 +35,7 @@ echo '
                     <li class="nav-item navSpace mr-4"><a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV text-white hvr-box-shadow-outset" href="#publicidad" id="cerrarNav"><i class="fas fa-bullhorn"></i> PUBLICIDAD&nbsp;</a></li> 
                     
                     <li class="nav-item navSpace mr-4" style="padding-top: 5px;">
-                        <a href="http://www.fiestapp.tk/crearEventos" role="button" class="btn btn-warning btn-cta" style="font-weight: bold;">
+                        <a href="http://www.fiestapp.tk/crearEventos" role="button" class="btn btn-warning" style="font-weight: bold;">
                             CREA TU EVENTO !
                         </a>
                     </li> 

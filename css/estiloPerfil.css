@@ -41,6 +41,7 @@ body{
 .linkPortal{
   text-decoration: none;
   color: rgba(0,0,0,0.8);
+  font-size: .6rem;
 }
 .linkPortal:hover{
   color: inherit!important;
@@ -51,9 +52,11 @@ body{
 }
 .boxNav{
   border-bottom: 15px solid rgba(18, 0, 94,0.9);
+
 }
 .boxNav2{
-  background-color: white;
+  background-color: rgba(0,0,0,.2);
+  font-family: 'Exo 2', sans-serif;
 }
 
 .btnAgregaP{
@@ -93,32 +96,70 @@ body{
 .btnEditPro{
   margin: 5px;
 }
+.cuteFA{
+  font-size: 12rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  color: rgba(86, 0, 39, .85);
+}
+.cuteBoton{
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.eventoApro, .eventoEspe, .eventoFina{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.eventoApro{
+    background-color: rgba(27, 201, 0,.4);
+}
+.eventoFina{
+    background-color: rgba(209, 18, 0,.4);
+}
 /*============================================*/ 
 /*-------cuando se agranda celu largo---------*/ 
 /*============================================*/ 
 @media (min-width: 576px){
-
+  .boxNav{
+    padding-top: 2.5rem!important;
+  }
+  .linkPortal{
+    font-size: 1rem;
+  }
 } 
 /*============================================*/ 
 /*-------cuando se agranda a tablet---------*/ 
 /*============================================*/ 
 @media (min-width: 768px) {
-	.tit404{
-        font-size: 15rem;
-    }
+	
 } 
 /*============================================*/ 
 /*-------cuando se agranda notebook---------*/ 
 /*============================================*/ 
 @media (min-width: 992px){  
-    .xlinkPortal{
-        font-size: 2rem;
-    }
+  .xlinkPortal{
+    font-size: 2rem;
+  }
 }
 
 /*============================================*/ 
 /*-------cuando se agranda a fullhd---------*/ 
 /*============================================*/ 
 @media (min-width:1200px) {
-   
+  .xlinkPortal{
+    margin-bottom: 0;
+  }
+  .boxNav{
+    padding-top: 3.1rem!important;
+  }
 }

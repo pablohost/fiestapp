@@ -29,6 +29,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.css">
         <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+        <link rel="stylesheet" href="css/unite-gallery.css" type="text/css" />
 
         <link rel="stylesheet" href="/css/estilo.css">
         <link rel="stylesheet" href="/css/estiloPerfil.css">
@@ -40,10 +41,10 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
     <body id="arriba"> 
 
         <!--******************navegador******************--> 
-        <nav class="navbar navbar-dark fixed-top navbar-expand-lg"> 
+        <nav class="navbar navbar-dark fixed-top navbar-expand-lg py-0"> 
             <div class="container-fluid text-white"> 
                 <!-- ******************logo****************** --> 
-                <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
+                <a class="navbar-brand js-scroll-trigger" href="http://www.fiestapp.tk/"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
                 <!-- ******************boton responsive****************** --> 
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span class="navbar-toggler-icon"></span> 
@@ -54,7 +55,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
      
                         <li class="nav-item navSpace">
                             <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="portal" id="">
-                                <i class="far fa-user fa-1x"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
+                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
                             </a>
                         </li>
                         
@@ -71,32 +72,31 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         <input id="idObjetivo" type="hidden" value="<?= $_GET['ind'] ?>">
         <input id="noObjetivo" type="hidden" value="<?= $_GET['perfil'] ?>">
         <input id="tiObjetivo" type="hidden" value="<?= $_GET['tipo'] ?>">
-        <br><br><br>
         <!-- ***********************Navegador segundario*********************** -->
-        <div class="container-fluid text-center boxNav pt-5">
+        <div class="container-fluid text-center boxNav mt-5 pt-4">
             <div class="row">
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkOrga1">
                         <i class="fas fa-user fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">PERFIL</p>
+                        <p class="xlinkPortal d-none d-xl-block">PERFIL</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkOrga2">
                         <i class="fas fa-calendar-alt fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">EVENTOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">EVENTOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkOrga3">
                         <i class="fas fa-warehouse fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">LOCALES</p>
+                        <p class="xlinkPortal d-none d-xl-block">RECINTOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkOrga4">
                         <i class="fas fa-bullhorn fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">PROMOCIONES</p>
+                        <p class="xlinkPortal d-none d-xl-block">PROMOCIONES</p>
                     </a>
                 </div>
             </div>
@@ -127,18 +127,21 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
      
      
         <!--script bootstrap / jquery--> 
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script> 
      
         <!-- SCROOLL REVEAL JS LIBRARY CDN --> 
         <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script> 
      
         <!--script-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
         <script src="/script/ns.hover.js"></script>
         
         <script src="script/jsComunidad.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      
     </body> 
      

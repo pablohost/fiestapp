@@ -28,16 +28,32 @@ function consultaCategoria($x){
 
 	try { 
 
-	// BUSCAMOS EL CORREO
-	$sql = 'SELECT Eventos.ind,Eventos.fecIni,Eventos.fecFin,Eventos.titulo,Eventos.fly,Eventos.estado,Locales.lon,Locales.lat,Locales.nombre
+	// BUSCAMOS EL EVENTO
+	//definimos si es una categoria o todos
+	if ($x==0) {
+		# code...
+		$sql = 'SELECT Eventos.ind,Eventos.fecIni,Eventos.fecFin,Eventos.titulo,Eventos.fly,Eventos.estado,Locales.lon,Locales.lat,Locales.nombre
 		FROM Eventos 
 		INNER JOIN Locales ON Eventos.indLoc = Locales.ind
         WHERE Eventos.estado=0
         AND Eventos.fecFin>=:valFec
 		ORDER BY RAND();';
-
-	$result = $conn->prepare($sql);  
-	$result->bindValue(':valFec', $fechaT, PDO::PARAM_STR);
+		$result = $conn->prepare($sql);  
+		$result->bindValue(':valFec', $fechaT, PDO::PARAM_STR);
+	}else{
+		$sql = 'SELECT Eventos.ind,Eventos.fecIni,Eventos.fecFin,Eventos.titulo,Eventos.fly,Eventos.estado,Locales.lon,Locales.lat,Locales.nombre
+		FROM Eventos 
+		INNER JOIN Locales ON Eventos.indLoc = Locales.ind
+        INNER JOIN CategoriasEve ON CategoriasEve.indEve = Eventos.ind
+        INNER JOIN Categorias ON Categorias.ind = CategoriasEve.indCat
+        WHERE Eventos.estado=0
+        AND Eventos.fecFin>=:valFec
+        AND Categorias.ind =:valCat
+		ORDER BY RAND();';
+		$result = $conn->prepare($sql);  
+		$result->bindValue(':valFec', $fechaT, PDO::PARAM_STR);
+		$result->bindValue(':valCat', $x, PDO::PARAM_INT);
+	}
 	// Especificamos el fetch mode antes de llamar a fetch()
 	$result->setFetchMode(PDO::FETCH_ASSOC);
 	// Ejecutamos
@@ -57,14 +73,14 @@ function consultaCategoria($x){
 								<div class="row">
 									<div class="col-12 pt-1">
 									<a href="evento?titulo='.$row['titulo'].'&x='.$row['ind'].'" style="color: black;">
-										<p class="infoProd">'.strtoupper($row['titulo']).'</p>
+										<p class="titEvento">'.strtoupper($row['titulo']).'</p>
 									</a>
 									</div>
 									<div class="col-6">
-										<p class="text-muted mb-1"><i class="fas fa-map-marker-alt"></i> '.$row['nombre'].'</p>
+										<p class="text-muted mb-1 titEvento"><i class="fas fa-map-marker-alt"></i> '.$row['nombre'].'</p>
 									</div>
 									<div class="col-6">
-										<p class="text-muted"><i class="fas fa-calendar-day"></i> '.ucfirst(strftime("%a, %d de %B", strtotime($row['fecIni']))).'</p>
+										<p class="text-muted titEvento"><i class="fas fa-calendar-day"></i> '.ucfirst(strftime("%a, %d de %B", strtotime($row['fecIni']))).'</p>
 									</div>
 								</div>
 							</div>

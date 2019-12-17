@@ -151,7 +151,7 @@ YERKO ZABALETA
                     </div>
                     <br>
                 </div>
-                <div class="col-12 text-center" >
+                <div class="col-12 text-center" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;">
                     <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
                 </div>
                 <div class="col-12 text-center">

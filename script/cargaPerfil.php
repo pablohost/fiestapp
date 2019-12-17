@@ -40,11 +40,17 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
 				# code...
 				$mensaje .= '
 					<div class="row pt-5">
-						<div class="col-12 col-md-4">
-							<img src="'.$row['foto'].'" style="max-width: 100%;max-height: 180px;">
-						</div>
-						<div class="col-12 col-md-8">
-							<h1 class="pt-5" id="nombrePerfil">'.$nombreCompleto.'</h1>
+						<div class="col-12">
+							<div class="container">
+								<div class="row">
+									<div class="col-12 col-md-4">
+										<img src="'.$row['foto'].'" style="max-width: 100%;max-height: 180px;border-radius: 200px;">
+									</div>
+									<div class="col-12 col-md-8">
+										<h1 class="pt-5" id="nombrePerfil">'.$nombreCompleto.'</h1>
+									</div>
+								</div>
+							</div>	
 						</div>
 					</div>';
 			}else{

@@ -39,10 +39,10 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
     <body id="arriba"> 
 
         <!--******************navegador******************--> 
-        <nav class="navbar navbar-dark fixed-top navbar-expand-lg"> 
+        <nav class="navbar navbar-dark fixed-top navbar-expand-lg py-0"> 
             <div class="container-fluid text-white"> 
                 <!-- ******************logo****************** --> 
-                <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
+                <a class="navbar-brand js-scroll-trigger" href="http://www.fiestapp.tk/"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
                 <!-- ******************boton responsive****************** --> 
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span class="navbar-toggler-icon"></span> 
@@ -53,7 +53,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
      
                         <li class="nav-item navSpace">
                             <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="#arriba" id="">
-                                <i class="far fa-user fa-1x"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
+                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
                             </a>
                         </li>
                         
@@ -70,32 +70,31 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
         <input id="idObjetivo" type="hidden" value="<?= $_GET['ind'] ?>">
         <input id="noObjetivo" type="hidden" value="<?= $_GET['perfil'] ?>">
         <input id="tiObjetivo" type="hidden" value="<?= $_GET['tipo'] ?>">
-        <br><br><br>
         <!-- ***********************Navegador segundario*********************** -->
-        <div class="container-fluid text-center boxNav pt-5">
+        <div class="container-fluid text-center boxNav mt-5 pt-4">
             <div class="row">
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProd">
                         <i class="fas fa-cogs fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">GESTION</p>
+                        <p class="xlinkPortal d-none d-xl-block">GESTION</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProm">
                         <i class="fas fa-calendar-alt fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">EVENTOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">EVENTOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkEsta">
                         <i class="fas fa-users fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">USUARIOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">USUARIOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCuen">
                         <i class="fas fa-users-cog fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">CUENTAS</p>
+                        <p class="xlinkPortal d-none d-xl-block">CUENTAS</p>
                     </a>
                 </div>
             </div>
@@ -138,6 +137,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado' and $_SE
         
         <script src="script/jsComunidad.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      
     </body> 
      

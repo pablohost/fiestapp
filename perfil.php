@@ -39,10 +39,10 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
     <body id="arriba"> 
 
         <!--******************navegador******************--> 
-        <nav class="navbar navbar-dark fixed-top navbar-expand-lg"> 
+        <nav class="navbar navbar-dark fixed-top navbar-expand-lg py-0"> 
             <div class="container-fluid text-white"> 
                 <!-- ******************logo****************** --> 
-                <a class="navbar-brand js-scroll-trigger" href="#arriba"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
+                <a class="navbar-brand js-scroll-trigger" href="http://www.fiestapp.tk/"><img src="img/logo.png" class="logo1 hvr-float-shadow"></a> 
                 <!-- ******************boton responsive****************** --> 
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
                     <span class="navbar-toggler-icon"></span> 
@@ -70,32 +70,31 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         <input id="idObjetivo" type="hidden" value="<?= $_GET['ind'] ?>">
         <input id="noObjetivo" type="hidden" value="<?= $_GET['perfil'] ?>">
         <input id="tiObjetivo" type="hidden" value="<?= $_GET['tipo'] ?>">
-        <br><br><br>
         <!-- ***********************Navegador segundario*********************** -->
-        <div class="container-fluid text-center boxNav pt-5">
+        <div class="container-fluid text-center boxNav mt-5 pt-4">
             <div class="row">
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProd">
                         <i class="fas fa-user fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">PERFIL</p>
+                        <p class="xlinkPortal d-none d-xl-block">PERFIL</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProm">
                         <i class="far fa-images fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">FOTOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">FOTOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkEsta">
                         <i class="fas fa-users fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">AMIGOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">AMIGOS</p>
                     </a>
                 </div>
-                <div class="col-6 col-md-3 navPortal">
+                <div class="col-3 navPortal">
                     <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCuen">
                         <i class="fas fa-calendar-alt fa-3x hvr-icon"></i>
-                        <p class="xlinkPortal">EVENTOS</p>
+                        <p class="xlinkPortal d-none d-xl-block">EVENTOS</p>
                     </a>
                 </div>
             </div>
@@ -138,6 +137,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         
         <script src="script/jsComunidad.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.js"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      
     </body> 
      

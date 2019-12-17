@@ -153,7 +153,7 @@ if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"])
 	$result->bindValue(':valDes', "", PDO::PARAM_STR);
 	$result->bindValue(':valFon', $fonoLocal, PDO::PARAM_STR);
 	$result->bindValue(':valCor', $correoLocal, PDO::PARAM_STR);
-	$result->bindValue(':valWeb', $webLocal, PDO::PARAM_STR);
+	$result->bindValue(':valWeb', "https://".$webLocal, PDO::PARAM_STR);
 	$result->bindValue(':valEstado', 0, PDO::PARAM_INT);
 	$result->execute(); 
 	$lastIdLoc = $conn->lastInsertId();

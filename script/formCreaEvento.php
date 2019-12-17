@@ -3,21 +3,13 @@ $mensaje='';
 $mensaje.='
 <div class="row pt-2">
 	<div class="col-12">
-		<form id="creaEvento-form" action="" method="POST" name="formCreaEvento">
+		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;">CREAR NUEVO EVENTO</h1>
+	</div>
+	<div class="col-12">
+	<div class="container text-left" style="border: 5px solid rgba(225, 173, 7, 1);padding: 1rem;background-color: rgba(255,255,255,.9);border-radius: 20px;">
+		<form id="creaEventoOrga-form" action="" method="POST" name="formCreaEventoOrga">
 		    <div class="row justify-content-center">
 		        <div class="col-12 boxDatosEve form-group pt-1">
-		            <!--Filtro de Menores de Edad-->
-		            <h4 class="titBoxEve text-center"><i class="fas fa-user-tie"></i> Eres mayor de edad? </h4>
-		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
-		            
-		            <div class="custom-control custom-switch text-center pb-2" style="padding-left: 0rem!important">
-		              <span style="margin-right: 2.4rem;">NO</span>
-		              <input type="checkbox" class="custom-control-input" id="swFiltro">
-		              <label class="custom-control-label" for="swFiltro">SI</label>
-		            </div>
-		        </div>
-		        <div class="col-12 boxDatosEve form-group pt-1">
-		            <!--Filtro de Menores de Edad-->
 		            <h4 class="titBoxEve text-center"><i class="fas fa-calendar-day"></i> Informacion del Evento </h4>
 		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
 		            <p class="text-muted">Usaremos esta info para publicar tu evento</p>
@@ -31,9 +23,9 @@ $mensaje.='
 		            <span class="titInput">Foto o Flyer del Evento</span>
 		            <div class="custom-file">
 		              <input type="file" class="custom-file-input" id="flFotoEve" name="FotoEve">
-		              <label class="custom-file-label" for="flFotoEve" data-browse="Elegir">Seleccionar Archivo</label>
+		              <label class="custom-file-label fl0" for="flFotoEve" data-browse="Elegir">Seleccionar Archivo</label>
 		            </div><br><br>
-		            <!--Region-->
+		            <!--Categorias Evento-->
 		            <span class="titInput">Categorias</span>
 		            <div class="container">
 		                <div class="row">
@@ -200,10 +192,13 @@ $mensaje.='
 		        </div>
 
 		        <!--INFORMACION REQUERIDA SOBRE EL RECINTO-->
-		        <div class="col-12 col-md-6 boxDatosEve form-group pt-1">
+		        <div class="col-12 boxDatosEve form-group pt-1">
 		            <h4 class="titBoxEve text-center"><i class="fas fa-warehouse"></i> Informacion del Recinto </h4>
 		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
 		            <p class="text-muted">Donde se realizara el evento</p>
+		            <p class=""><a href="#" role="button" class="btn btn-warning btn-sm" id="btnMisRecintos"><i class="fas fa-warehouse"></i> MIS RECINTOS</a></p>
+		            <div class="" id="listaRecintos">
+		            </div>
 		            <!--Ubicacion-->
 		            <span class="titInput">Ubicacion</span><br>
 		            <span class="text-muted">Longitud</span><br>
@@ -213,8 +208,11 @@ $mensaje.='
 		            <!--Nombre del recinto-->
 		            <span class="titInput">Nombre del Recinto</span>
 		            <input type="text" id="txtNomLoc" class="form-control" placeholder="Ej: Estadio Nacional" name="NomLoc"><br>
+		            <!--Descripcion Recinto-->
+		            <span class="titInput">Descripcion</span>
+		            <textarea type="text" id="txtDescLoc" rows="7" class="form-control" placeholder="Aqui puedes detallar mas info. acerca del recinto" name="DescLoc"></textarea><br>
 		            <hr>
-		            <p class="text-muted">Indicanos al menos un medio de contacto con el recinto</p>
+		            <p class="text-muted">Medios de contacto con el recinto</p>
 		            <!--Telefono del recinto-->
 		            <span class="titInput">Telefono de Contacto</span>
 		            <div class="input-group">
@@ -228,42 +226,53 @@ $mensaje.='
 		            <input type="email" id="txtCorLoc" class="form-control" placeholder="ejemplo@gmail.com" name="CorLoc"><br>
 		            <!--Pagina Web-->
 		            <span class="titInput">Pagina Web</span>
-		            <input type="text" id="txtWebLoc" class="form-control" placeholder="Ej: www.fiestapp.cl" name="WebLoc"><br>
+		            <input type="text" id="txtWebLoc" class="form-control" placeholder="Ej: www.fiestapp.cl" name="WebLoc"><hr>
+		            <p class="text-muted">Mas info. del recinto</p>
+		            <div class="container-fluid">
+		                <div class="row">
+		                    <div class="col-12 col-md-6">
+		                        <!--Capacidad total de aforo-->
+		                        <span class="titInput">Capacidad de Personas</span>
+		                        <input type="number" id="txtCapa" class="form-control" min="0" max="99999" placeholder="Ej: 220" name="Capacidad">
+		                    </div>
+		                    <div class="col-12 col-md-6">
+		                        <!--Capacidad total de estacionamientos-->
+		                        <span class="titInput">Estacionamientos</span>
+		                        <input type="number" id="txtEsta" class="form-control" min="0" max="9999" placeholder="Ej: 25" name="Estacionamiento">
+		                    </div>
+		                </div>
+		            </div><br>
+		            <!--Galeria Recinto-->
+		            <span class="titInput">Galeria del Recinto</span>
+		            <div id="fotosRecinto">
+		            	<div class="custom-file">
+			              <input type="file" class="custom-file-input" id="flFotoRec1" name="FotoRec1" data-ind="1">
+			              <label class="custom-file-label fl1" for="flFotoRec1" data-browse="Elegir">Seleccionar Archivo</label>
+			              <br><br>
+			            </div>
+		            </div>
+		            <p class="pt-2"><a href="#" role="button" class="btn btn-success btn-sm" id="btnOtraFoto"><i class="fas fa-plus-square"></i> OTRA FOTO</a></p>
 		        </div>
-		        <!--INFORMACION REQUERIDA DE LA CUENTA-->
-		        <div class="col-12 col-md-6 boxDatosEve form-group pt-1">
-		            <h4 class="titBoxEve text-center"><i class="fas fa-address-card"></i> Informacion Requerida </h4>
-		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
-		            <p class="text-muted">Se te creara una cuenta de Organizador de Eventos, si ya tienes una debes iniciar sesion y crear el evento desde el <a href="http://www.fiestapp.tk/portal">portal de eventos</a></p>
-		            <!--Nombre-->
-		            <span class="titInput">Nombre</span>
-		            <input type="text" id="txtNombre" class="form-control" placeholder="Ej: Jose (Obligatorio)" name="Nombre"><br>
-		            <!--Apellido-->
-		            <span class="titInput">Apellido</span>
-		            <input type="text" id="txtApelli" class="form-control" placeholder="Ej: Quezada (Obligatorio)" name="Apelli"><br>
-		            <hr>
-		            <p class="text-muted">Con estos datos vas a iniciar sesion</p>
-		            <!--Correo Electronico-->
-		            <span class="titInput">Correo Electronico</span>
-		            <input type="email" id="txtCorreo" class="form-control" placeholder="ejemplo@gmail.com (Obligatorio)" name="Correo"><br>
-		            <!--Clave-->
-		            <span class="titInput">Clave</span>
-		            <input type="password" id="txtClave" class="form-control" placeholder="************* (Obligatorio)" name="Clave1"><br>
-		            <!--Repite Clave-->
-		            <span class="titInput">Repetir Clave</span>
-		            <input type="password" id="txtClave2" class="form-control" placeholder="Repetir Clave (Obligatorio)" name="Clave2"><br>
-		        </div>
-		        <div class="col-12 text-center" >
+		        <div class="col-12 text-center" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;">
 		            <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-"></div> 
 		        </div>
-		        <div class="col-12 text-center">
-		            <hr class="hrCute">
+		        <div class="col-12">
+		        <hr style="border: 2px solid rgba(225, 173, 7, 1);">
+		        </div>
+		        <div class="col-12 col-md-6 text-center">
+		            <button class="btn btn-danger btn-lg btn-block" id="btnAtrasEventos" type="button" style="font-weight: 700;"> 
+		                VOLVER ATRAS
+		            </button> 
+		        </div>
+		        <div class="col-12 col-md-6 text-center">
 		            <button class="btn btn-warning btn-lg btn-block" id="btnConfirmaAgregaOrga" type="button" style="font-weight: 700;"> 
 		                CONFIRMAR <i class="fas fa-check"></i>
 		            </button> 
 		        </div>
 		    </div>
 		</form>
+		</div>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</div>
 </div>';
 echo $mensaje;

@@ -347,7 +347,7 @@ $(function(){
         });
 
         let emailCheck = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
-        let textoCheck = /^[a-z A-Z]+$/;
+        let textoCheck = /^[a-z\- A-Z]+$/;
         let numCheck = /^[0-9]+$/;
 
         //DATOS DEL EVENTO
@@ -407,7 +407,7 @@ $(function(){
                                           }
                                         }
                                         /* correo electronico recinto */
-                                        if ($("#txtCorLoc").val().length>0) {
+                                        if ($("#txtCorLoc").val().length>0&&$("#txtCorLoc").val().length<90) {
                                           if (emailCheck.test($("#txtCorLoc").val())) {
                                             console.log("ingreso numero de telefono");
                                           }else{
@@ -423,8 +423,21 @@ $(function(){
                                             return false;
                                           }
                                         }
-
-                                        $("#txtDescEve").val().replace(new RegExp("\n","g"), "<br>");
+                                        /* pagina web recinto */
+                                        if ($("#txtWebLoc").val().length>0&&$("#txtWebLoc").val().length<60) {
+                                          console.log("ingreso pagina web");
+                                        }else{
+                                          Swal.fire({
+                                            title: 'Error en PAGINA WEB',
+                                            html: '<p>La pagina web tiene una maximo de 60 caracteres.</p>',
+                                            type: 'error',
+                                            confirmButtonText: 'OK',
+                                            onAfterClose: () => {
+                                              $("#txtWebLoc").focus();
+                                            }
+                                          });
+                                          return false;
+                                        }
 
                                         /* en este punto todos los campos estan OK */
                                         /* Validacion campo recaptcha */
@@ -693,6 +706,11 @@ $(function(){
           zzz+="1";
         }
 
+        //limpiamos campos de texto de script maliciosos
+        $("#txtNombre").val(hackScript($("#txtNombre").val()));
+        $("#txtApelli").val(hackScript($("#txtApelli").val()));
+        $("#txtCorreo").val(hackScript($("#txtCorreo").val()));
+
         let x=$('[name=formRegistro]').serialize()+zzz;
         console.log(x);
         
@@ -745,6 +763,13 @@ $(function(){
         });
       }
 
+      function hackScript(textoCrudo) {
+        // body...
+        let textoCocido = textoCrudo.replace(new RegExp("<script>","gi"), "hack");
+        textoCocido = textoCocido.replace(new RegExp("</script>","gi"), "hack");
+        return textoCocido;
+      }
+
       function eventoOK(){
         Swal.fire({
           title: 'Creando Evento...',
@@ -783,7 +808,19 @@ $(function(){
 
         let desEve = $("#txtDescEve").val();
         let desEveBR = desEve.replace(new RegExp("\n","g"), "<br>");
-        console.log(desEveBR);
+        desEveBR = hackScript(desEveBR);
+        //limpio todos los campos de texto de scripts maliciosos
+        $("#txtTituloEve").val(hackScript($("#txtTituloEve").val()));
+        $("#txtBoleEve").val(hackScript($("#txtBoleEve").val()));
+        $("#txtNomLoc").val(hackScript($("#txtNomLoc").val()));
+        $("#txtCorLoc").val(hackScript($("#txtCorLoc").val()));
+        $("#txtWebLoc").val(hackScript($("#txtWebLoc").val()));
+        $("#txtNombre").val(hackScript($("#txtNombre").val()));
+        $("#txtApelli").val(hackScript($("#txtApelli").val()));
+        $("#txtCorreo").val(hackScript($("#txtCorreo").val()));
+        //cambio comillas dobles por simples
+        $("#txtTituloEve").val($("#txtTituloEve").val().replace(new RegExp("\"","gi"), "'"));
+        $("#txtNomLoc").val($("#txtNomLoc").val().replace(new RegExp("\"","gi"), "'"));
 
 
         //let x=$('[name=formCreaEvento]').serialize()+cates;

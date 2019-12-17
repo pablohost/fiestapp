@@ -34,6 +34,7 @@ YERKO ZABALETA
     <link rel="stylesheet" type="text/css" href="https://rawgit.com/fitodac/line-awesome/master/dist/css/line-awesome.min.css" crossorigin="anonymous"> 
     <link href="https://fonts.googleapis.com/css?family=Exo+2:400,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/hover-min.css"> 
+    <link rel="stylesheet" href="css/lunar.css"> 
     
     
       <?php
@@ -113,11 +114,11 @@ YERKO ZABALETA
 
       ?>
               <!--******************extra******************--> 
-              <title>Eventos FiestApp - <?= $tituloEvento ?></title> 
+              <title><?= $tituloEvento ?> - Eventos FiestApp</title> 
               <meta name="description" content="Encuentra las mejores fiestas, tocatas, festivales, carretes y mas !"/>
               <link rel="icon" type="image/png" href="../img/favicon.ico">
           </head> 
-          <body style="font-family: 'Exo 2', sans-serif;background-color: rgba(86, 0, 39, .5);word-wrap: break-word;" class="text-center"> 
+          <body class="text-center cuerpoEvento" id="#arriba"> 
               <!--******************navegador******************-->
       <?php 
 
@@ -132,7 +133,7 @@ YERKO ZABALETA
                   </div>
                 </div>
                 <div class="row py-3 boxEvento">
-                  <div class="col-12 col-lg-9">
+                  <div class="col-12 col-xl-9">
                     <div class="container-fluid">
                       <div class="row justify-content-center">
                         <div class="col-12">
@@ -146,26 +147,30 @@ YERKO ZABALETA
       ?>
                             <i class="fas fa-hourglass-half"></i> Faltan <?= $dias ?> Dias.
       <?php
-          }else if ($dias==0) {
+          }else if ($dias<=0) {
             # code...
+            //calculo si es hoy o mañana el evento
+            if ($fechaInicioNum>$fechaNow) {
       ?>
                             <i class="fas fa-hourglass-half"></i> El evento esta por comenzar.
       <?php
             
-          }else if ($dias<0) {
-            # code...
-            //calculo si es hoy o mañana el evento
-            if ($fechaFinNum>$fechaNow) {
+            }else if ($fechaInicioNum<$fechaNow) {
               # code...
+              if ($fechaFinNum>$fechaNow) {
+                # code...
       ?>
-                            <i class="fas fa-fire"></i> El evento es ahora !.
+                            <i class="fas fa-fire"></i> El evento es ahora !
       <?php
-            }else{
+              }else{
       ?>
                             <i class="fas fa-calendar-times"></i> Este evento ya finalizo.
       <?php
+              }
+      
             }
           }
+          
       ?>
                           </p>
                         </div>
@@ -190,7 +195,7 @@ YERKO ZABALETA
                       </div>
                     </div>
                   </div>
-                  <div class="col-12 col-lg-3 py-3">
+                  <div class="col-12 col-xl-3 py-3">
                     <div class="container-fluid">
                       <hr>
                       <div class="row">
@@ -201,7 +206,7 @@ YERKO ZABALETA
                           </p>
                           <hr>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-12 py-2">
+                        <div class="col-12 col-sm-6 col-xl-12 py-2">
                           <h4><i class="fas fa-users"></i> Capacidad</h4>
       <?php
           if ($personasMax==0) {
@@ -218,7 +223,7 @@ YERKO ZABALETA
       ?>
                           <hr>
                         </div>
-                        <div class="col-12 col-sm-6 col-lg-12 py-2">
+                        <div class="col-12 col-sm-6 col-xl-12 py-2">
                           <h4><i class="fas fa-car"></i> Estacionamientos</h4>
       <?php
           if ($estacionamientosMax==0) {
@@ -236,7 +241,7 @@ YERKO ZABALETA
                           <hr>
                         </div>
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" target="_blank">
+                          <a href="recinto?nombre=<?= $nombreLocal ?>&x=<?= $indiceLocal ?>" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" target="_blank">
                               <i class="fas fa-warehouse"></i> VER RECINTO
                           </a>
                         </div>
@@ -281,14 +286,18 @@ YERKO ZABALETA
               # code...
       ?>
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
-                              <i class="fas fa-calendar-check"></i> ASISTIR
-                          </a>
+                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                                <i class="fas fa-calendar-check"></i> ASISTIR
+                            </a>
+                          </span>
                         </div>
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
-                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
-                          </a>
+                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                                <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                            </a>
+                          </span>
                         </div>
       <?php
             }
@@ -296,14 +305,18 @@ YERKO ZABALETA
           } else {
       ?>
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
-                              <i class="fas fa-calendar-check"></i> ASISTIR
-                          </a>
+                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                                <i class="fas fa-calendar-check"></i> ASISTIR
+                            </a>
+                          </span>
                         </div>
                         <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
-                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
-                          </a>
+                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                                <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                            </a>
+                          </span>
                         </div>
       <?php
           };
@@ -313,6 +326,102 @@ YERKO ZABALETA
                           <p>mapa</p>
                           <p>mapa</p>
                           <p>mapa</p>
+                          <hr>
+                        </div>
+                        <div class="col-12 py-2">
+      <?php
+          if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
+      ?>
+                          <button type="button" class="btn btn-danger btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnDenunciaEvento" data-toggle="modal" data-target="#demoModal">
+                              <i class="fas fa-exclamation-triangle"></i> DENUNCIAR EVENTO
+                          </button>
+                          <!-- PopUp Denunciar Evento -->
+                          <div class="modal fade "   id="demoModal"  tabindex="-1" role="dialog" aria-labelledby="demoModal" aria-hidden="true" id="cierraPop">
+                              <div class="modal-dialog   modal-dialog-centered  " role="document">
+                                  <div class="modal-content">
+                                      <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                      <div class="modal-body">
+                                          <div class="popCata">
+                                              <div class="px-sm-1 py-sm-5 overlay-light">
+                                                  <div class="px-2 py-4">
+                                                      <h1 class="pt-sm-3 text-center">DENUNCIAR EVENTO</h1>
+                                                      <h5>Selecciona una categoria para que nuestros moderadores puedan evaluar la denuncia.</h5>
+                                                      <hr>
+                                                      <form name="formDenunciaEve">
+                                                        <input name="indicePerfil" type="hidden" value="<?= $_SESSION['objetivo'] ?>">
+                                                        <input name="indiceEvento" type="hidden" value="<?= $_GET['x'] ?>">
+                                                        <div class="container">
+                                                          <div class="row">
+                                                            <div class="col-md-6">
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn1" value="1">
+                                                                <label class="custom-control-label" for="dn1">SPAM</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn2" value="2">
+                                                                <label class="custom-control-label" for="dn2">ACOSO</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn3" value="3">
+                                                                <label class="custom-control-label" for="dn3">CONTENIDO SEXUAL</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn4" value="4">
+                                                                <label class="custom-control-label" for="dn4">ESTAFA</label>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn5" value="5">
+                                                                <label class="custom-control-label" for="dn5">VIOLENCIA</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn6" value="6">
+                                                                <label class="custom-control-label" for="dn6">UBICACION FALSA</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn7" value="7">
+                                                                <label class="custom-control-label" for="dn7">EVENTO FALSO</label>
+                                                              </div>
+                                                              <div class="custom-control custom-radio text-center pb-3 pl-0">
+                                                                <input type="radio" class="custom-control-input" name="dn" id="dn8" value="8">
+                                                                <label class="custom-control-label" for="dn8">OTROS</label>
+                                                              </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                              <span class="titInput">Descripcion</span>
+                                                                <textarea type="text" id="txtDescDen" rows="4" class="form-control" placeholder="Cuentanos mas sobre tu denuncia (OPCIONAL)" name="DescDen"></textarea>
+                                                            </div>  
+                                                          </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="g-recaptcha" data-sitekey="6LfMScQUAAAAANKeGizusHJd8EQJw5-IVm4-U9Q-" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                                                        <hr>
+                                                        <button type="submit" class="btn btn-dark btn-block" data-dismiss="modal" aria-label="Close" id="btnConfirmarDenuncia" style="font-weight: bold;">
+                                                          CONFIRMAR <i class="fas fa-check"></i>
+                                                        </button>
+                                                      </form>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+      <?php
+          }else{
+      ?>
+                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                            <a href="#" role="button" class="btn btn-danger btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnDenunciaEvento">
+                                <i class="fas fa-exclamation-triangle"></i> DENUNCIAR EVENTO
+                            </a>
+                          </span>
+      <?php
+          }
+      ?>
+                          
                         </div>
                       </div>
                     </div>
@@ -389,7 +498,7 @@ YERKO ZABALETA
     require 'pie.php';
 
     ?>
-    
+    <script src="https://unpkg.com/popper.js"></script>
     <!--script bootstrap / jquery--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
@@ -398,11 +507,11 @@ YERKO ZABALETA
 
     <!--script propios--> 
     <script src="script/jsGlobal.js"></script>
-    <script src="script/jsRecuperar.js"></script>
+    <script src="script/jsEvento.js"></script>
  
     <!--script externos--> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="https://unpkg.com/popper.js"></script>
+    <script src="script/lunar.js"></script>
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

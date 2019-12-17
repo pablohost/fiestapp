@@ -61,7 +61,7 @@ YERKO ZABALETA
                             <i class="fas fa-glass-cheers fa-2x faCute"></i>
                         </div>
                         <div class="my-2 col-10 col-sm-4 col-lg-3 iCute centro">
-                            <select class="custom-select selCute">
+                            <select class="custom-select selCute" id="cbxCategoria">
                                 <option value="0" selected="true">
                                     TODOS
                                 </option>
@@ -96,33 +96,47 @@ YERKO ZABALETA
                             </select>
                         </div>
                         <div class="my-2 col-12 col-lg-2 centro">
-                            <a href="#evento" role="button" class="btn btn-warning btn-cta js-scroll-trigger" style="font-weight: bold; vertical-align: -webkit-baseline-middle;">
+                            <a href="#evento" id="btnCategoriaEvento" role="button" class="btn btn-warning btn-cta js-scroll-trigger" style="font-weight: bold; vertical-align: -webkit-baseline-middle;">
                                 <i class="fas fa-search-location"></i> ENCONTRAR
                             </a>
+                        </div>
+                        <div class="col-12 pt-5 centro">
+                        <div class="container text-center cateCute" id="Categoria">
+                            <div class="row justify-content-center inicioCat1">
+                                <div class="col-12 col-lg-4 frameCategoria py-3"> 
+                                    <a href="http://www.fiestapp.tk/comunidad" id="linkCategoria1" role="button" class="btn btn-dark btn-cta js-scroll-trigger hvr-buzz btn-lg" style="font-weight: bold; vertical-align: -webkit-baseline-middle;width: 250px;">
+                                        <i class="fas fa-users"></i> COMUNIDAD
+                                    </a>
+                                </div> 
+                                <div class="col-12 col-lg-4 frameCategoria py-3"> 
+                                    <a href="#evento" id="linkCategoria2" role="button" class="btn btn-dark btn-cta js-scroll-trigger hvr-buzz btn-lg" style="font-weight: bold; vertical-align: -webkit-baseline-middle;width: 250px;">
+                                        <i class="fas fa-globe-americas"></i> RADAR
+                                    </a>
+                                </div> 
+                                <div class="col-12 col-lg-4 frameCategoria py-3"> 
+                                    <a href="http://www.fiestapp.tk/crearEventos" id="linkCategoria3" role="button" class="btn btn-dark btn-cta js-scroll-trigger hvr-buzz btn-lg" style="font-weight: bold; vertical-align: -webkit-baseline-middle;width: 250px;">
+                                        <i class="fas fa-calendar-alt"></i> CREAR EVENTO
+                                    </a>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ***********************categorias*********************** --> 
-            <div class="container-fluid text-center cateCute" id="Categoria">
-                <div class="row justify-content-center inicioCat1">
-                    <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="http://www.fiestapp.tk/registro.php" class="hvr-buzz js-scroll-trigger" id="linkCategoria1"> 
-                            <img src="img/cat1.jpg" class="imgCate"><span class="titCate"> UNETE A LA COMUNIDAD </span> 
-                        </a> 
-                    </div> 
-                    <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="#evento" class="hvr-buzz js-scroll-trigger" id="linkCategoria2"> 
-                            <img src="img/cat2.jpg" class="imgCate"><span class="titCate"> BUSCA EVENTOS EN EL MAPA </span> 
-                        </a> 
-                    </div> 
-                    <div class="col-12 col-lg-4 frameCategoria"> 
-                        <a href="http://www.fiestapp.tk/crearEventos" class="hvr-buzz js-scroll-trigger" id="linkCategoria3"> 
-                            <img src="img/cat3.jpg" class="imgCate"><span class="titCate"> CREA TU PROPIO EVENTO </span> 
-                        </a> 
-                    </div>
-                </div> 
-            </div> 
+            <!-- ***********************categorias***********************
+            <a href="http://www.fiestapp.tk/registro.php" class="hvr-buzz js-scroll-trigger" id="linkCategoria1"> 
+                <img src="img/cat1.jpg" class="imgCate"><span class="titCate"> UNETE A LA COMUNIDAD </span> 
+            </a> 
+
+            <a href="#evento" class="hvr-buzz js-scroll-trigger" id="linkCategoria2"> 
+                <img src="img/cat2.jpg" class="imgCate"><span class="titCate"> BUSCA EVENTOS EN EL MAPA </span> 
+            </a> 
+
+            <a href="http://www.fiestapp.tk/crearEventos" class="hvr-buzz js-scroll-trigger" id="linkCategoria3"> 
+                <img src="img/cat3.jpg" class="imgCate"><span class="titCate"> CREA TU PROPIO EVENTO </span> 
+            </a> 
+             --> 
+            
         </div>
     </header> 
     
@@ -139,6 +153,18 @@ YERKO ZABALETA
     <br>
     <!-- ***********************Lista de Eventos*********************** -->
     <div class="container-fluid text-center" style="" id="evento">
+        <?php 
+            if (isset($_GET['categoria'])) {
+                # code...
+                ?>
+                <input id="getCategoria" type="hidden" value="<?= $_GET['categoria'] ?>">
+                <?php
+            }else{
+                ?>
+                <input id="getCategoria" type="hidden" value="0">
+                <?php
+            }
+        ?>
         <span class="headCate">EVENTOS</span>
         <p style="font-size: 1.8rem;color: rgba(18, 0, 94, 0.60);">Categoria: <span id="helpCate"></span></p>
         <div class="row" style="margin: 0px; min-height: 400px;" id="listaEventos">
@@ -164,19 +190,19 @@ YERKO ZABALETA
                         </a>
                     </p>
                     <p class="nosPar sr1"> 
-                        <i class="fas fa-users fa-2x"></i>
+                        <i class="fas fa-users"></i>
                         Haz amigos con tus mismos gustos
                     </p> 
                     <p class="nosPar sr2"> 
-                        <i class="fas fa-icons fa-2x"></i>
+                        <i class="fas fa-icons"></i>
                         Invita a tus amigos a tus eventos favoritos
                     </p>
                     <p class="nosPar sr3">
-                        <i class="fas fa-camera fa-2x"></i> 
+                        <i class="fas fa-camera"></i> 
                         Guarda tus fotos privadas, o compartelas con tus amigos
                     </p>
                     <p class="nosPar sr4">
-                        <i class="fas fa-star-half-alt fa-2x"></i> 
+                        <i class="fas fa-star-half-alt"></i> 
                         Califica eventos o locales a los que haz asistido
                     </p>
                 </section> 
@@ -194,7 +220,7 @@ YERKO ZABALETA
                     </p>
                     <br>
                     <p class="nosPar sr5"> 
-                        <i class="fas fa-share-alt fa-2x"></i>
+                        <i class="fas fa-share-alt"></i>
                         Invita a tus amigos a ser parte de esta gran comunidad
                     </p>
                 </section> 
@@ -215,19 +241,19 @@ YERKO ZABALETA
           <div class="col-md-6 text-left inicioMay4"> 
             <div class="mt-2 my-5"> 
               <h5 class="orgSub my-4 sr1"> 
-                <i class="fas fa-bullhorn fa-2x"></i>
+                <i class="fas fa-bullhorn"></i>
                 Tus eventos seran publicados automaticamente
               </h5> 
               <h5 class="orgSub my-4 sr2"> 
-                <i class="fas fa-car-side fa-2x"></i>
+                <i class="fas fa-car-side"></i>
                 Control en tiempo real para la capacidad de estacionamientos o personas
               </h5> 
               <h5 class="orgSub my-4 sr3"> 
-                <i class="fas fa-mouse-pointer fa-2x"></i>
+                <i class="fas fa-mouse-pointer"></i>
                 Las personas podran ver informacion de tu evento y de tu local, con un solo click
               </h5>
               <h5 class="orgSub my-4 sr4"> 
-                <i class="far fa-check-square fa-2x"></i>
+                <i class="far fa-check-square"></i>
                 Al crear tu evento debes cumplir con todas las normativas, de lo contrario no sera publicado
               </h5>
             </div> 
@@ -309,7 +335,7 @@ YERKO ZABALETA
     require 'pie.php';
 
      ?>
-    
+    <script src="https://unpkg.com/popper.js"></script>
     <!--script bootstrap / jquery--> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
@@ -322,9 +348,10 @@ YERKO ZABALETA
  
     <!--script externos--> 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="https://unpkg.com/popper.js"></script>
+    
     <script src="https://unpkg.com/tooltip.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+
 
 </body> 
  
