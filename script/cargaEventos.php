@@ -49,6 +49,7 @@ function consultaCategoria($x){
         WHERE Eventos.estado=0
         AND Eventos.fecFin>=:valFec
         AND Categorias.ind =:valCat
+        AND CategoriasEve.estado =0
 		ORDER BY RAND();';
 		$result = $conn->prepare($sql);  
 		$result->bindValue(':valFec', $fechaT, PDO::PARAM_STR);

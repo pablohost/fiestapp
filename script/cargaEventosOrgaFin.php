@@ -86,10 +86,10 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
 									<p class="eventoFina">
 										
 									</p>
-									<div class="container-fluid" style="position: absolute;">
+									<div class="container-fluid" style="position: absolute;" id="botoneraEve">
 										<div class="row">
 											<div class="col-12 py-1">
-												<a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;opacity: .9;box-shadow: 2px 2px 10px #000;">
+												<a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;opacity: .9;box-shadow: 2px 2px 10px #000;" id="btnGestionEvento" data-ind="'.$indiceEvento.'" data-nom="'.$tituloEvento.'">
 							                        <i class="fas fa-cogs"></i>
 							                        GESTIONAR
 							                    </a>
@@ -134,10 +134,10 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
 								<p class="eventoFina">
 										
 								</p>
-								<div class="container-fluid" style="position: absolute;">
+								<div class="container-fluid" style="position: absolute;" id="botoneraEve">
 									<div class="row">
 										<div class="col-12 py-1">
-											<a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;opacity: .9;box-shadow: 2px 2px 10px #000;">
+											<a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;opacity: .9;box-shadow: 2px 2px 10px #000;" id="btnGestionEvento" data-ind="'.$indiceEvento.'" data-nom="'.$tituloEvento.'">
 						                        <i class="fas fa-cogs"></i>
 						                        GESTIONAR
 						                    </a>

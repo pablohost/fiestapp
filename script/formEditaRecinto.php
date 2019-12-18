@@ -4,7 +4,7 @@ $mensaje='';
 $mensaje.='
 <div class="row pt-2">
 	<div class="col-12">
-		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;">EDITAR RECINTO</h1>
+		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;font-weight: 600;">EDITAR RECINTO</h1>
 	</div>
 	<div class="container text-left" style="border: 5px solid rgba(225, 173, 7, 1);padding: 1rem;background-color: rgba(255,255,255,.9);border-radius: 20px;">
 		<form id="editaRecintoOrga-form" action="" method="POST" name="formEditaRecintoOrga">
@@ -65,12 +65,12 @@ $mensaje.='
 		        <div class="col-12">
 		        <hr style="border: 2px solid rgba(225, 173, 7, 1);">
 		        </div>
-		        <div class="col-12 col-md-6 text-center">
+		        <div class="col-12 col-md-6 text-center py-1">
 		            <button class="btn btn-danger btn-lg btn-block" id="btnAtrasRecintos" type="button" style="font-weight: 700;"> 
 		                VOLVER ATRAS
 		            </button> 
 		        </div>
-		        <div class="col-12 col-md-6 text-center">
+		        <div class="col-12 col-md-6 text-center py-1">
 		            <button class="btn btn-warning btn-lg btn-block" id="btnConfirmaRecintoOrga" type="button" style="font-weight: 700;"> 
 		                CONFIRMAR <i class="fas fa-check"></i>
 		            </button> 

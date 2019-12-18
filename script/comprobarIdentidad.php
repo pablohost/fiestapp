@@ -88,6 +88,36 @@ if (isset($_SESSION['objetivo'])&&isset($_POST["ind"])&&isset($_POST["mod"])) {
                 echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
                 die();
             }
+        }elseif ($_POST["mod"]==3) {
+            //MODO 3 - USUARIO/EVENTO
+            $sql = 'SELECT Usuarios.ind,Eventos.ind 
+                    FROM Eventos 
+                    INNER JOIN Sinapsis ON Sinapsis.indEve = Eventos.ind
+                    INNER JOIN Usuarios ON Usuarios.ind = Sinapsis.indUsu
+                    WHERE Eventos.ind = :valEve
+                    AND Usuarios.ind = :valUsu;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valEve', $_POST["ind"], PDO::PARAM_INT);
+            $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT); 
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                $conn->commit();
+                echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                die();
+            }
         }
         
     } catch (PDOException $e) { 

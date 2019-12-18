@@ -5,7 +5,7 @@ $mensaje='';
 $mensaje.='
 <div class="row pt-2">
 	<div class="col-12">
-		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;">GALERIA</h1>
+		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;font-weight: 600;">GALERIA</h1>
 		<h3 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;" id="lblNomRec">'.$_POST['z'].'</h3>
 	</div>
 	<div class="col-12">

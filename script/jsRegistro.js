@@ -165,11 +165,11 @@ $(function(){
         let numCheck = /^[0-9]+$/;
 
         /* nombre */
-        if ($("#txtNombre").val().length>0&&$("#txtNombre").val().length<120&&textoCheck.test($("#txtNombre").val())) {
+        if ($("#txtNombre").val().length>0&&$("#txtNombre").val().length<40&&textoCheck.test($("#txtNombre").val())) {
           /* apellido */
-          if ($("#txtApelli").val().length>0&&$("#txtApelli").val().length<120&&textoCheck.test($("#txtApelli").val())) {
+          if ($("#txtApelli").val().length>0&&$("#txtApelli").val().length<40&&textoCheck.test($("#txtApelli").val())) {
             /* correo electronico */
-            if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<120&&emailCheck.test($("#txtCorreo").val())) {
+            if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<45&&emailCheck.test($("#txtCorreo").val())) {
               /* clave */
               if ($("#txtClave").val().length>5&&$("#txtClave").val().length<30) {
                 /* repite clave */
@@ -352,7 +352,7 @@ $(function(){
 
         //DATOS DEL EVENTO
          /* titulo evento */
-        if ($("#txtTituloEve").val().length>0&&$("#txtTituloEve").val().length<150) {
+        if ($("#txtTituloEve").val().length>0&&$("#txtTituloEve").val().length<90) {
            /* descripcion evento */
           if ($("#txtDescEve").val().length<1950) {
              /* foto o flyer del evento */
@@ -370,16 +370,16 @@ $(function(){
                        /* ubicacion del local */
                       if ($("#txtLon").val().length>0&&$("#txtLon").val().length<40&&$("#txtLat").val().length>0&&$("#txtLat").val().length<40) {
                          /* nombre del local */
-                        if ($("#txtNomLoc").val().length>0&&$("#txtNomLoc").val().length<120) {
+                        if ($("#txtNomLoc").val().length>0&&$("#txtNomLoc").val().length<90) {
                            /* informacion del contacto */
                           if ($("#txtFonoLoc").val().length>1||$("#txtCorLoc").val().length>1||$("#txtWebLoc").val().length>1) {
                             //DATOS PARA LA CUENTA
                             /* nombre */
-                            if ($("#txtNombre").val().length>0&&$("#txtNombre").val().length<120&&textoCheck.test($("#txtNombre").val())) {
+                            if ($("#txtNombre").val().length>0&&$("#txtNombre").val().length<40&&textoCheck.test($("#txtNombre").val())) {
                               /* apellido */
-                              if ($("#txtApelli").val().length>0&&$("#txtApelli").val().length<120&&textoCheck.test($("#txtApelli").val())) {
+                              if ($("#txtApelli").val().length>0&&$("#txtApelli").val().length<40&&textoCheck.test($("#txtApelli").val())) {
                                 /* correo electronico */
-                                if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<120&&emailCheck.test($("#txtCorreo").val())) {
+                                if ($("#txtCorreo").val().length>0&&$("#txtCorreo").val().length<45&&emailCheck.test($("#txtCorreo").val())) {
                                   /* clave */
                                   if ($("#txtClave").val().length>5&&$("#txtClave").val().length<30) {
                                     /* repite clave */
@@ -407,13 +407,13 @@ $(function(){
                                           }
                                         }
                                         /* correo electronico recinto */
-                                        if ($("#txtCorLoc").val().length>0&&$("#txtCorLoc").val().length<90) {
+                                        if ($("#txtCorLoc").val().length>0&&$("#txtCorLoc").val().length<45) {
                                           if (emailCheck.test($("#txtCorLoc").val())) {
-                                            console.log("ingreso numero de telefono");
+                                            console.log("ingreso correo electronico");
                                           }else{
                                             Swal.fire({
-                                              title: 'Error en TELEFONO',
-                                              html: '<p>El telefono solo deben ser numeros con un minimo de 8 numeros.</p><p style="color:red;">Se debe omitir el codigo de area.</p>',
+                                              title: 'Error en CORREO ELECTRONICO RECINTO',
+                                              html: '<p>El correo electronico tiene un maximo de 45 caracteres.</p>',
                                               type: 'error',
                                               confirmButtonText: 'OK',
                                               onAfterClose: () => {
@@ -424,12 +424,17 @@ $(function(){
                                           }
                                         }
                                         /* pagina web recinto */
-                                        if ($("#txtWebLoc").val().length>0&&$("#txtWebLoc").val().length<60) {
-                                          console.log("ingreso pagina web");
+                                        if ($("#txtWebLoc").val().length>0&&$("#txtWebLoc").val().length<50) {
+                                          let fixLink=$("#txtWebLoc").val().substr(0, 4);
+                                          if (fixLink=="http") {
+                                            console.log("ingreso pagina web ok");
+                                          }else{
+                                            $("#txtWebLoc").val("https://"+$("#txtWebLoc").val());
+                                          }
                                         }else{
                                           Swal.fire({
                                             title: 'Error en PAGINA WEB',
-                                            html: '<p>La pagina web tiene una maximo de 60 caracteres.</p>',
+                                            html: '<p>La pagina web tiene una maximo de 50 caracteres.</p>',
                                             type: 'error',
                                             confirmButtonText: 'OK',
                                             onAfterClose: () => {
@@ -527,7 +532,7 @@ $(function(){
                                 /* error - apellido */
                                 Swal.fire({
                                   title: 'Error en APELLIDO',
-                                  html: '<p>Solo debes usar letras y con un maximo de 120 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+                                  html: '<p>Solo debes usar letras y con un maximo de 40 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                                   type: 'error',
                                   confirmButtonText: 'OK',
                                   onAfterClose: () => {
@@ -539,7 +544,7 @@ $(function(){
                               /* error - nombre */
                               Swal.fire({
                                 title: 'Error en NOMBRE',
-                                html: '<p>Solo debes usar letras y con un maximo de 120 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+                                html: '<p>Solo debes usar letras y con un maximo de 40 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                                 type: 'error',
                                 confirmButtonText: 'OK',
                                 onAfterClose: () => {
@@ -564,7 +569,7 @@ $(function(){
                           /* error - nombre recinto */
                           Swal.fire({
                             title: 'Error en NOMBRE DEL RECINTO',
-                            html: '<p>El nombre del recinto tiene un maximo de 120 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+                            html: '<p>El nombre del recinto tiene un maximo de 90 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
                             type: 'error',
                             confirmButtonText: 'OK',
                             onAfterClose: () => {
@@ -588,7 +593,7 @@ $(function(){
                       /* error - enlace boletos */
                       Swal.fire({
                         title: 'Error en ENLACE COMPRA DE BOLETOS',
-                        html: '<p>El enlace tiene un maximo de 650 caracteres</p>',
+                        html: '<p>El enlace tiene un maximo de 150 caracteres</p>',
                         type: 'error',
                         confirmButtonText: 'OK',
                         onAfterClose: () => {
@@ -660,7 +665,7 @@ $(function(){
           /* error - titulo evento */
           Swal.fire({
             title: 'Error en TITULO EVENTO',
-            html: '<p>El titulo tiene un maximo de 150 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
+            html: '<p>El titulo tiene un maximo de 90 caracteres.</p><p style="color:red;">Este campo es OBLIGATORIO.</p>',
             type: 'error',
             confirmButtonText: 'OK',
             onAfterClose: () => {

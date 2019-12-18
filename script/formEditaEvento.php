@@ -3,16 +3,19 @@ $mensaje='';
 $mensaje.='
 <div class="row pt-2">
 	<div class="col-12">
-		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;font-weight: 600;">CREAR NUEVO EVENTO</h1>
+		<h1 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;font-weight: 600;">EDITAR EVENTO</h1>
+		<h3 style="color:rgba(225, 173, 7, 1);text-shadow: 2px 2px 10px #000;" id="lblNomRec"></h3>
 	</div>
 	<div class="col-12">
 	<div class="container text-left" style="border: 5px solid rgba(225, 173, 7, 1);padding: 1rem;background-color: rgba(255,255,255,.9);border-radius: 20px;">
-		<form id="creaEventoOrga-form" action="" method="POST" name="formCreaEventoOrga">
+		<form id="editaEventoOrga-form" action="" method="POST" name="formEditaEventoOrga">
 		    <div class="row justify-content-center">
 		        <div class="col-12 boxDatosEve form-group pt-1">
 		            <h4 class="titBoxEve text-center"><i class="fas fa-calendar-day"></i> Informacion del Evento </h4>
 		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
 		            <p class="text-muted">Usaremos esta info para publicar tu evento</p>
+		            <input id="txtIndRecinto" type="hidden" value="" name="IndRecinto">
+		            <input id="txtIndEvento" type="hidden" value="" name="IndEvento">
 		            <!--Titulo Evento-->
 		            <span class="titInput">Titulo</span>
 		            <input type="text" id="txtTituloEve" class="form-control" placeholder="Agrega un titulo a tu evento" name="TituloEve"><br>
@@ -20,7 +23,7 @@ $mensaje.='
 		            <span class="titInput">Descripcion</span>
 		            <textarea type="text" id="txtDescEve" rows="7" class="form-control" placeholder="Aqui puedes detallar mas info. acerca de tu evento" name="DescEve"></textarea><br>
 		            <!--Flyer Evento-->
-		            <span class="titInput">Foto o Flyer del Evento</span>
+		            <span class="titInput">Reemplazar Foto o Flyer del Evento</span>
 		            <div class="custom-file">
 		              <input type="file" class="custom-file-input" id="flFotoEve" name="FotoEve">
 		              <label class="custom-file-label fl0" for="flFotoEve" data-browse="Elegir">Seleccionar Archivo</label>
@@ -196,7 +199,7 @@ $mensaje.='
 		            <h4 class="titBoxEve text-center"><i class="fas fa-warehouse"></i> Informacion del Recinto </h4>
 		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
 		            <p class="text-muted">Donde se realizara el evento</p>
-		            <p class=""><a href="#" role="button" class="btn btn-warning btn-sm" id="btnMisRecintos"><i class="fas fa-warehouse"></i> MIS RECINTOS</a></p>
+		            <p class=""><a href="#" role="button" class="btn btn-warning btn-sm d-none" id="btnMisRecintos"><i class="fas fa-warehouse"></i> MIS RECINTOS</a></p>
 		            <div class="" id="listaRecintos">
 		            </div>
 		            <!--Ubicacion-->
@@ -265,7 +268,7 @@ $mensaje.='
 		            </button> 
 		        </div>
 		        <div class="col-12 col-md-6 text-center py-1">
-		            <button class="btn btn-warning btn-lg btn-block" id="btnConfirmaAgregaOrga" type="button" style="font-weight: 700;"> 
+		            <button class="btn btn-warning btn-lg btn-block" id="btnConfirmaEditEve" type="button" style="font-weight: 700;"> 
 		                CONFIRMAR <i class="fas fa-check"></i>
 		            </button> 
 		        </div>

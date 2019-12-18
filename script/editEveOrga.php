@@ -13,8 +13,11 @@ function arreglo($msg,$cod){
 if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Estacionamiento"]) && isset($_POST["TituloEve"]) && isset($_POST["DtIni"]) && isset($_POST["HrIni"]) && isset($_POST["DtFin"]) && isset($_POST["HrFin"]) && isset($_POST["Long"]) && isset($_POST["Lati"]) && isset($_POST["NomLoc"]) && isset($_POST["indiceUsu"])) {
 
 	//se define la ruta de la foto $_FILES['FotoEve']['tmp_name']
-	$formatoFoto=explode("/",$_FILES['FotoEve']['type']);
-	$rutaFinal="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+	if ($_FILES['FotoEve']['error'] === 0) {
+		//se define la ruta de la foto
+		$formatoFoto=explode("/",$_FILES['FotoEve']['type']);
+		$rutaFly="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+	}
 	//revisamos si se subieron nuevas fotos al recinto
 	if ($_FILES['FotoRec1']['error'] === 0) {
 		//se define la ruta de la foto
@@ -163,7 +166,6 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 	}else{
 		$indiceLocal=0;
 	}
-	
 	if ($indiceLocal==0) {
 		//NUEVO RECINTO
 		// tabla capPersonas
@@ -193,7 +195,7 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 		$result->bindValue(':valDes', $descripcionLoc, PDO::PARAM_STR);
 		$result->bindValue(':valFon', $fonoLocal, PDO::PARAM_STR);
 		$result->bindValue(':valCor', $correoLocal, PDO::PARAM_STR);
-		$result->bindValue(':valWeb', "https://".$webLocal, PDO::PARAM_STR);
+		$result->bindValue(':valWeb', $webLocal, PDO::PARAM_STR);
 		$result->bindValue(':valEstado', 0, PDO::PARAM_INT);
 		$result->execute(); 
 		$lastIdLoc = $conn->lastInsertId();
@@ -237,7 +239,7 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 		$result->bindValue(':valDes', $descripcionLoc, PDO::PARAM_STR);
 		$result->bindValue(':valFon', $fonoLocal, PDO::PARAM_STR);
 		$result->bindValue(':valCor', $correoLocal, PDO::PARAM_STR);
-		$result->bindValue(':valWeb', "https://".$webLocal, PDO::PARAM_STR);
+		$result->bindValue(':valWeb', $webLocal, PDO::PARAM_STR);
 		$result->bindValue(':valInd', $_POST["Recinto"], PDO::PARAM_INT);
 		$result->execute(); 
 		$indiceLocal=$_POST["Recinto"];
@@ -346,52 +348,55 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec10']['tmp_name'], "../".$rutaRec10);
 	}
+	if (isset($rutaFly)) {
+		# code...
+		$sql = 'UPDATE Eventos SET Eventos.fly=:valFly WHERE Eventos.ind=:valEve;'; 
+			$result = $conn->prepare($sql); 
+			$result->bindValue(':valEve', $_POST["IndEvento"], PDO::PARAM_INT);
+			$result->bindValue(':valFly', $rutaFly, PDO::PARAM_STR);
+			$result->execute();
+		//cargamos la foto del evento en una carpeta con su ruta
+		move_uploaded_file($_FILES['FotoEve']['tmp_name'], "../".$rutaFly);
+	}
 	
 
 	// tabla Eventos
-	$sql = 'INSERT INTO Eventos(indLoc,fecIni,fecFin,titulo,des,fly,estado,boleto) VALUES (:valLoc,:valIni,:valFin,:valTit,:valDes,:valFly,:valEstado,:valBol);'; 
+	$sql = 'UPDATE Eventos SET Eventos.indLoc=:valLoc,Eventos.fecIni=:valIni,Eventos.fecFin=:valFin,Eventos.titulo=:valTit,Eventos.des=:valDes,Eventos.estado=:valEstado,Eventos.boleto=:valBol WHERE Eventos.ind=:valEve;'; 
 	$result = $conn->prepare($sql); 
 	$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 	$result->bindValue(':valIni', $fechaInicio, PDO::PARAM_STR);
 	$result->bindValue(':valFin', $fechaFin, PDO::PARAM_STR);
 	$result->bindValue(':valTit', $_POST["TituloEve"], PDO::PARAM_STR);
 	$result->bindValue(':valDes', $descripcionEve, PDO::PARAM_STR);
-	$result->bindValue(':valFly', $rutaFinal, PDO::PARAM_STR);
+	$result->bindValue(':valEve', $_POST["IndEvento"], PDO::PARAM_INT);
 	$result->bindValue(':valEstado', 0, PDO::PARAM_INT);
 	$result->bindValue(':valBol', $boletos, PDO::PARAM_STR);
 	$result->execute(); 
-	$lastIdEve = $conn->lastInsertId();
 
 	// tabla Categorias
+	//primero eliminamos las antiguas categorias que tenia
+	$sql = 'UPDATE CategoriasEve SET CategoriasEve.estado=1 WHERE CategoriasEve.indEve=:valEve;'; 
+	$result = $conn->prepare($sql); 
+	$result->bindValue(':valEve', $_POST["IndEvento"], PDO::PARAM_INT);
+	$result->execute();
+	//ahora agregamos las nuevas
 	foreach ($cates as $valor) {
 		if ($valor!="") {
 			# code...
 			$sql = 'INSERT INTO CategoriasEve(indEve,indCat,estado) VALUES (:valEve,:valCat,:valEst);'; 
 			$result = $conn->prepare($sql); 
-			$result->bindValue(':valEve', $lastIdEve, PDO::PARAM_INT);
+			$result->bindValue(':valEve', $_POST["IndEvento"], PDO::PARAM_INT);
 			$result->bindValue(':valCat', $valor, PDO::PARAM_INT);
 			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		}
 	}
 
-	//tabla Sinapsis
-	$sql = 'INSERT INTO Sinapsis(indUsu,indEve,nivel) VALUES (:valUsu,:valEve,:valNiv);'; 
-	$result = $conn->prepare($sql); 
-	$result->bindValue(':valUsu', $_POST["indiceUsu"], PDO::PARAM_INT);
-	$result->bindValue(':valEve', $lastIdEve, PDO::PARAM_INT);
-	$result->bindValue(':valNiv', 0, PDO::PARAM_INT);
-	$result->execute();
-	
-
 	$conn->commit(); 
-
-	//cargamos la foto del evento en una carpeta con su ruta
-	move_uploaded_file($_FILES['FotoEve']['tmp_name'], "../".$rutaFinal);
 
 	//cargamos las nuevas fotos del recinto
 
-	echo json_encode(arreglo('Evento Creado',0), JSON_FORCE_OBJECT);
+	echo json_encode(arreglo('Evento Editado',0), JSON_FORCE_OBJECT);
 	die();
 
 	} catch (PDOException $e) { 
