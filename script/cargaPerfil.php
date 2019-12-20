@@ -431,18 +431,6 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
 										<h4>'.$fonoUsu.'</h4>
 									</div>
 								</div>
-								<div class="row justify-content-center mb-3">
-									<div class="col-12 mt-3"><hr></div>
-									<div class="col-12 text-center">
-										<h2 class="titComu">Mensajes</h2>
-									</div>
-									<div class="col-12 text-center">
-										<div class="container-fluid">
-											<div class="row" id="listaMensajes">
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>	
 						</div>
 					</div>';

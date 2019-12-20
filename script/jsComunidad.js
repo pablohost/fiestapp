@@ -584,6 +584,141 @@ $(function(){
 		comprobarArchivo(this,$('#flFotoEve'),$(".fl0"));
 	});
 
+  	//******************************************************
+  	//******************************************************
+  	//SECCION EVENTOS - COMUNIDAD
+  	//******************************************************
+  	//******************************************************
+  	//boton aceptar invitacion
+  	$("#medio").on("click","#btnAceptaInvi",function(e){
+	    e.preventDefault();
+	    let indice=$(this).data("ind");
+	    let evento=$(this).data("eve");
+	    Swal.fire({
+	    	allowOutsideClick: false,
+		  onBeforeOpen: () => {
+		    Swal.showLoading()
+		  },
+		  onClose: () => {
+
+		  }
+		}).then((result) => {
+		  
+		})
+	    $.ajax({
+		    type: "POST",
+		    url: 'script/comprobarIdentidad.php',
+		    data: {ind: indice,mod: 8,eve: evento},
+		    success: function (data) {
+		      	if (data.cod==0) {
+		      		$.post('script/invitacionEvento.php',
+					    {modo: 1,ind: indice,eve: evento},
+					    function(mensaje, textStatus, xhr) {
+				    	console.log(mensaje);
+				    	console.log(textStatus);
+				    	console.log(xhr);
+					    /*optional stuff to do after success */
+					    if (mensaje.cod==0) {
+			      			Swal.fire({
+				                title: "Listo !",
+				                text: mensaje.msg,
+				                type: "success",
+				                confirmButtonText: "OK",
+				                onAfterClose: () => {
+					              $("#lkCom4").click();
+					            }
+				            });
+				      	}else{
+				      		Swal.fire({
+				                title: mensaje.msg,
+				                text: "ERROR FATAL",
+				                type: "error",
+				                confirmButtonText: "OK",
+				                onAfterClose: () => {
+					              $("#lkCom4").click();
+					            }
+				            });
+		      			}
+					});
+		      	}else{
+		      		Swal.fire({
+		                title: data.msg,
+		                text: "ERROR FATAL",
+		                type: "error",
+		                confirmButtonText: "OK",
+		                onAfterClose: () => {
+			              $("#lkCom4").click();
+			            }
+		            });
+		      	}
+		    },
+		    error: function (respuesta, textStatus, xhr) {
+		    	console.log(respuesta);
+				console.log(textStatus);
+				console.log(xhr);
+		    }
+	    });
+	});
+	//boton rechaza invitacion
+  	$("#medio").on("click","#btnRechazaInvi",function(e){
+	    e.preventDefault();
+	    let indice=$(this).data("ind");
+	    Swal.fire({
+		  title: 'Estas seguro/a?',
+		  html: "Estas a punto de <b>ELIMINAR</b> esta invitacion para siempre",
+		  type: 'error',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Si, eliminar!',
+		  cancelButtonText: 'Volver Atras',
+		}).then((result) => {
+		  if (result.value) {
+		  	Swal.fire({
+		    	allowOutsideClick: false,
+			  onBeforeOpen: () => {
+			    Swal.showLoading()
+			  },
+			  onClose: () => {
+
+			  }
+			}).then((result) => {
+			  
+			})
+			$.post('script/invitacionEvento.php',
+				{modo: 2,ind: indice},
+				function(mensaje, textStatus, xhr) {
+				console.log(mensaje);
+				console.log(textStatus);
+				console.log(xhr);
+				/*optional stuff to do after success */
+				if (mensaje.cod==0) {
+					Swal.fire({
+				        title: "Listo !",
+				        text: mensaje.msg,
+				        type: "success",
+				        confirmButtonText: "OK",
+				        onAfterClose: () => {
+				          $("#lkCom4").click();
+				        }
+				    });
+				}else{
+					Swal.fire({
+				        title: mensaje.msg,
+				        text: "ERROR FATAL",
+				        type: "error",
+				        confirmButtonText: "OK",
+				        onAfterClose: () => {
+				          $("#lkCom4").click();
+				        }
+				    });
+				}
+			});
+		  }
+		})
+	});
+
+
 	//boton cerrar sesion
 	$("#cerrarSes").click(function(e) {
 		e.preventDefault();
@@ -630,6 +765,7 @@ function cargarSeccion(opcion){
 		cargaAmigosCom();
 	}else if (opcion==3) {
 		loading();
+		cargaEventosCom();
 	}
 }
 
@@ -657,48 +793,6 @@ function cargaPerfil(){
 	});
 }
 
-function cargaEventosOrga(){
-	let indicePerfil=$( "#idObjetivo" ).val();
-	let nombrePerfil=$( "#noObjetivo" ).val();
-	let tipoPerfil=$( "#tiObjetivo" ).val();
-	console.log(indicePerfil);
-	console.log(nombrePerfil);
-	console.log(tipoPerfil);
-	$.post('script/cargaEventosOrga.php',
-	    {x: indicePerfil,y: nombrePerfil,z: tipoPerfil},
-	    function(data, textStatus, xhr) {
-    	console.log(data);
-    	console.log(textStatus);
-    	console.log(xhr);
-	    /*optional stuff to do after success */
-	    $( "#medio" ).empty();
-	    $( "#medio" ).html(data.msg);
-	    //colocamos de titulo el nombre del perfil que se esta viosualizando
-		document.title = $("#medio").find("#nombrePerfil").val()+" - FIESTAPP";
-		//bloqueamos funciones a visitantes
-		if (data.cod==2) {
-			$("#medio").find("#botoneraOrgaEve").empty();
-			$("#medio").find("#botoneraEve").empty();
-		}
-
-		//cargamos eventos finalizados
-		$( "#subMedioFin" ).html("<div class='spinner-grow text-warning' style='width: 12rem; height: 10rem;' role='status'><span class='sr-only'>Cargando...</span></div>");
-		$.post('script/cargaEventosOrgaFin.php',
-		    {x: indicePerfil,y: nombrePerfil,z: tipoPerfil},
-		    function(data, textStatus, xhr) {
-	    	console.log(data);
-	    	console.log(textStatus);
-	    	console.log(xhr);
-		    /*optional stuff to do after success */
-		    $( "#subMedioFin" ).empty();
-		    $( "#subMedioFin" ).html(data.msg);
-		    if (data.cod==2) {
-				$("#medio").find("#botoneraEve").empty();
-			}
-		});
-
-	});
-}
 function cargaAmigosCom(){
 	let indicePerfil=$( "#idObjetivo" ).val();
 	let nombrePerfil=$( "#noObjetivo" ).val();
@@ -737,6 +831,47 @@ function cargaAmigosCom(){
 
 	});
 }
+
+function cargaEventosCom(){
+	let indicePerfil=$( "#idObjetivo" ).val();
+	let nombrePerfil=$( "#noObjetivo" ).val();
+	let tipoPerfil=$( "#tiObjetivo" ).val();
+	console.log(indicePerfil);
+	console.log(nombrePerfil);
+	console.log(tipoPerfil);
+	$.post('script/cargaEventosCom.php',
+	    {x: indicePerfil,y: nombrePerfil,z: tipoPerfil},
+	    function(data, textStatus, xhr) {
+    	console.log(data);
+    	console.log(textStatus);
+    	console.log(xhr);
+	    /*optional stuff to do after success */
+	    $( "#medio" ).empty();
+	    $( "#medio" ).html(data.msg);
+	    //colocamos de titulo el nombre del perfil que se esta viosualizando
+		document.title = nombrePerfil+" - FIESTAPP";
+		//bloqueamos funciones a visitantes
+		if (data.cod==2) {
+			$("#medio").find("#botoneraEventosCom").empty();
+		}
+
+		//cargamos invitaciones a evento
+		
+		$( "#boxInvitaciones" ).html("<div class='spinner-grow text-warning' style='width: 12rem; height: 10rem;' role='status'><span class='sr-only'>Cargando...</span></div>");
+		$.post('script/invitacionEvento.php',
+		    {modo: 0},
+		    function(data, textStatus, xhr) {
+	    	console.log(data);
+	    	console.log(textStatus);
+	    	console.log(xhr);
+		    $( "#boxInvitaciones" ).empty();
+		    $( "#boxInvitaciones" ).html(data.msg);
+		});
+		
+
+	});
+}
+
 function hackScript(textoCrudo) {
 	// body...
 	let textoCocido = textoCrudo.replace(new RegExp("<script>","gi"), "hack");

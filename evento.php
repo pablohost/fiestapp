@@ -2,7 +2,7 @@
 //Iniciamos la sesión
 session_start();
 
-
+$momentoEvento=false;
 ?>
 <!DOCTYPE html> 
 <!-- 
@@ -129,7 +129,7 @@ YERKO ZABALETA
               <div class="container-fluid pt-5 paleEvento">
                 <div class="row">
                   <div class="col-12" style="padding: 0">
-                    <img src="<?= $fotoEvento ?>" class="fotoEvento">
+                    <img src="<?= $fotoEvento ?>" class="fotoEvento" data-ind="<?= $indiceEvento ?>">
                   </div>
                 </div>
                 <div class="row py-3 boxEvento">
@@ -157,8 +157,10 @@ YERKO ZABALETA
             
             }else if ($fechaInicioNum<$fechaNow) {
               # code...
+              $momentoEvento=true;
               if ($fechaFinNum>$fechaNow) {
                 # code...
+                
       ?>
                             <i class="fas fa-fire"></i> El evento es ahora !
       <?php
@@ -266,60 +268,152 @@ YERKO ZABALETA
                         </div>
                         
       <?php
+        if ($momentoEvento) {
+          //si es que el evento es ahora o ya termino no se muestran los botones
+
+        }else{
           if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
+
             
-            if ($_SESSION['tipo']==1) {
-              # code...
-      ?>
-                        <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
-                              <i class="fas fa-calendar-check"></i> ASISTIR
-                          </a>
-                        </div>
-                        <div class="col-12 py-2">
-                          <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
-                              <i class="fas fa-user-friends"></i> INVITAR AMIGO
-                          </a>
-                        </div>
-      <?php
-            } else if ($_SESSION['tipo']==2||$_SESSION['tipo']==3){
-              # code...
-      ?>
-                        <div class="col-12 py-2">
-                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
-                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+              if ($_SESSION['tipo']==1) {
+
+                # code...
+                // BUSCAMOS SI YA PUSO ASISTIR
+                $sqlX = 'SELECT Sinapsis.ind
+                        FROM Sinapsis 
+                        WHERE Sinapsis.indUsu=:valInd
+                        AND Sinapsis.indEve=:valEve
+                        AND Sinapsis.nivel=1;';
+
+                $resultX = $conn->prepare($sqlX); 
+                $resultX->bindValue(':valEve', $indiceEvento, PDO::PARAM_INT);
+                $resultX->bindValue(':valInd', $_SESSION['objetivo'], PDO::PARAM_INT); 
+                // Especificamos el fetch mode antes de llamar a fetch()
+                $resultX->setFetchMode(PDO::FETCH_BOTH);
+                // Ejecutamos
+                $resultX->execute();
+                //Comprobamos si encontro el evento activo
+                $filasX=$resultX->rowCount();
+                if ($filasX==0) {
+        ?>
+                          <div class="col-12 py-2">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnAsisteEvento" data-ind="<?= $indiceEvento ?>">
                                 <i class="fas fa-calendar-check"></i> ASISTIR
                             </a>
-                          </span>
-                        </div>
-                        <div class="col-12 py-2">
-                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
-                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                          </div>
+        <?php
+                }else{
+        ?>
+                          <div class="col-12 py-2">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnNoAsisteEvento" data-ind="<?= $indiceEvento ?>">
+                                <i class="fas fa-calendar-times"></i> YA NO IRE
+                            </a>
+                          </div>
+        <?php
+                }
+        ?>
+                          <div class="col-12 py-2">
+                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo" data-ind="<?= $indiceEvento ?>">
                                 <i class="fas fa-user-friends"></i> INVITAR AMIGO
                             </a>
-                          </span>
-                        </div>
-      <?php
-            }
-              
-          } else {
-      ?>
-                        <div class="col-12 py-2">
-                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
-                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
-                                <i class="fas fa-calendar-check"></i> ASISTIR
-                            </a>
-                          </span>
-                        </div>
-                        <div class="col-12 py-2">
-                          <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
-                            <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
-                                <i class="fas fa-user-friends"></i> INVITAR AMIGO
-                            </a>
-                          </span>
-                        </div>
-      <?php
-          };
+                            <br>
+                            <select class="form-control" id="cbxAmigosInv" name="AmigosInv">
+                              <option value="0">Seleccionar Amigo</option>
+        <?php
+                    // BUSCAMOS AMIGOS DEL USUARIO LOGEADO
+                    $sqlY = 'SELECT Usuarios.nombre,Usuarios.apelli,Usuarios.ind
+                            FROM Amigos
+                            INNER JOIN Usuarios ON Usuarios.ind = Amigos.indAmi
+                            WHERE Amigos.indUsu=:valInd
+                            AND Amigos.estado=0
+                            AND Usuarios.estado=0;';
+
+                    $resultY = $conn->prepare($sqlY); 
+                    $resultY->bindValue(':valInd', $_SESSION['objetivo'], PDO::PARAM_INT); 
+                    // Especificamos el fetch mode antes de llamar a fetch()
+                    $resultY->setFetchMode(PDO::FETCH_BOTH);
+                    // Ejecutamos
+                    $resultY->execute();
+                    //Comprobamos si encontro el registro
+                    $filasY=$resultY->rowCount();
+                    if ($filasY!=0) {
+                        # code...
+                        while ($rowY = $resultY->fetch()){
+                          // BUSCAMOS AMIGOS DEL USUARIO LOGEADO
+                          $sqlZ = 'SELECT Sinapsis.ind
+                                  FROM Sinapsis
+                                  WHERE Sinapsis.indUsu=:valInd
+                                  AND Sinapsis.indEve=:valEve
+                                  AND Sinapsis.nivel=1;';
+
+                          $resultZ = $conn->prepare($sqlZ); 
+                          $resultZ->bindValue(':valInd', $rowY[2], PDO::PARAM_INT); 
+                          $resultZ->bindValue(':valEve', $indiceEvento, PDO::PARAM_INT); 
+                          // Especificamos el fetch mode antes de llamar a fetch()
+                          $resultZ->setFetchMode(PDO::FETCH_BOTH);
+                          // Ejecutamos
+                          $resultZ->execute();
+                          //Comprobamos si encontro el registro
+                          $filasZ=$resultZ->rowCount();
+                          if ($filasZ!=0) {
+                              # code...
+                              //ya esta asistiendo este usuario, no se agrega a la lista
+                          }else{
+        ?>
+                            <option value="<?= $rowY[2] ?>"><?= $rowY[0].' '.$rowY[1] ?></option>
+        <?php
+                          }
+                        }
+        ?>
+                            </select>
+        <?php
+                    }else{
+        ?>
+                            </select>
+        <?php
+                    }  
+        ?>
+                          </div>
+        <?php
+              } else if ($_SESSION['tipo']==2||$_SESSION['tipo']==3){
+                # code...
+
+        ?>
+                          <div class="col-12 py-2">
+                            <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                              <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                                  <i class="fas fa-calendar-check"></i> ASISTIR
+                              </a>
+                            </span>
+                          </div>
+                          <div class="col-12 py-2">
+                            <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                              <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                                  <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                              </a>
+                            </span>
+                          </div>
+        <?php
+              }
+            } else {
+        ?>
+                          <div class="col-12 py-2">
+                            <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                              <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnAsisteEvento">
+                                  <i class="fas fa-calendar-check"></i> ASISTIR
+                              </a>
+                            </span>
+                          </div>
+                          <div class="col-12 py-2">
+                            <span class="d-block btnEveCute" tabindex="0" data-toggle="tooltip" title="Debes iniciar sesion">
+                              <a href="#" role="button" class="btn btn-dark btn-block btn-lg disabled" style="font-weight: bold;" target="_blank" id="btnInvitaAmigo">
+                                  <i class="fas fa-user-friends"></i> INVITAR AMIGO
+                              </a>
+                            </span>
+                          </div>
+        <?php
+            };
+          }
       ?>
                         <div class="col-12 py-2">
                           <hr>
@@ -426,10 +520,21 @@ YERKO ZABALETA
                       </div>
                     </div>
                   </div>
+      <?php
+          if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
+      ?>
                   <div class="col-12">
                     <hr>
-                    <h2 class="text-left pl-3"><i class="far fa-star"></i> Reseñas</h2>
+                    <h2 class="text-left pl-3 pb-3"><i class="far fa-star"></i> Asistentes</h2>
+                    <div class="container-fluid">
+                      <div class="row" id="listaAsistentes">
+                        
+                      </div>
+                    </div>
                   </div>
+      <?php
+          }
+      ?>
                   <br><br>
                 </div>
       <?php

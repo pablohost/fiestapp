@@ -90,11 +90,13 @@ $mensaje.='
 		<div class="container text-center mt-4" style="border: 5px solid rgba(225, 173, 7, 1);padding: 1rem;background-color: rgba(255,255,255,.9);border-radius: 20px;">
 			<div class="row justify-content-center">
 		        <div class="col-12 boxDatosEve form-group pt-1">
-		        	<form id="asistentesEvento-form" action="" method="POST" name="formAsistentesEvento">
-			            <h4 class="titBoxEve text-center"><i class="fas fa-users"></i> Asistentes al Evento</h4>
-			            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
-			            <br><br>
-		            </form>
+		            <h4 class="titBoxEve text-center"><i class="fas fa-users"></i> Asistentes al Evento</h4>
+		            <hr style="border: 2px solid rgba(225, 173, 7, 1);">
+		            <div class="container-fluid">
+		            	<div class="row" id="listaAsistentes">
+		            		<div class="spinner-grow text-warning" style="width: 12rem; height: 10rem;" role="status"><span class="sr-only">Cargando...</span></div>
+		            	</div>
+		            </div>
 		        </div>
 		    </div>
 		</div>

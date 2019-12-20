@@ -1,7 +1,9 @@
 $(function() {
+	cargaLista();
 	//boton confirmar la denuncia del evento
-	$("#btnConfirmarDenuncia").click(function(event) {
+	$("#btnConfirmarDenuncia").click(function(e) {
     	/* Act on the event */
+    	e.preventDefault();
     	//demostramos al usuario que se esta procesando su solicitud
     	Swal.fire({
           title: '',
@@ -100,8 +102,224 @@ $(function() {
     		Swal.fire({ title: "Error", text: "Indica almenos una categoria para denunciar", type: "error", confirmButtonText: "OK" });
     	}
     });
+    //boton confirmar asistencia al evento
+	$("#btnAsisteEvento").click(function(e) {
+    	/* Act on the event */
+    	e.preventDefault();
+    	//demostramos al usuario que se esta procesando su solicitud
+    	Swal.fire({
+          title: '',
+          text: '',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
+        });
+        let indice=$("#btnAsisteEvento").data("ind");
+        $.ajax({
+          type: "POST",
+          url: 'script/asistirEvento.php',
+          data: {x: indice},
+          success: function (respuesta) {
+            console.log(respuesta);
+            if (respuesta.cod==0) {
+              Swal.fire({
+                title: "Listo !",
+                html: respuesta.msg,
+                type: 'success',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+                }
+              });
+            }else if(respuesta.cod==1){
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Error Inesperado</p>',
+                type: 'error',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
+            }else if(respuesta.cod==2){
+              Swal.fire({
+                title: "Error",
+                html: respuesta.msg,
+                type: 'info',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
+            }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+            Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+          }
+        });
+    });
+    //boton deja de asistir al evento
+	$("#btnNoAsisteEvento").click(function(e) {
+    	/* Act on the event */
+    	e.preventDefault();
+    	//demostramos al usuario que se esta procesando su solicitud
+    	Swal.fire({
+          title: '',
+          text: '',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
+        });
+        let indice=$("#btnNoAsisteEvento").data("ind");
+        let extra="variacion";
+        $.ajax({
+          type: "POST",
+          url: 'script/asistirEvento.php',
+          data: {x: indice,z: extra},
+          success: function (respuesta) {
+            console.log(respuesta);
+            if (respuesta.cod==0) {
+              Swal.fire({
+                title: "Listo !",
+                html: respuesta.msg,
+                type: 'success',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+                }
+              });
+            }else if(respuesta.cod==1){
+              Swal.fire({
+                title: respuesta.msg,
+                html: '<p>Error Inesperado</p>',
+                type: 'error',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
+            }else if(respuesta.cod==2){
+              Swal.fire({
+                title: "Error",
+                html: respuesta.msg,
+                type: 'info',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+
+                }
+              });
+            }
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+            console.log(ajaxOptions);
+            console.log(thrownError);
+            Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+          }
+        });
+    });
+    //boton invitar amigo al evento
+	$("#btnInvitaAmigo").click(function(e) {
+    	/* Act on the event */
+    	e.preventDefault();
+    	//demostramos al usuario que se esta procesando su solicitud
+    	Swal.fire({
+          title: '',
+          text: '',
+          type: "success",
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          onBeforeOpen: () => {
+            Swal.showLoading();
+          }
+        }).then((result) => {
+          
+        });
+        let indice=$("#cbxAmigosInv").val();
+        let evento=$(".fotoEvento").data("ind");
+        if (indice==0) {
+        	Swal.fire({
+                title: "Error",
+                html: "Selecciona un amigo para invitar",
+                type: 'info',
+                confirmButtonText: 'OK',
+                onAfterClose: () => {
+                	$("#cbxAmigosInv").focus();
+                }
+              });
+        }else{
+        	$.ajax({
+	          type: "POST",
+	          url: 'script/invitarAmigo.php',
+	          data: {x: indice,z: evento},
+	          success: function (respuesta) {
+	            console.log(respuesta);
+	            if (respuesta.cod==0) {
+	              Swal.fire({
+	                title: "Listo !",
+	                html: respuesta.msg,
+	                type: 'success',
+	                confirmButtonText: 'OK',
+	                onAfterClose: () => {
+	                	$("#cbxAmigosInv").val("0");
+	                }
+	              });
+	            }else if(respuesta.cod==1){
+	              Swal.fire({
+	                title: "Error",
+	                html: respuesta.msg,
+	                type: 'error',
+	                confirmButtonText: 'OK',
+	                onAfterClose: () => {
+	                	$("#cbxAmigosInv").val("0");
+	                }
+	              });
+	            }
+	          },
+	          error: function (xhr, ajaxOptions, thrownError) {
+	            console.log(xhr);
+	            console.log(ajaxOptions);
+	            console.log(thrownError);
+	            Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+	          }
+	        });
+        }
+    });
 });
 
 $('.btnEveCute').tooltip({ 
 	boundary: 'window'
 });
+
+function cargaLista() {
+	// body...
+	let indice=$(".fotoEvento").data("ind");
+	console.log(indice);
+	$.ajax({
+      type: "POST",
+      url: 'script/listaAsistentes.php',
+      data: {x: indice},
+      success: function (respuesta) {
+        console.log(respuesta);
+        $( "#listaAsistentes" ).empty();
+		$( "#listaAsistentes" ).html(respuesta.msg);
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        console.log(xhr);
+        console.log(ajaxOptions);
+        console.log(thrownError);
+        Swal.fire({ title: "Error Fatal!", text: "Intenta nuevamente", type: "error", confirmButtonText: "OK" });
+      }
+    });
+}

@@ -31,7 +31,8 @@ $mensaje='
 				</div>
 			</div>
 		</form>
-	</div>';
+	</div>
+	<div class="container-fluid mt-4" style="overflow-y: scroll;max-height: 500px;"><div class="row">';
 
 //comprobamos si es el dueño del perfil o un visitante
 $visita=true;
@@ -81,7 +82,7 @@ if(isset($_POST["x"])){
 			$indEmisor=$row[2];
 			$nomEmisor=$row[3].' '.$row[4];
 			$tipEmisor=$row[5];
-			$indMensaje=$row[5];
+			$indMensaje=$row[6];
 			$portalComunidad="";
 
 			if ($tipEmisor==1) {
@@ -125,7 +126,7 @@ if(isset($_POST["x"])){
 				</div>
 			</div>';
 		}
-
+		$mensaje.="</div></div>";
 		if ($visita) {
 			# code...
 			echo json_encode(arreglo($mensaje,1), JSON_FORCE_OBJECT);

@@ -211,7 +211,7 @@ if (isset($_SESSION['objetivo'])&&isset($_POST["ind"])&&isset($_POST["mod"])) {
                 die();
             }
         }elseif ($_POST["mod"]==7) {
-            //MODO 6 - USUARIO/MENSAJE
+            //MODO 7 - USUARIO/MENSAJE
             $sql = 'SELECT Mensajes.ind 
                     FROM Mensajes 
                     WHERE Mensajes.ind = :valMen
@@ -220,6 +220,36 @@ if (isset($_SESSION['objetivo'])&&isset($_POST["ind"])&&isset($_POST["mod"])) {
             $result = $conn->prepare($sql); 
             $result->bindValue(':valMen', $_POST["ind"], PDO::PARAM_INT);
             $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT); 
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                $conn->commit();
+                echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                die();
+            }
+        }elseif ($_POST["mod"]==8) {
+            //MODO 8 - USUARIO/INVITACION EVENTO
+            $sql = 'SELECT Invitaciones.ind 
+                    FROM Invitaciones 
+                    WHERE Invitaciones.indEve = :valEve
+                    AND Invitaciones.ind = :valInd
+                    AND Invitaciones.indInv = :valUsu;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valEve', $_POST["eve"], PDO::PARAM_INT);
+            $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT);
+            $result->bindValue(':valInd', $_POST["ind"], PDO::PARAM_INT); 
             // Especificamos el fetch mode antes de llamar a fetch()
             $result->setFetchMode(PDO::FETCH_BOTH);
             // Ejecutamos

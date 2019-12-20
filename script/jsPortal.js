@@ -917,6 +917,13 @@ $(function(){
 				    $( "#medio" ).empty();
 			    	$( "#medio" ).html(data);
 			    	$( "#lblNomEve" ).html(nombreEve);
+            $.post('script/listaAsistentesOrga.php',
+              {x: indiceEve},
+            function(data, textStatus, xhr) {
+              console.log(data);
+              $( "#listaAsistentes" ).empty();
+              $( "#listaAsistentes" ).html(data.msg);
+            });
 			    	if (mensaje.estadoEvento==0) {
 			    		//aun no comienza el evento
 			    		$( "#boxGestionEvento" ).empty();
