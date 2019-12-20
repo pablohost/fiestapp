@@ -28,6 +28,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.css">
         <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+        <link rel='stylesheet' href='css/unite-gallery.css' type='text/css' />
 
         <link rel="stylesheet" href="/css/estilo.css">
         <link rel="stylesheet" href="/css/estiloPerfil.css">
@@ -52,13 +53,13 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
                     <ul class="navbar-nav ml-auto"> 
      
                         <li class="nav-item navSpace">
-                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="comunidad" id="">
-                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
+                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV pl-2" href="comunidad" id="">
+                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombreXS'] ?></span>
                             </a>
                         </li>
                         
                         <li class="nav-item navSpace">
-                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="#" id="cerrarSes">
+                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV pl-2" href="#" id="cerrarSes">
                                 <i class="fas fa-power-off fa-1x"></i>&nbsp;Cerrar Sesion
                             </a>
                         </li>
@@ -74,25 +75,25 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         <div class="container-fluid text-center boxNav mt-5 pt-4">
             <div class="row">
                 <div class="col-3 navPortal">
-                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProd">
+                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCom1">
                         <i class="fas fa-user fa-3x hvr-icon"></i>
                         <p class="xlinkPortal d-none d-xl-block">PERFIL</p>
                     </a>
                 </div>
                 <div class="col-3 navPortal">
-                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkProm">
+                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCom2">
                         <i class="far fa-images fa-3x hvr-icon"></i>
                         <p class="xlinkPortal d-none d-xl-block">FOTOS</p>
                     </a>
                 </div>
                 <div class="col-3 navPortal">
-                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkEsta">
+                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCom3">
                         <i class="fas fa-users fa-3x hvr-icon"></i>
                         <p class="xlinkPortal d-none d-xl-block">AMIGOS</p>
                     </a>
                 </div>
                 <div class="col-3 navPortal">
-                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCuen">
+                    <a href="#" class="hvr-icon-fade linkPortal js-scroll-trigger" id="lkCom4">
                         <i class="fas fa-calendar-alt fa-3x hvr-icon"></i>
                         <p class="xlinkPortal d-none d-xl-block">EVENTOS</p>
                     </a>

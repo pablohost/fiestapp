@@ -3,7 +3,7 @@ $x=0;
 $x=isset($_GET['indice']) ? $_GET['indice'] : 0;
 if ($x===0) {
 	# code...
-	echo json_encode(arreglo('no mandaa',0), JSON_FORCE_OBJECT);
+	echo json_encode(arreglo('error',0), JSON_FORCE_OBJECT);
 	die();
 }
 
@@ -20,11 +20,10 @@ require('conexion.php');
 mysqli_set_charset($connection,"utf8");
 
 $consulta = mysqli_query($connection, 
-	"DELETE FROM GaleriasLoc WHERE GaleriasLoc.ind=".$x.";");
+	"DELETE FROM Mensajes WHERE Mensajes.ind=".$x.";");
 
 if ($consulta) {
 	# code...
-	unlink("../".$_GET['ruta']);
 	echo json_encode(arreglo('Eliminado correctamente',0), JSON_FORCE_OBJECT);
 	die();
 	

@@ -65,6 +65,7 @@ if($userBD == $userPOSTMinusculas and password_verify($passPOST, $passwordBD)){
 	$_SESSION['usuario'] = $datos['correo'];
 	$_SESSION['estado'] = 'Autenticado';
 	$_SESSION['nombre'] = $datos['nombre'].' '.$datos['apelli'];
+	$_SESSION['nombreXS'] = $datos['nombre'];
 	$_SESSION['tipo'] = $datos['indTip'];
 	$_SESSION['objetivo'] = $datos['ind'];
 

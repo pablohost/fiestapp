@@ -20,7 +20,7 @@ require('conexion.php');
 mysqli_set_charset($connection,"utf8");
 
 $consulta = mysqli_query($connection, 
-	"DELETE FROM GaleriasLoc WHERE GaleriasLoc.ind=".$x.";");
+	"DELETE FROM GaleriasUsu WHERE GaleriasUsu.ind=".$x.";");
 
 if ($consulta) {
 	# code...

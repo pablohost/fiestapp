@@ -39,7 +39,8 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
         INNER JOIN Locales ON Locales.ind = Eventos.indLoc
         WHERE Usuarios.ind=:valInd
         AND Eventos.estado = 0
-        AND Eventos.fecFin<=:valFec;';
+        AND Eventos.fecFin<=:valFec
+        AND Sinapsis.nivel = 0;';
 
 	$result = $conn->prepare($sql);  
 	$result->bindValue(':valInd', $_POST["x"], PDO::PARAM_INT);

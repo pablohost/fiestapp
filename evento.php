@@ -103,7 +103,7 @@ YERKO ZABALETA
                 $fechaInicioNum = strtotime($fechaInicio);
                 $fechaFinNum = strtotime($fechaTermino);
                 $difInicio = $fechaInicioNum - $fechaNow;
-                $dias = round($difInicio/86400, 0, PHP_ROUND_HALF_DOWN);
+                $dias = floor($difInicio/86400);
                 $fechaInicioCute=ucfirst(strftime("%A, %d de %B del %Y", $fechaInicioNum));
                 //formateamos los horarios del evento
                 $hrInicio=date("H:i",$fechaInicioNum);

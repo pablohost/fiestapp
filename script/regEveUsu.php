@@ -176,11 +176,10 @@ if(isset($_POST["Nombre"]) && isset($_POST["Apelli"]) && isset($_POST["Correo"])
 	foreach ($cates as $valor) {
 		if ($valor!="") {
 			# code...
-			$sql = 'INSERT INTO CategoriasEve(indEve,indCat,estado) VALUES (:valEve,:valCat,:valEst);'; 
+			$sql = 'INSERT INTO CategoriasEve(indEve,indCat) VALUES (:valEve,:valCat);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valEve', $lastIdEve, PDO::PARAM_INT);
 			$result->bindValue(':valCat', $valor, PDO::PARAM_INT);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		}
 	}

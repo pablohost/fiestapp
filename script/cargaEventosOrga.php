@@ -12,7 +12,23 @@ function arreglo($msg,$cod){
 		'cod' => $cod
 	);
 }
-$mensaje="";
+$mensaje='
+<div class="row pt-5" id="botoneraOrgaEve">
+	<div class="col-12">
+		<div class="container text-center">
+			<a href="#" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" id="btnAgregaEventoOrga">
+          		<i class="fas fa-calendar-plus"></i> CREAR EVENTO
+      		</a>
+  		</div>
+	</div>
+</div>
+<div class="row pt-5">
+	<div class="col-12 text-left pl-3">
+		<hr>
+		<h2>Mis Eventos Publicados.</h2>
+	</div>
+</div>
+<div class="row pt-2" id="subMedio">';
 $fechaN = time()-10800;
 $fechaT = date("Y-m-d H:i:s",$fechaN);
 if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
@@ -39,7 +55,8 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
         INNER JOIN Locales ON Locales.ind = Eventos.indLoc
         WHERE Usuarios.ind=:valInd
         AND Eventos.estado = 0
-        AND Eventos.fecFin>=:valFec;';
+        AND Eventos.fecFin>=:valFec
+        AND Sinapsis.nivel = 0;';
 
 	$result = $conn->prepare($sql);  
 	$result->bindValue(':valInd', $_POST["x"], PDO::PARAM_INT);
@@ -81,25 +98,9 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
 					}
 					$verificacion=true;
 					$mensaje .= '
-						<div class="row pt-5" id="botoneraOrgaEve">
 							<input id="nombrePerfil" type="hidden" value="'.$nombreCompleto.'">
 							<input id="indicePerfil" type="hidden" value="'.$_POST["x"].'">
 							<input id="tipoPerfil" type="hidden" value="'.$tipoUsuario.'">
-							<div class="col-12">
-								<div class="container text-center">
-									<a href="#" role="button" class="btn btn-warning btn-block btn-lg" style="font-weight: bold;" id="btnAgregaEventoOrga">
-					              		<i class="fas fa-calendar-plus"></i> CREAR EVENTO
-					          		</a>
-				          		</div>
-							</div>
-						</div>
-						<div class="row pt-5">
-							<div class="col-12 text-left pl-3">
-								<hr>
-								<h2>Mis Eventos Publicados.</h2>
-							</div>
-						</div>
-				    	<div class="row pt-2" id="subMedio">
 							<div class="col-12 col-md-6 col-xl-4 boxEve">
 								<form class="formEve hvr-grow" style="background-image: url('.$fotoEvento.');">
 									<p class="eventoApro">
@@ -246,12 +247,28 @@ if(isset($_POST["x"])&&isset($_POST["y"])&&isset($_POST["z"])){
     	
     }else{
     	$mensaje.='
-	    		<div class="row pt-5">
-					<div class="col-12 pt-5">
-		                <h1>PERFIL NO SE ENCUENTRA O NO EXISTE</h1>
-		                <h2><a href="portal?perfil='.$_SESSION['nombre'].'&tipo='.$_SESSION['tipo'].'&ind='.$_SESSION['objetivo'].'">VOLVER</a></h2>
+    				<div class="col-12 pt-5">
+		                <h1>NO HAY EVENTOS REGISTRADOS</h1>
 		            </div>
-		        </div>';
+    			</div>
+				<div class="row pt-5">
+					<div class="col-12 text-left pl-3">
+						<hr>
+						<h2>Mis Eventos En Espera.</h2>
+					</div>
+				</div>
+				<div class="row pt-2" id="subMedioEspera">
+					
+				</div>
+				<div class="row pt-5">
+					<div class="col-12 text-left pl-3">
+						<hr>
+						<h2>Mis Eventos Finalizados.</h2>
+					</div>
+				</div>
+				<div class="row pt-2" id="subMedioFin">
+
+				</div>';
     	echo json_encode(arreglo($mensaje,1), JSON_FORCE_OBJECT);
 		die();
     }

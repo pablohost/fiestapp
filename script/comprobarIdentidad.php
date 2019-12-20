@@ -118,6 +118,126 @@ if (isset($_SESSION['objetivo'])&&isset($_POST["ind"])&&isset($_POST["mod"])) {
                 echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
                 die();
             }
+        }elseif ($_POST["mod"]==4) {
+            //MODO 4 - USUARIO/AMIGO
+            $sql = 'SELECT Amigos.ind
+                    FROM Amigos
+                    WHERE Amigos.indUsu=:valUsu
+                    AND Amigos.indAmi=:valAmi
+                    AND Amigos.estado=0;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valAmi', $_POST["ind"], PDO::PARAM_INT);
+            $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT); 
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                if ($_SESSION['objetivo']==$_POST["ind"]) {
+                    # code...
+                    $conn->commit();
+                    echo json_encode(arreglo("ERROR",2), JSON_FORCE_OBJECT);
+                    die();
+                }else{
+                    $conn->commit();
+                    echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }
+        }elseif ($_POST["mod"]==5) {
+            //MODO 5 - USUARIO/PERFIL NORMAL
+            $sql = 'SELECT Usuarios.ind
+                    FROM Usuarios
+                    WHERE Usuarios.ind=:valUsu
+                    AND Usuarios.indTip=1;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valUsu', $_POST["ind"], PDO::PARAM_INT);
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                $conn->commit();
+                echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                die();
+            }
+        }elseif ($_POST["mod"]==6) {
+            //MODO 6 - USUARIO/FOTO GALERIA PERFIL
+            $sql = 'SELECT Usuarios.ind,GaleriasUsu.ind 
+                    FROM GaleriasUsu 
+                    INNER JOIN Usuarios ON Usuarios.ind = GaleriasUsu.indUsu
+                    WHERE GaleriasUsu.ind = :valFot
+                    AND Usuarios.ind = :valUsu;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valFot', $_POST["ind"], PDO::PARAM_INT);
+            $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT); 
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                $conn->commit();
+                echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                die();
+            }
+        }elseif ($_POST["mod"]==7) {
+            //MODO 6 - USUARIO/MENSAJE
+            $sql = 'SELECT Mensajes.ind 
+                    FROM Mensajes 
+                    WHERE Mensajes.ind = :valMen
+                    AND Mensajes.indRec = :valUsu;';
+
+            $result = $conn->prepare($sql); 
+            $result->bindValue(':valMen', $_POST["ind"], PDO::PARAM_INT);
+            $result->bindValue(':valUsu', $_SESSION['objetivo'], PDO::PARAM_INT); 
+            // Especificamos el fetch mode antes de llamar a fetch()
+            $result->setFetchMode(PDO::FETCH_BOTH);
+            // Ejecutamos
+            $result->execute();
+            //Comprobamos si encontro el registro
+            $filas=$result->rowCount();
+            if ($filas!=0) {
+                # code...
+                while ($row = $result->fetch()){
+                    $conn->commit();
+                    echo json_encode(arreglo("OK",0), JSON_FORCE_OBJECT);
+                    die();
+                }
+            }else{
+                $conn->commit();
+                echo json_encode(arreglo("ERROR",1), JSON_FORCE_OBJECT);
+                die();
+            }
         }
         
     } catch (PDOException $e) { 

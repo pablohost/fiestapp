@@ -82,7 +82,7 @@ YERKO ZABALETA
                 if ($row[4]=="") {
                   $fonoLocal=" - ";
                 }else{
-                  $fonoLocal=$row[4];
+                  $fonoLocal="+569".$row[4];
                 }
                 if ($row[5]=="") {
                   $correoLocal=" - ";
@@ -123,7 +123,7 @@ YERKO ZABALETA
                         </div>
                         <div class="col-6 col-md-3">
                           <p class="text-muted">
-                            <i class="fas fa-phone-alt"></i> +569<?= $fonoLocal ?>
+                            <i class="fas fa-phone-alt"></i> <?= $fonoLocal ?>
                           </p>
                         </div>
                         <div class="col-6 col-md-3">
@@ -155,8 +155,7 @@ YERKO ZABALETA
                             // BUSCAMOS EL RECINTO
                             $sql = 'SELECT GaleriasLoc.img
                                     FROM GaleriasLoc
-                                    WHERE GaleriasLoc.indLocal=:valInd
-                                    AND GaleriasLoc.estado=0;';
+                                    WHERE GaleriasLoc.indLocal=:valInd;';
 
                             $result = $conn->prepare($sql); 
                             $result->bindValue(':valInd', $_GET['x'], PDO::PARAM_INT); 

@@ -12,59 +12,143 @@ function arreglo($msg,$cod){
 
 if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Estacionamiento"]) && isset($_POST["TituloEve"]) && isset($_POST["DtIni"]) && isset($_POST["HrIni"]) && isset($_POST["DtFin"]) && isset($_POST["HrFin"]) && isset($_POST["Long"]) && isset($_POST["Lati"]) && isset($_POST["NomLoc"]) && isset($_POST["indiceUsu"])) {
 
+	//Y definimos el máximo que se puede subir
+	//$tamañoMaximoKB = "12288"; //Tamaño máximo expresado en KB
+	$tamañoMaximoBytes = 2097152; // -> 2097152 Bytes -> 2 MB --- 12582912 Bytes -> 12 MB
+
 	//se define la ruta de la foto $_FILES['FotoEve']['tmp_name']
-	$formatoFoto=explode("/",$_FILES['FotoEve']['type']);
-	$rutaFinal="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+	if ($_FILES['FotoEve']['error'] === 0) {
+		//se define la ruta de la foto
+		$formatoFoto=explode("/",$_FILES['FotoEve']['type']);
+		$rutaFly="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoEve']['name'];
+		$tamañoArchivo = $_FILES['FotoEve']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
+	}
 	//revisamos si se subieron nuevas fotos al recinto
 	if ($_FILES['FotoRec1']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec1']['type']);
 		$rutaRec1="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec1']['name'];
+		$tamañoArchivo = $_FILES['FotoRec1']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec2'])&&$_FILES['FotoRec2']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec2']['type']);
 		$rutaRec2="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec2']['name'];
+		$tamañoArchivo = $_FILES['FotoRec2']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec3'])&&$_FILES['FotoRec3']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec3']['type']);
 		$rutaRec3="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec3']['name'];
+		$tamañoArchivo = $_FILES['FotoRec3']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec4'])&&$_FILES['FotoRec4']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec4']['type']);
 		$rutaRec4="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec4']['name'];
+		$tamañoArchivo = $_FILES['FotoRec4']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec5'])&&$_FILES['FotoRec5']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec5']['type']);
 		$rutaRec5="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec5']['name'];
+		$tamañoArchivo = $_FILES['FotoRec5']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec6'])&&$_FILES['FotoRec6']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec6']['type']);
 		$rutaRec6="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec6']['name'];
+		$tamañoArchivo = $_FILES['FotoRec6']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec7'])&&$_FILES['FotoRec7']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec7']['type']);
 		$rutaRec7="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec7']['name'];
+		$tamañoArchivo = $_FILES['FotoRec7']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec8'])&&$_FILES['FotoRec8']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec8']['type']);
 		$rutaRec8="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec8']['name'];
+		$tamañoArchivo = $_FILES['FotoRec8']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec9'])&&$_FILES['FotoRec9']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec9']['type']);
 		$rutaRec9="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec9']['name'];
+		$tamañoArchivo = $_FILES['FotoRec9']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	if (isset($_FILES['FotoRec10'])&&$_FILES['FotoRec10']['error'] === 0) {
 		//se define la ruta de la foto
 		$formatoFoto=explode("/",$_FILES['FotoRec10']['type']);
 		$rutaRec10="galeriaEventos/fiestapp".rand(10000000, 99999999).".".$formatoFoto[1];
+		$nombreArchivo = $_FILES['FotoRec10']['name'];
+		$tamañoArchivo = $_FILES['FotoRec10']['size']; //Obtenemos el tamaño del archivo en Bytes
+		//Comprobamos el tamaño del archivo, y mostramos un mensaje si es mayor al tamaño expresado en Bytes
+		if($tamañoArchivo > $tamañoMaximoBytes) {
+			echo json_encode(arreglo('El archivo <b>'.$nombreArchivo.'</b> es demasiado grande. El tamaño maximo del archivo es de 2MB.',1), JSON_FORCE_OBJECT);
+			die();
+		}
 	}
 	//se identifica la via de contacto con el recinto
 	$fonoLocal="";
@@ -214,14 +298,14 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 			$indiceEst=$row["indEst"];
 		}
 		// tabla capPersonas
-		$sql = 'UPDATE CapPersonas SET CapPersonas.max=:valMax WHERE CapPersonas.ind=:valInd;'; 
+		$sql = 'UPDATE CapPersonas SET CapPersonas.max=:valMax,CapPersonas.uso=0 WHERE CapPersonas.ind=:valInd;'; 
 		$result = $conn->prepare($sql); 
 		$result->bindValue(':valMax', $_POST["Capacidad"], PDO::PARAM_INT);
 		$result->bindValue(':valInd', $indiceCap, PDO::PARAM_INT);
 		$result->execute(); 
 
 		// tabla Estacionamientos
-		$sql = 'UPDATE Estacionamientos SET Estacionamientos.max=:valMax WHERE Estacionamientos.ind=:valInd;'; 
+		$sql = 'UPDATE Estacionamientos SET Estacionamientos.max=:valMax,Estacionamientos.uso=0 WHERE Estacionamientos.ind=:valInd;'; 
 		$result = $conn->prepare($sql); 
 		$result->bindValue(':valMax', $_POST["Estacionamiento"], PDO::PARAM_INT);
 		$result->bindValue(':valInd', $indiceEst, PDO::PARAM_INT);
@@ -248,103 +332,103 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 	//tabla Galeria del Recinto
 	if (isset($rutaRec1)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec1, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec1']['tmp_name'], "../".$rutaRec1);
 	}
 	if (isset($rutaRec2)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec2, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec2']['tmp_name'], "../".$rutaRec2);
 	}
 	if (isset($rutaRec3)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec3, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec3']['tmp_name'], "../".$rutaRec3);
 	}
 	if (isset($rutaRec4)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec4, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec4']['tmp_name'], "../".$rutaRec4);
 	}
 	if (isset($rutaRec5)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec5, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec5']['tmp_name'], "../".$rutaRec5);
 	}
 	if (isset($rutaRec6)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec6, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec6']['tmp_name'], "../".$rutaRec6);
 	}
 	if (isset($rutaRec7)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec7, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec7']['tmp_name'], "../".$rutaRec7);
 	}
 	if (isset($rutaRec8)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec8, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec8']['tmp_name'], "../".$rutaRec8);
 	}
 	if (isset($rutaRec9)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec9, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec9']['tmp_name'], "../".$rutaRec9);
 	}
 	if (isset($rutaRec10)) {
 		# code...
-		$sql = 'INSERT INTO GaleriasLoc(indLocal,img,estado) VALUES (:valLoc,:valImg,:valEst);'; 
+		$sql = 'INSERT INTO GaleriasLoc(indLocal,img) VALUES (:valLoc,:valImg);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valLoc', $indiceLocal, PDO::PARAM_INT);
 			$result->bindValue(':valImg', $rutaRec10, PDO::PARAM_STR);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		move_uploaded_file($_FILES['FotoRec10']['tmp_name'], "../".$rutaRec10);
+	}
+	if (isset($rutaFly)) {
+		# code...
+		$sql = 'UPDATE Eventos SET Eventos.fly=:valFly WHERE Eventos.ind=:valEve;'; 
+			$result = $conn->prepare($sql); 
+			$result->bindValue(':valEve', $_POST["IndEvento"], PDO::PARAM_INT);
+			$result->bindValue(':valFly', $rutaFly, PDO::PARAM_STR);
+			$result->execute();
+		//cargamos la foto del evento en una carpeta con su ruta
+		move_uploaded_file($_FILES['FotoEve']['tmp_name'], "../".$rutaFly);
 	}
 	
 
@@ -366,11 +450,10 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 	foreach ($cates as $valor) {
 		if ($valor!="") {
 			# code...
-			$sql = 'INSERT INTO CategoriasEve(indEve,indCat,estado) VALUES (:valEve,:valCat,:valEst);'; 
+			$sql = 'INSERT INTO CategoriasEve(indEve,indCat) VALUES (:valEve,:valCat);'; 
 			$result = $conn->prepare($sql); 
 			$result->bindValue(':valEve', $lastIdEve, PDO::PARAM_INT);
 			$result->bindValue(':valCat', $valor, PDO::PARAM_INT);
-			$result->bindValue(':valEst', 0, PDO::PARAM_INT);
 			$result->execute();
 		}
 	}
@@ -391,7 +474,7 @@ if(isset($_POST["Categorias"]) && isset($_POST["Capacidad"]) && isset($_POST["Es
 
 	//cargamos las nuevas fotos del recinto
 
-	echo json_encode(arreglo('Evento Creado',0), JSON_FORCE_OBJECT);
+	echo json_encode(arreglo('<p>Ahora nuestros administradores evaluaran si publicar tu evento</p>',0), JSON_FORCE_OBJECT);
 	die();
 
 	} catch (PDOException $e) { 

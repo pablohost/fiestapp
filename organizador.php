@@ -54,13 +54,13 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
                     <ul class="navbar-nav ml-auto"> 
      
                         <li class="nav-item navSpace">
-                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="portal" id="">
-                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombre'] ?></span>
+                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV pl-2" href="portal" id="">
+                                <i class="far fa-user-circle"></i>&nbsp;<span id="sesUsu"><?= $_SESSION['nombreXS'] ?></span>
                             </a>
                         </li>
                         
                         <li class="nav-item navSpace">
-                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV" href="#" id="cerrarSes">
+                            <a class="nav-link js-scroll-trigger hvr-underline-from-center efectoNAV pl-2" href="#" id="cerrarSes">
                                 <i class="fas fa-power-off fa-1x"></i>&nbsp;Cerrar Sesion
                             </a>
                         </li>
@@ -139,7 +139,7 @@ if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado') {
         
         <script src="/script/ns.hover.js"></script>
         
-        <script src="script/jsComunidad.js"></script> 
+        <script src="script/jsPortal.js"></script> 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.12.1/dist/sweetalert2.min.js"></script>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      
